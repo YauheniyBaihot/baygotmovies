@@ -1,0 +1,116 @@
+﻿.header {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  min-height: 70vh;
+  display: grid;
+  padding: 0 36px;
+  box-sizing: border-box;
+  position: relative;
+  grid-template-columns: 1fr minmax(auto, 564px) minmax(auto, 564px) 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    '. navigation navigation .'
+    '. title contacts .'
+    '. text text .';
+  justify-content: space-between;
+
+  color: #f7f0f5;
+  font-size: 24px;
+
+  & > :hover ~ .overlay {
+    background-color: rgba(#000, 0.5);
+  }
+}
+
+.backgroundVideo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  min-height: 100%;
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  object-fit: cover;
+  //object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  transition: background-color 1s;
+}
+
+.navigation {
+  grid-area: navigation;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageTitle {
+  grid-area: title;
+  align-self: center;
+  justify-self: start;
+  text-decoration: none;
+
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #f7f0f5;
+  font-family: var(--heading-font);
+  padding: 8px;
+
+  /*text-shadow: 1px 1px #202020;*/
+}
+
+.contacts {
+  justify-self: end;
+  align-self: center;
+  grid-area: contacts;
+  display: flex;
+}
+
+.coolText {
+  grid-area: text;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+
+  color: #f7f0f5;
+  font-size: 32px;
+  padding: 8px;
+  font-family: 'Cormorant', serif;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  /*text-shadow: 1px 1px #202020;*/
+
+  transition: background-color 0.5s;
+  border: 1px solid transparent;
+
+  &:hover ~ .overlay {
+    background-color: rgba(#000, 0.5);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navigation {
+    display: none;
+  }
+
+  .coolText {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header {
+    padding: 8px;
+  }
+}

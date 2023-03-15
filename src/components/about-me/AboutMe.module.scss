@@ -1,0 +1,70 @@
+﻿.aboutMe {
+  background: rgba(#f7f0f5, 0.9);
+  color: #45454a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    padding: 64px 0;
+    display: flex;
+    /*background: #45454A;*/
+    justify-content: space-between;
+    width: 1200px;
+  }
+
+  &__photo {
+    width: auto;
+    max-width: 500px;
+    max-height: 750px;
+    /*max-height: 600px;*/
+    /*position: relative;*/
+    left: -24px;
+    /*border: 1px solid #45454A;*/
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 70%);
+    top: -24px;
+  }
+
+  &__text {
+    width: 50%;
+    box-sizing: border-box;
+    border-left: 1px solid;
+    /*margin: 64px 0;*/
+    padding: 32px 0 32px 32px;
+    /*padding: 32px ;*/
+    /*padding-right: 48 px;*/
+    text-align: justify;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    font-weight: 100;
+  }
+
+  &__title {
+    margin: 0 0 32px;
+    font-family: 'Cormorant', serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header {
+    padding: 8px;
+  }
+}
+
+.backgroundOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-image: url('/backgrounds/1.jpg');
+  /*background-attachment: fixed;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

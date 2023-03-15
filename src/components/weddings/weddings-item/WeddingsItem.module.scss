@@ -1,0 +1,46 @@
+﻿.item {
+  width: 1200px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: #45454a;
+  margin: auto auto 128px;
+  gap: 64px;
+
+  &__reverse {
+    flex-direction: row-reverse;
+  }
+
+  &__photoContainer {
+    flex: 1 0 0;
+  }
+
+  &__photo {
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 5px 5px 5px #45454a;
+  }
+
+  &__text {
+    flex: 1 0 0;
+    padding: 64px 0;
+    text-align: center;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  &__title {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1;
+    margin: 0 0 24px;
+  }
+
+  &__buttonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+}

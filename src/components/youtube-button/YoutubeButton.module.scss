@@ -1,0 +1,24 @@
+﻿.DialogOverlay {
+  background: rgba(#45454a, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.DialogContent {
+  position: fixed;
+  min-width: 360px;
+  width: 70vw;
+  aspect-ratio: 16 / 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+  }
+}

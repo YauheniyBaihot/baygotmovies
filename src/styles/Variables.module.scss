@@ -1,0 +1,14 @@
+﻿$media-sm: 600px;
+$media-md: 900px;
+$media-lg: 1200px;
+$media-xl: 1536px;
+
+$color-light: #f7f0f5;
+$color-dark: #45454a;
+
+:export {
+  mediaSm: $media-sm;
+  mediaMd: $media-md;
+  mediaLg: $media-lg;
+  mediaXl: $media-xl;
+}

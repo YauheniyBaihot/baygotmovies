@@ -1,0 +1,15 @@
+﻿.post {
+  background-position: center;
+  background-size: cover;
+  /*border: 1px solid #45454A;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px 5px #45454a;
+
+  &__image {
+    height: 40px;
+    width: 40px;
+    color: #fafafa;
+  }
+}

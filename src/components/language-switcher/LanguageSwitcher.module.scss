@@ -1,0 +1,34 @@
+﻿.lang {
+  font-size: 18px;
+  padding: 8px;
+  text-decoration: none;
+  color: currentColor;
+  display: flex;
+  flex-direction: column;
+
+  &:after {
+    content: '';
+    width: 100%;
+    transform: scaleX(0);
+
+    border-bottom: 1px solid currentColor;
+    transition: transform 0.5s;
+  }
+
+  &_Active {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.items {
+  padding: 0 16px;
+  display: flex;
+}
