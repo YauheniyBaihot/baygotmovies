@@ -3,19 +3,6 @@
 
 .header {
   aspect-ratio: 16 / 9;
-  @supports not (aspect-ratio: 16 / 9) {
-    &::before {
-      float: left;
-      padding-top: 56.25%;
-      content: "";
-    }
-
-    &::after {
-      display: block;
-      content: "";
-      clear: both;
-    }
-  }
   width: 100%;
   min-height: 70vh;
   display: grid;

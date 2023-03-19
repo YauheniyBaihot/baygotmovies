@@ -35,7 +35,7 @@ export function AboutMe() {
           thousands of angles — sincerity, authenticity, and the power of true feelings are what your story will convey.
         </p>
         <p>
-          I would be honored to be a part of your special day :)
+          I would be honored to be a part of your special day
         </p>
       </div>
       {/*<div className={styles.backgroundOverlay}></div>*/}
