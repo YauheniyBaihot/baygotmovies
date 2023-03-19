@@ -17,7 +17,7 @@ export function AboutMe() {
       <div className={styles.aboutMeText}>
         <h3 className={styles.aboutMeTitle}>Hi, I`m Alyona!</h3>
         <p>
-          I'm a wedding videographer. Every video I create is made as if it were made for me. My wedding videos are a
+          I&apos;m a wedding videographer. Every video I create is made as if it were made for me. My wedding videos are a
           combination of touching moments and hilarious ones.
         </p>
         <p>
@@ -25,7 +25,7 @@ export function AboutMe() {
           feelings you you had on your wedding day.
         </p>
         <p>
-          Your wedding day isn't just about you—it's also about your parents, grandparents, and friends. I want to keep
+          Your wedding day isn&apos;t just about you—it&apos;s also about your parents, grandparents, and friends. I want to keep
           as
           a memory not staged shots of a love story, but the real emotions of people who are dear to you capturing their
           smiles, tears, and great love.

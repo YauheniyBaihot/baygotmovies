@@ -40,10 +40,10 @@ export function Weddings(props: WeddingsProps) {
       header: "VILNIUS, LITHUANIA",
       text:
         (<p>
-          I'm so excited to show you this fashionable wedding.
+          I&apos;m so excited to show you this fashionable wedding.
           <br />
           I fell in love with this couple at first sight. They are the epitome of style and grace.
-          I can watch their videos million of times and never get bored",
+          I can watch their videos million of times and never get bored.
         </p>),
       teaserUrl: "Ew0pjNmzt_s",
       fullUrl: "S_fL4hSvtE4"

@@ -12,16 +12,18 @@ type MediaQueryVideoProps = {
 export function MediaQueryVideo(props: MediaQueryVideoProps) {
   const { sources, className } = props;
   const videoRef = createRef<HTMLVideoElement>();
-  const handleResize = () => {
-    if (typeof window === 'undefined') return;
-
-    const source = sources.find(x => window.matchMedia(x.query).matches);
-    changeSrc(source?.path);
-  };
+ 
 
   const [src, changeSrc] = useState<string | undefined>(undefined);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (typeof window === 'undefined') return;
+
+      const source = sources.find(x => window.matchMedia(x.query).matches);
+      changeSrc(source?.path);
+    };
+    
     handleResize();
 
     if (typeof window === 'undefined') return;
