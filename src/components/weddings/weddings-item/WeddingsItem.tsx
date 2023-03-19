@@ -34,7 +34,7 @@ export function WeddingsItem(props: WeddingsItemProps) {
       <div className={styles.text}>
         <h4 className={styles.title}>{header}</h4>
         {text}
-        <p>Languages: {languagesText}</p>
+        <p>Language: {languagesText}</p>
         <div className={styles.buttonsContainer}>
           {teaserUrl ? <YoutubeButton videoId={teaserUrl} text={viewTeaserText} /> : null}
           {fullUrl ? <YoutubeButton videoId={fullUrl} text={viewFullText} /> : null}

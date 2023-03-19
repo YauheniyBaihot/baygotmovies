@@ -46,6 +46,7 @@ export function MediaQueryVideo(props: MediaQueryVideoProps) {
       autoPlay
       loop
       muted
+      playsInline
       preload="auto"
     />
   );

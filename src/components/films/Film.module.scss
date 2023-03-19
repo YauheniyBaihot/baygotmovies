@@ -8,14 +8,19 @@
   background: rgba($color-dark, 0.95);
 
 
-  padding: 8*$base-spacing 4*$base-spacing;
-  @include lt-lg {
-    padding: 4*$base-spacing $base-spacing;
+  padding: 12*$base-spacing 4*$base-spacing;
+
+  @include sm {
+    padding: 12*$base-spacing $base-spacing;
+  }
+
+  @include xs {
+    padding: 6*$base-spacing $base-spacing;
   }
 }
 
 .container {
-  margin: 4* $base-spacing auto 0;
+  margin: 12* $base-spacing auto 0;
   max-width: 1200px;
   display: grid;
   gap: 4*$base-spacing;
@@ -27,6 +32,10 @@
 
   @include lt-sm {
     grid-template-columns: 1fr;
+  }
+
+  @include xs {
+    margin-top: 6*$base-spacing;
   }
 
 }
