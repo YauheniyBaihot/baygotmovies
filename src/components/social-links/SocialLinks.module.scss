@@ -1,6 +1,8 @@
-﻿.items {
+﻿@import "@/styles/Variables.module.scss";
+
+.items {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 8px;
+  gap: 2*$base-spacing;
+  padding: $base-spacing;
 }

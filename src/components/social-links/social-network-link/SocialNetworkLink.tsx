@@ -1,10 +1,12 @@
-﻿import TelegramIcon from '@/icons/telegram.svg';
-import MessengerIcon from '@/icons/messenger.svg';
-import InstagramIcon from '@/icons/instagram.svg';
-import styles from './SocialNetworkLink.module.scss';
+﻿import TelegramIcon from "@/icons/telegram.svg";
+import MessengerIcon from "@/icons/messenger.svg";
+import InstagramIcon from "@/icons/instagram.svg";
+import WhatsappIcon from "@/icons/whatsapp.svg";
+import styles from "./SocialNetworkLink.module.scss";
+import { motion } from "framer-motion";
 
 export type SocialNetworkLinkProps = {
-  variant: 'instagram' | 'messenger' | 'telegram';
+  variant: string;
   path: string;
 };
 
@@ -13,26 +15,33 @@ export function SocialNetworkLink(props: SocialNetworkLinkProps) {
 
   let icon;
   const iconProps = {
-    className: styles.icon,
+    className: styles.icon
   };
 
   switch (variant) {
-    case 'messenger':
+    case "messenger":
       icon = <MessengerIcon {...iconProps} />;
       break;
-    case 'telegram':
+    case "telegram":
       icon = <TelegramIcon {...iconProps} />;
       break;
-    case 'instagram':
+    case "instagram":
       icon = <InstagramIcon {...iconProps} />;
       break;
+    case "whatsapp":
+      icon = <WhatsappIcon {...iconProps} />;
+      break;
     default:
-      throw new Error('Unknown variant', variant);
+      throw new Error(`Unknown variant  ${variant}`);
   }
 
   return (
-    <a href={path} className={styles.link} target="_blank">
+    <motion.a href={path}
+              className={styles.link}
+              target="_blank"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}>
       {icon}
-    </a>
+    </motion.a>
   );
 }

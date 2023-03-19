@@ -19,7 +19,7 @@ export function LanguageSwitcher(props: LanguageSwitcherProps) {
 
     return (
       <a
-        className={styles.lang + ' ' + (isCurrent ? styles.lang_Active : '')}
+        className={styles.lang + ' ' + (isCurrent ? styles.langActive : '')}
         key={language.code}
         href="TODO: link"
       >

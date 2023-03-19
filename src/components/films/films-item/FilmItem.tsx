@@ -1,21 +1,27 @@
-﻿import styles from './FilmItem.module.scss';
+﻿import Image, { StaticImageData } from "next/image";
+import styles from "./FilmItem.module.scss";
+import { motion } from "framer-motion";
 
 export type FilmItemProps = {
   name: string;
-  youtubeUrl: string;
-  previewImagePath: string;
+  link: string;
+  previewImage: StaticImageData;
 };
 
 export function FilmItem(props: FilmItemProps) {
-  // TODO: play youtube video
-  // TODO: move button to button component with variant
-  // TODO: use next image
-  const { youtubeUrl, name, previewImagePath } = props;
+  const { link, name, previewImage } = props;
 
   return (
     <div className={styles.item}>
-      <img className={styles.item__image} src={previewImagePath} />
-      <button className={styles.item__button}>{name}</button>
+      <div className={styles.imageContainer}>
+        <Image src={previewImage} alt="image preview" fill />
+      </div>
+
+      <motion.a className={styles.button} target="_blank" href={link}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+
+      >{name}</motion.a>
     </div>
   );
 }

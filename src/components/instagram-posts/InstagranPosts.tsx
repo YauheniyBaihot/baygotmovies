@@ -13,19 +13,19 @@ export function InstagramPosts(props: InstagramPostsProps) {
 
   const items: InstagramPostProps[] = [
     {
-      instagramUrl: 'images/1.jpg',
+      instagramUrl: 'https://www.instagram.com/tv/CfHs1XqsImB/?igshid=ZjE2NGZiNDQ=',
       imagePreview: 'instagram/1.jpg',
     },
     {
-      instagramUrl: 'media/instagram/2.jpg',
+      instagramUrl: 'https://www.instagram.com/reel/CkBJjC2jTQB/?igshid=ZjE2NGZiNDQ=',
       imagePreview: 'instagram/2.jpg',
     },
     {
-      instagramUrl: 'media/instagram/3.jpg',
+      instagramUrl: 'https://www.instagram.com/reel/Cou1bGfrjgj/?igshid=ZjE2NGZiNDQ=',
       imagePreview: 'instagram/3.jpg',
     },
     {
-      instagramUrl: 'media/instagram/4.jpg',
+      instagramUrl: 'https://www.instagram.com/reel/CozHLSyMk8i/?igshid=ZjE2NGZiNDQ=',
       imagePreview: 'instagram/4.jpg',
     },
   ];

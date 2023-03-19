@@ -1,6 +1,4 @@
-﻿import { MediaQuerySource } from '@/components/media-query-video/MediaQuerySource';
-
-import { useEffect, useState, createRef } from 'react';
+﻿import { useEffect, useState, createRef } from 'react';
 import styles from '../header/Header.module.scss';
 
 type MediaQueryVideoProps = {
@@ -8,14 +6,13 @@ type MediaQueryVideoProps = {
     query: string;
     path: string;
   }[];
-  cover: string;
+  className?: string;
 };
 
 export function MediaQueryVideo(props: MediaQueryVideoProps) {
-  const { cover, sources } = props;
+  const { sources, className } = props;
   const videoRef = createRef<HTMLVideoElement>();
   const handleResize = () => {
-    console.log('here we go');
     if (typeof window === 'undefined') return;
 
     const source = sources.find(x => window.matchMedia(x.query).matches);
@@ -42,12 +39,12 @@ export function MediaQueryVideo(props: MediaQueryVideoProps) {
   return (
     <video
       ref={videoRef}
-      className={styles.backgroundVideo}
+      className={className}
       src={src}
       autoPlay
       loop
       muted
       preload="auto"
-    ></video>
+    />
   );
 }

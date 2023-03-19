@@ -1,6 +1,11 @@
-﻿.lang {
-  font-size: 18px;
-  padding: 8px;
+﻿@import '@/styles/Variables.module.scss';
+
+.items {
+  display: flex;
+}
+
+.lang {
+  padding: $base-spacing;
   text-decoration: none;
   color: currentColor;
   display: flex;
@@ -15,7 +20,7 @@
     transition: transform 0.5s;
   }
 
-  &_Active {
+  &Active {
     &:after {
       transform: scaleX(1);
     }
@@ -28,7 +33,3 @@
   }
 }
 
-.items {
-  padding: 0 16px;
-  display: flex;
-}

@@ -1,5 +1,7 @@
-﻿.DialogOverlay {
-  background: rgba(#45454a, 0.9);
+﻿@import '@/styles/Variables.module.scss';
+
+.DialogOverlay {
+  background: rgba($color-dark, 0.95);
   position: fixed;
   top: 0;
   left: 0;

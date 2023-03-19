@@ -1,12 +1,15 @@
-﻿.button {
+﻿@import "@/styles/Variables.module.scss";
 
+.button {
+  cursor: pointer;
+  font-family: $main-font;
   text-transform: uppercase;
-  border: solid 1px #45454A;
+  border: solid 1px $color-dark;
   background: none;
-  font-size: 12px;
-  padding: 12px;
+  font-size: 0.75rem;
+  padding: 1.5*$base-spacing;
   min-width: 150px;
   letter-spacing: 1px;
+  line-height: 1rem;
   font-weight: 300;
-
 }

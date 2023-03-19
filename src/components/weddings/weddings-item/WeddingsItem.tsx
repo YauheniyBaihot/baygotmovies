@@ -1,42 +1,43 @@
-﻿import { Button } from '@/components/button/Button';
-import { YoutubeButton } from '@/components/youtube-button/YoutubeButton';
-import Image from 'next/image';
-import styles from './WeddingsItem.module.scss';
+﻿import { YoutubeButton } from "@/components/youtube-button/YoutubeButton";
+import Image, { StaticImageData } from "next/image";
+import styles from "./WeddingsItem.module.scss";
 
 export type WeddingsItemProps = {
-  reversed?: true;
-  photoPath: string;
+  image: StaticImageData;
   header: string;
-  text: string;
+  text: JSX.Element;
   languages: string[];
-  teaserUrl: string;
-  fullUrl: string;
+  teaserUrl?: string;
+  fullUrl?: string;
 };
 
 // TODO: open dialog with youtube video
 export function WeddingsItem(props: WeddingsItemProps) {
-  const { photoPath, header, text, languages, reversed, fullUrl, teaserUrl } =
+  const { image, header, text, languages, fullUrl, teaserUrl } =
     props;
 
-  const languagesText = languages.join(', ');
+  const languagesText = languages.join(", ");
   // TODO: translate this;
   // TODO: translate languages / language based on items count
-  const viewTeaserText = 'View teaser';
-  const viewFullText = 'View full';
+  const viewTeaserText = "Watch teaser";
+  const viewFullText = "Watch full video";
 
   /*TODO: use image from next js*/
   return (
     <div className={styles.item}>
-      <div className={styles.item__photoContainer}>
-        <img className={styles.item__photo} src={photoPath} />
+      <div className={styles.photo}>
+        <div className={styles.photoContainer}>
+          <Image src={image} alt="couple photo" fill/>
+        </div>
+       
       </div>
-      <div className={styles.item__text}>
-        <h4 className={styles.item__title}>{header}</h4>
-        <p>{text}</p>
+      <div className={styles.text}>
+        <h4 className={styles.title}>{header}</h4>
+        {text}
         <p>Languages: {languagesText}</p>
-        <div className={styles.item__buttonsContainer}>
-          <YoutubeButton videoId={teaserUrl} text={viewTeaserText} />
-          <YoutubeButton videoId={fullUrl} text={viewFullText} />
+        <div className={styles.buttonsContainer}>
+          {teaserUrl ? <YoutubeButton videoId={teaserUrl} text={viewTeaserText} /> : null}
+          {fullUrl ? <YoutubeButton videoId={fullUrl} text={viewFullText} /> : null}
         </div>
       </div>
     </div>

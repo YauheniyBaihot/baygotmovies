@@ -1,4 +1,7 @@
-﻿import styles from './InstagramPost.module.scss';
+﻿import styles from "./InstagramPost.module.scss";
+
+import PlayIcon from "@/icons/play.svg";
+import { motion } from "framer-motion";
 
 export type InstagramPostProps = {
   instagramUrl: string;
@@ -12,12 +15,14 @@ export function InstagramPost(props: InstagramPostProps) {
     <div
       className={styles.post}
       style={{
-        backgroundImage: `url(${imagePreview})`,
+        backgroundImage: `url(${imagePreview})`
       }}
     >
-      <a href={instagramUrl} target="_blank">
-        <img className={styles.post__image} src="media/play.svg" alt="play" />
-      </a>
+      <motion.a href={instagramUrl} target="_blank" className={styles.link}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}>
+        <PlayIcon />
+      </motion.a>
     </div>
   );
 }

@@ -1,14 +1,29 @@
-﻿$media-sm: 600px;
-$media-md: 900px;
-$media-lg: 1200px;
-$media-xl: 1536px;
+﻿$screen-sm-min: 600px;
+$screen-md-min: 960px;
+$screen-lg-min: 1280px;
+$screen-xl-min: 1920px;
+$screen-xxl-min: 2560px;
+
+$screen-xs-max: 599px;
+$screen-sm-max: 959px;
+$screen-md-max: 1279px;
+$screen-lg-max: 1919px;
+$screen-xl-max: 2559px;
+$screen-xxl-max: 5000px;
+
+$heading-font: var(--heading-font);
+$main-font: var(--main-font);
+
 
 $color-light: #f7f0f5;
 $color-dark: #45454a;
 
+$base-spacing: 8px;
+
 :export {
-  mediaSm: $media-sm;
-  mediaMd: $media-md;
-  mediaLg: $media-lg;
-  mediaXl: $media-xl;
+  mediaSm: $screen-sm-min;
+  mediaMd: $screen-md-min;
+  mediaLg: $screen-lg-min;
+  mediaXl: $screen-xl-min;
+  mediaXxl: $screen-xxl-min;
 }

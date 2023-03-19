@@ -5,9 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 5px 5px 5px #45454a;
+  
+}
 
-  &__image {
+.link {
+  & > svg {
     height: 40px;
     width: 40px;
     color: #fafafa;

@@ -4,12 +4,6 @@
   border-radius: 50%;
   display: inline-flex;
   line-height: 1;
-
-  &:hover {
-    .icon {
-      transform: scale(1.2);
-    }
-  }
 }
 
 .icon {
@@ -17,5 +11,4 @@
   width: 1em;
   display: inline-block;
   fill: currentColor;
-  transition: transform 0.5s;
 }

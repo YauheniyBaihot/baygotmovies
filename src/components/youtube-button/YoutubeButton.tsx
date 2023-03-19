@@ -3,11 +3,12 @@
   Trigger,
   Portal,
   Overlay,
-  Content,
-} from '@radix-ui/react-dialog';
+  Content
+} from "@radix-ui/react-dialog";
+import { motion } from "framer-motion";
 
-import styles from './YoutubeButton.module.scss';
-import buttonStyles from '@/components/button/Button.module.scss';
+import styles from "./YoutubeButton.module.scss";
+import buttonStyles from "@/components/button/Button.module.scss";
 
 type YoutubeButtonProps = {
   videoId: string;
@@ -20,7 +21,10 @@ export function YoutubeButton(props: YoutubeButtonProps) {
   return (
     <Root>
       <Trigger asChild>
-        <button className={buttonStyles.button}>{text}</button>
+        <motion.button className={buttonStyles.button}
+                       whileHover={{ scale: 1.1 }}
+                       whileTap={{ scale: 0.9 }}
+        >{text}</motion.button>
       </Trigger>
       <Portal>
         <Overlay className={styles.DialogOverlay} />

@@ -1,46 +1,110 @@
-﻿.item {
-  width: 1200px;
+﻿@import '@/styles/mixins.scss';
+@import '@/styles/Variables.module.scss';
+
+
+.item {
+  display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
-  color: #45454a;
-  margin: auto auto 128px;
-  gap: 64px;
+  flex-wrap: wrap;
 
-  &__reverse {
+
+  &:not(:last-of-type) {
+    margin-bottom: 20 * $base-spacing;
+
+    @include lt-md {
+      margin-bottom: 10 * $base-spacing;
+    }
+  }
+
+  &:nth-of-type(2n) {
     flex-direction: row-reverse;
+
+    .photo {
+      @include gt-sm {
+        padding-right: 0;
+        padding-left: 10*$base-spacing;
+      }
+
+      @include md {
+        padding-right: 0;
+        padding-left: 5*$base-spacing;
+      }
+    }
+
+    .text {
+      @include gt-sm {
+        padding-left: 0;
+        padding-right: 6*$base-spacing;
+      }
+
+      @include md {
+        padding-left: 0;
+        padding-right: 3*$base-spacing;
+      }
+    }
+
+  }
+}
+
+.photo {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  max-width: $screen-sm-min;
+
+  @include gt-sm {
+    padding-left: 0;
+    padding-right: 10*$base-spacing;
+    flex: 0 0 50%;
+    max-width: $screen-sm-min;
   }
 
-  &__photoContainer {
-    flex: 1 0 0;
+  @include md {
+    padding-left: 0;
+    padding-right: 5*$base-spacing;
+  }
+}
+
+.photoContainer {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+.text {
+  flex: 0 0 100%;
+  max-width: $screen-sm-min;
+  text-align: center;
+  font-weight: 300;
+  line-height: 2rem;
+  box-sizing: border-box;
+  padding-top: 4*$base-spacing;
+
+  @include gt-sm {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 6*$base-spacing;
+    flex: 0 0 50%;
+    max-width: $screen-sm-min;
   }
 
-  &__photo {
-    max-height: 100%;
-    max-width: 100%;
-    box-shadow: 5px 5px 5px #45454a;
+  @include md {
+    padding-right: 0;
+    padding-left: 3*$base-spacing;
   }
 
-  &__text {
-    flex: 1 0 0;
-    padding: 64px 0;
-    text-align: center;
-    font-weight: 200;
-    font-size: 20px;
-    line-height: 32px;
-  }
+}
 
-  &__title {
-    font-family: 'Cormorant', serif;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 1;
-    margin: 0 0 24px;
-  }
+.title {
+  font-family: $heading-font;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 0;
+}
 
-  &__buttonsContainer {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2*$base-spacing;
 }

@@ -1,40 +1,50 @@
-﻿.films {
-  padding: 80px;
-  color: #45454a;
-  /*background: #45454A;*/
-  background: rgba(69, 69, 74, 0.9);
+﻿@import '@/styles/Variables.module.scss';
+@import '@/styles/mixins.scss';
+
+
+.films {
   position: relative;
+  color: $color-light;
+  background: rgba($color-dark, 0.95);
 
-  &__title {
-    font-family: 'Cormorant', serif;
-    font-weight: 300;
-    font-size: 36px;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 64px;
-    margin-top: 0;
-    color: #f7f0f5;
-  }
 
-  &__container {
-    width: 1200px;
-    display: flex;
-    gap: 36px;
-    justify-content: space-between;
-    margin: auto;
+  padding: 8*$base-spacing 4*$base-spacing;
+  @include lt-lg {
+    padding: 4*$base-spacing $base-spacing;
   }
 }
 
-.backgroundOverlay2 {
+.container {
+  margin: 4* $base-spacing auto 0;
+  max-width: 1200px;
+  display: grid;
+  gap: 4*$base-spacing;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @include sm {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include lt-sm {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+.title {
+  font-family: $heading-font;
+  font-weight: 300;
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.backgroundOverlay {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: -1;
-  background-image: url('/backgrounds/2.jpg');
-  /*background-attachment: fixed;*/
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }

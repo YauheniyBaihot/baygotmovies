@@ -7,7 +7,6 @@ import Head from 'next/head';
 
 // TODO: set viewport, favicon, description
 export default function Home() {
-  // console.log(window.innerWidth);
   return (
     <>
       <Head>
@@ -18,9 +17,9 @@ export default function Home() {
       </Head>
       <Header />
       <AboutMe />
-      {/*<Weddings items={[]} />*/}
-      {/*<Films items={[]} />*/}
-      {/*<Footer />*/}
+      <Weddings items={[]} />
+      <Films items={[]} />
+      <Footer />
       {/*<main className={styles.main}>*/}
       {/*  <SocialNetworkLink variant="telegram" path="test" />*/}
       {/*  <div className={styles.description}>*/}

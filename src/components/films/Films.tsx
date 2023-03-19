@@ -1,5 +1,11 @@
-﻿import styles from './Film.module.scss';
-import { FilmItemProps, FilmItem } from './films-item/FilmItem';
+﻿import Image from "next/image";
+import background from "../../../public/backgrounds/2.jpg";
+import styles from "./Film.module.scss";
+import { FilmItemProps, FilmItem } from "./films-item/FilmItem";
+import image6 from "public/images/6.jpg";
+import image7 from "public/images/7.jpg";
+import image8 from "public/images/8.jpg";
+import image9 from "public/images/9.jpg";
 
 type FilmsProps = {
   items: FilmItemProps[];
@@ -11,25 +17,25 @@ export function Films(props: FilmsProps) {
 
   const items: FilmItemProps[] = [
     {
-      name: 'Family',
-      previewImagePath: 'images/6.JPG',
-      youtubeUrl: 'test',
+      name: "Family",
+      previewImage: image6,
+      link: "https://youtu.be/25C_5yDh5Os"
     },
     {
-      name: 'Love story',
-      previewImagePath: 'images/7.JPG',
-      youtubeUrl: 'test',
+      name: "Love story",
+      previewImage: image7,
+      link: "https://youtu.be/r15qIPDlXeI"
     },
     {
-      name: 'Event',
-      previewImagePath: 'images/9.JPG',
-      youtubeUrl: 'test',
+      name: "Event",
+      previewImage: image8,
+      link: "https://www.instagram.com/reel/Ckn16dyovQT/?igshid=ZjE2NGZiNDQ="
     },
     {
-      name: 'About you',
-      previewImagePath: 'images/8.JPG',
-      youtubeUrl: 'test',
-    },
+      name: "About you",
+      previewImage: image9,
+      link: "https://www.instagram.com/reel/Ckp-BMtDaal/?igshid=ZjE2NGZiNDQ="
+    }
   ];
 
   const itemsElements = items.map(item => (
@@ -37,10 +43,12 @@ export function Films(props: FilmsProps) {
   ));
 
   return (
-    <div className={styles.films}>
-      <div className={styles.backgroundOverlay2}></div>
-      <h3 className={styles.films__title}>Welcome to my heartwarming world</h3>
-      <div className={styles.films__container}>{itemsElements}</div>
+    <div className={styles.films} id="moments">
+      <div className={styles.backgroundOverlay}>
+        <Image fill src={background} alt="background image" style={{ objectFit: "cover" }} />
+      </div>
+      <h2 className={styles.title}>Welcome to my cinema</h2>
+      <div className={styles.container}>{itemsElements}</div>
     </div>
   );
 }

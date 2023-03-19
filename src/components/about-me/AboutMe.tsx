@@ -1,40 +1,51 @@
-﻿import styles from './AboutMe.module.scss';
+﻿import styles from "./AboutMe.module.scss";
+import me from "/public/images/me.jpg";
+import background from "/public/backgrounds/1.jpg";
+import Image from "next/image";
 
 export function AboutMe() {
   return (
     <div className={styles.aboutMe} id="about-me">
-      <div className={styles.backgroundOverlay}></div>
-      <div className={styles.aboutMe__container}>
-        <img className={styles.aboutMe__photo} src="/images/me.JPG" />
-        <div className={styles.aboutMe__text}>
-          <p className={styles.aboutMe__title}>Hi, I`m Alyona</p>
-          <p>
-            I am a wedding videographer. 2 years ago I started off my
-            film-making journey with shooting my travel videos. I have learnt to
-            tell a powerful story with my camera and now I would like to tell
-            your stories, too.
-          </p>
-
-          <p>
-            Every story is unique, be it a dazzling wedding or a passionate
-            romance; a solemn christening service, or a warm family celebration.
-            I am here to capture the unique spirit of your special occasion and
-            shape it in the creative style that works best for you. We will
-            bring every detail of your story to life: the moments, the sounds,
-            the emotions - to reflect the magic ambience of your event.
-          </p>
-
-          <p>
-            No languid looks or wedding dress shot from thousands of angles. No
-            posing or rehearsal: sincerity and authenticity and the power of
-            true feelings are what your story will convey.
-          </p>
-
-          <p>The moments are fleeting, so let’s capture them together.</p>
-
-          <p>I would be honored to be part of your special day.</p>
+      <div className={styles.backgroundOverlay}>
+        <Image fill src={background} alt="background image" style={{ objectFit: "cover" }} />
+      </div>
+      <div className={styles.aboutMePhoto}>
+        <div className={styles.aboutMePhotoContainer}>
+          <Image src={me} alt="photo of myself" fill/>
         </div>
       </div>
+      <div className={styles.aboutMeText}>
+        <h3 className={styles.aboutMeTitle}>Hi, I`m Alyona!</h3>
+        <p>
+          I'm a wedding videographer. Every video I create is made as if it were made for me. My wedding videos are a
+          combination of touching moments and hilarious ones.
+        </p>
+        <p>
+          The most important thing to me is that while watching my videos even hundred years later you feel the same
+          feelings you you had on your wedding day.
+        </p>
+        <p>
+          Your wedding day isn't just about you—it's also about your parents, grandparents, and friends. I want to keep
+          as
+          a memory not staged shots of a love story, but the real emotions of people who are dear to you capturing their
+          smiles, tears, and great love.
+        </p>
+        <p>
+          I will bring every detail of your story to life: the moments, the sounds, the emotions, to reflect the magical
+          ambiance of your event. No rehearsed moments, no wedding dress shot from thousands of angles —sincerity,
+          authenticity, and the power of true feelings are what your story will convey.
+        </p>
+        <p>
+          I would be honored to be a part of your special day.
+          
+        </p>
+      </div>
+      {/*<div className={styles.backgroundOverlay}></div>*/}
+      {/*<div className={styles.aboutMe__container}>*/}
+      {/*<Image src={me} alt="my photo"  />*/}
+      {/*<img className= src="/images/me.JPG" />*/}
+      {/*<div className={styles.aboutMe__text}>*/}
+
     </div>
   );
 }

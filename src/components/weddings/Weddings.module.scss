@@ -1,31 +1,60 @@
-﻿.weddings {
-  color: #45454a;
-  background: rgba(250, 250, 250, 0.9);
-  padding: 128px 0;
+﻿@import '@/styles/Variables.module.scss';
+@import '@/styles/mixins.scss';
+
+.weddings {
+  position: relative;
+}
+
+.titleContainer {
+  color: $color-light;
+  background: rgba($color-dark, 0.95);
   position: relative;
 
-  &__title {
-    font-family: 'Cormorant', serif;
-    font-weight: 600;
-    font-size: 36px;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 0 0 128px;
-    color: #45454a;
+  padding: 12*$base-spacing 4*$base-spacing;
+
+  @include sm {
+    padding: 12*$base-spacing $base-spacing;
+  }
+
+  @include xs {
+    padding: 6*$base-spacing $base-spacing;
   }
 }
 
-// TODO deal with background
-.backgroundOverlay3 {
-  position: absolute;
+
+.title {
+  font-family: $heading-font;
+  font-weight: 300;
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+
+.weddingsItems {
+  color: $color-dark;
+  font-family: $main-font;
+  background: rgba($color-light, 0.95);
+  position: relative;
+
+  padding: 8*$base-spacing 4*$base-spacing;
+  @include lt-lg {
+    padding: 4*$base-spacing $base-spacing;
+  }
+
+}
+
+// TODO double check z-index solution
+.backgroundOverlay {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
   top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  background-image: url('/public/backgrounds/3.jpg');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  z-index: -100;
+  //background-image: url('/public/backgrounds/3.jpg');
+  //background-attachment: fixed;
+  //background-position: center;
+  //background-repeat: no-repeat;
+  //background-size: cover;
 }
