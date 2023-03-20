@@ -17,27 +17,25 @@ export function AboutMe() {
       <div className={styles.aboutMeText}>
         <h3 className={styles.aboutMeTitle}>Hi, I&apos;m Alyona!</h3>
         <p>
+          I&apos;m a wedding videographer. My wedding movie will allow you to relive the same feelings you had on your
+          special day even thousands of days later.
           For me, the most important goal is to create a touching movie that allows you to experience the same feelings
           that you felt on your special day even thousands of days later.
         </p>
         <p>
-          While beautiful video-shots are important, I believe that true love should never be lost in the process. Your
-          wedding day is not just about you, but also about your loved ones who have played a special role in your life.
-          After all, this day is not only about you, but also about our parents, grandparents, friends.
+          I want to keep not just staged shots of a love story, but the real emotions of you and the people who are dear
+          to you, capturing their smiles, tears and great love as a memory.
         </p>
         <p>
-          I strive to capture the genuine emotions of those closest to you, preserving their smiles, tears and heartfelt
-          love as a memory. I want to freeze this moment in time, so you can always remember how everyone felt and
-          looked on that day.
+          The time is fleeting, so I want to freeze everyone at moment in time.
         </p>
         <p>
-          My approach is simple yet powerful. I won&apos;t stage anything or capture a thousand angles of your wedding dress
-          in slow motion. Instead, I will create a film that captures the sounds, emotions and magical atmosphere of
-          your day, conveying the sincerity, authenticity and true power of your love.
+          No staged shoots, no slow-mo — the sounds, emotions and magical atmosphere of your day is what your story will
+          convey.
         </p>
         <p>
-          If you want to have a film that truly captures your special day and the love shared between you and your loved
-          ones, please don&apos;t hesitate to contact me. I would be honored to be a part of your unforgettable celebration.
+          If your view is the same as mine, please don&apos;t hesitate to contact me. I would be honored to be a part of your
+          unforgettable celebration.
         </p>
       </div>
     </div>
