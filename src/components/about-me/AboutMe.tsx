@@ -15,7 +15,7 @@ export function AboutMe() {
         </div>
       </div>
       <div className={styles.aboutMeText}>
-        <h3 className={styles.aboutMeTitle}>Hi, I`m Alyona!</h3>
+        <h3 className={styles.aboutMeTitle}>Hi, I&apos;m Alyona!</h3>
         <p>
           For me, the most important goal is to create a touching movie that allows you to experience the same feelings
           that you felt on your special day even thousands of days later.
@@ -31,7 +31,7 @@ export function AboutMe() {
           looked on that day.
         </p>
         <p>
-          My approach is simple yet powerful. I won't stage anything or capture a thousand angles of your wedding dress
+          My approach is simple yet powerful. I won&apos;t stage anything or capture a thousand angles of your wedding dress
           in slow motion. Instead, I will create a film that captures the sounds, emotions and magical atmosphere of
           your day, conveying the sincerity, authenticity and true power of your love.
         </p>
