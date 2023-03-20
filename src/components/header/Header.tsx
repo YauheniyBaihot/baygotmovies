@@ -102,11 +102,11 @@ export function Header(props: HeaderProps) {
 
       <div className={styles.navigation}>
         <Navigation items={navigationItems} />
-        <LanguageSwitcher
-          languages={languages}
-          currentLanguage={currentLang}
-          onChange={changeLanguage}
-        />
+        {/*<LanguageSwitcher*/}
+        {/*  languages={languages}*/}
+        {/*  currentLanguage={currentLang}*/}
+        {/*  onChange={changeLanguage}*/}
+        {/*/>*/}
       </div>
 
       <a className={styles.logo} href="./">

@@ -22,7 +22,6 @@
   &Photo {
     box-sizing: border-box;
     flex: 0 0 100%;
-
     padding: $base-spacing;
 
     @include gt-sm {

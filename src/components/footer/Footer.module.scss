@@ -32,7 +32,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
- 
+
   line-height: 2rem;
   font-size: 0.875rem;
   letter-spacing: 1px;
@@ -75,8 +75,7 @@
 
 .button {
   margin: 3*$base-spacing 0;
-
-
+  color: $color-dark;
   cursor: pointer;
   font-family: $main-font;
   text-transform: uppercase;

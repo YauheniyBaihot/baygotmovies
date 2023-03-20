@@ -27,12 +27,12 @@ export function Films(props: FilmsProps) {
       link: "https://youtu.be/r15qIPDlXeI"
     },
     {
-      name: "Event",
+      name: "About you",
       previewImage: image8,
       link: "https://www.instagram.com/reel/Ckn16dyovQT/?igshid=ZjE2NGZiNDQ="
     },
     {
-      name: "About you",
+      name: "Event",
       previewImage: image9,
       link: "https://www.instagram.com/reel/Ckp-BMtDaal/?igshid=ZjE2NGZiNDQ="
     }

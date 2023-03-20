@@ -37,10 +37,8 @@ export function Footer() {
             <br />
             Available Worldwide
           </p>
-
           <p>
-            I speak English, Russian, German, Spanish, Lithuanian, Belarussian
-            languages.
+            I speak English, Russian, German and a little bit Lithuanian languages.
           </p>
           <div className={styles.socialLinks}>
             <SocialLinks items={socialMedias} />
