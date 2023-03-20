@@ -3,8 +3,7 @@
 
 .header {
   @media screen and (max-aspect-ratio: 1/1) {
-    aspect-ratio: 2 / 3;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 3 / 4;
   }
   
   
@@ -37,7 +36,7 @@
   }
 }
 
-.backgroundVideo {
+.backgroundVideo {  
   position: absolute;
   width: 100%;
   height: 100%;
