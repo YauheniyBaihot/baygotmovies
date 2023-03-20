@@ -95,6 +95,13 @@ export function Header(props: HeaderProps) {
       variant: "whatsapp"
     }
   ];
+  
+  const tryPlayVideo = () => {
+    const video = document.querySelector('video') as HTMLVideoElement;
+    if(video && video.paused) {
+      void video.play();
+    }
+  }
 
   return (
     <header className={styles.header} id="home">
@@ -115,7 +122,7 @@ export function Header(props: HeaderProps) {
 
       <SocialLinks className={styles.contacts} items={socialMedias} />
 
-      <h1 className={styles.title}>
+      <h1 className={styles.title} onClick={tryPlayVideo}>
         The moments are fleeting
         <br />
         let’s capture them together
