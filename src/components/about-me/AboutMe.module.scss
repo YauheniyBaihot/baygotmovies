@@ -2,93 +2,69 @@
 @import "@/styles/mixins.scss";
 
 .aboutMe {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+
   justify-content: center;
   align-items: center;
+  gap: 12*$base-spacing;
   position: relative;
   background: rgba($color-light, 0.95);
   color: $color-dark;
   font-family: $main-font;
   font-weight: 300;
   font-size: 1rem;
-
-
-  padding: 8*$base-spacing 4*$base-spacing;
-  @include lt-lg {
-    padding: 4*$base-spacing $base-spacing;
+  --about-me-columns: 2;
+  grid-template-columns: repeat(var(--about-me-columns), minmax(0, $screen-sm-min));
+  @include lt-md {
+    --about-me-columns: 1;
   }
 
-  &Photo {
-    box-sizing: border-box;
-    flex: 0 0 100%;
-    padding: $base-spacing;
-
-    @include gt-sm {
-      padding-right: 10*$base-spacing;
-      flex: 0 0 50%;
-      max-width: $screen-sm-min;
-    }
-
-    @include md {
-      padding-right: 5*$base-spacing;
-    }
-
-    @include lt-md {
-      max-width: $screen-sm-min;
-    }
-  }
-
-  &PhotoContainer {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    position: relative;
-
-    @supports not (aspect-ratio: 2 / 3) {
-      &::before {
-        float: left;
-        padding-top: 150%;
-        content: "";
-      }
-
-      &::after {
-        display: block;
-        content: "";
-        clear: both;
-      }
-    }
-  }
-
-  &Text {
-    flex: 0 0 100%;
-    padding: $base-spacing;
-    box-sizing: border-box;
-    text-align: justify;
-    line-height: 2rem;
-
-    @include gt-sm {
-      padding-left: 6*$base-spacing;
-      flex: 0 0 50%;
-      max-width: $screen-sm-min;
-    }
-
-    @include md {
-      padding-left: 3*$base-spacing;
-    }
-
-    @include lt-md {
-      max-width: $screen-sm-min;
-    }
-  }
-
-  &Title {
-    margin: 0;
-    font-family: $heading-font;
-    font-weight: 300;
-    font-size: 2rem;
+  padding: 12*$base-spacing 2*$base-spacing;
+  @include xs {
+    padding: 6*$base-spacing 2*$base-spacing;
   }
 }
 
+.photo {
+  box-sizing: border-box;
+
+  @include gt-md {
+    padding-right: 4*$base-spacing;
+  }
+}
+
+.photoContainer {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  position: relative;
+
+  @supports not (aspect-ratio: 2 / 3) {
+    &::before {
+      float: left;
+      padding-top: 150%;
+      content: "";
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+}
+
+.text {
+  box-sizing: border-box;
+  text-align: justify;
+  line-height: 2rem;
+}
+
+.title {
+  margin: 0;
+  font-family: $heading-font;
+  font-weight: 300;
+  font-size: 2rem;
+}
 
 .backgroundOverlay {
   position: absolute;

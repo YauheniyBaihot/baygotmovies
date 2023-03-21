@@ -9,13 +9,13 @@ export function AboutMe() {
       <div className={styles.backgroundOverlay}>
         <Image fill src={background} alt="background image" style={{ objectFit: "cover" }} />
       </div>
-      <div className={styles.aboutMePhoto}>
-        <div className={styles.aboutMePhotoContainer}>
+      <div className={styles.photo}>
+        <div className={styles.photoContainer}>
           <Image src={me} alt="photo of myself" fill />
         </div>
       </div>
-      <div className={styles.aboutMeText}>
-        <h3 className={styles.aboutMeTitle}>Hi, I&apos;m Alyona!</h3>
+      <div className={styles.text}>
+        <h3 className={styles.title}>Hi, I&apos;m Alyona!</h3>
         <p>
           I&apos;m a wedding videographer. My wedding movie will allow you to relive the same feelings you had on your
           special day even thousands of days later.
@@ -32,7 +32,8 @@ export function AboutMe() {
           convey.
         </p>
         <p>
-          If your view on the video aligns with mine, please don&apos;t hesitate to contact me. I would be honored to be a
+          If your view on the video aligns with mine, please don&apos;t hesitate to contact me. I would be honored to be
+          a
           part of your unforgettable celebration and create a touching but also entertaining movie.
         </p>
       </div>

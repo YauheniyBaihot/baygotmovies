@@ -3,65 +3,41 @@
 
 
 .item {
-  display: flex;
-  align-items: center;
+  display: grid;
+  --wedding-item-columns: 1;
+  grid-template-columns: repeat(var(--wedding-item-columns), minmax(0, $screen-sm-min));
+
+  gap: 12*$base-spacing;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
 
+  @include gt-sm {
+    --wedding-item-columns: 2;
+    grid-template-areas: "left right";
 
-  &:not(:last-of-type) {
-    margin-bottom: 20 * $base-spacing;
-
-    @include lt-md {
-      margin-bottom: 10 * $base-spacing;
-    }
-  }
-
-  &:nth-of-type(2n) {
-    flex-direction: row-reverse;
-
-    .photo {
-      @include gt-sm {
-        padding-right: 0;
-        padding-left: 10*$base-spacing;
+    &:nth-of-type(2n) {
+      .text {
+        grid-area: left;
       }
 
-      @include md {
-        padding-right: 0;
-        padding-left: 5*$base-spacing;
+      .photo {
+        grid-area: right;
+
+        @include gt-md {
+          padding-right: 0;
+          padding-left: 4*$base-spacing;
+        }
       }
     }
-
-    .text {
-      @include gt-sm {
-        padding-left: 0;
-        padding-right: 6*$base-spacing;
-      }
-
-      @include md {
-        padding-left: 0;
-        padding-right: 3*$base-spacing;
-      }
-    }
-
   }
 }
 
 .photo {
-  flex: 0 0 100%;
   box-sizing: border-box;
-  max-width: $screen-sm-min;
 
-  @include gt-sm {
+  @include gt-md {
     padding-left: 0;
-    padding-right: 10*$base-spacing;
-    flex: 0 0 50%;
-    max-width: $screen-sm-min;
-  }
-
-  @include md {
-    padding-left: 0;
-    padding-right: 5*$base-spacing;
+    padding-right: 4*$base-spacing;
   }
 }
 
@@ -85,27 +61,10 @@
 }
 
 .text {
-  flex: 0 0 100%;
-  max-width: $screen-sm-min;
   text-align: center;
   font-weight: 300;
   line-height: 2rem;
   box-sizing: border-box;
-  padding-top: 4*$base-spacing;
-
-  @include gt-sm {
-    padding-top: 0;
-    padding-right: 0;
-    padding-left: 6*$base-spacing;
-    flex: 0 0 50%;
-    max-width: $screen-sm-min;
-  }
-
-  @include md {
-    padding-right: 0;
-    padding-left: 3*$base-spacing;
-  }
-
 }
 
 .title {

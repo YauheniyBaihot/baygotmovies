@@ -2,41 +2,46 @@
 @import '@/styles/mixins.scss';
 
 .footer {
+  font-family: $main-font;
   color: $color-dark;
   background: $color-light;
-  padding: 8*$base-spacing 4*$base-spacing 0;
-  @include lt-lg {
-    padding: 4*$base-spacing $base-spacing 0;
+
+  padding: 12*$base-spacing 2*$base-spacing 0;
+
+  @include xs {
+    padding-top: 6*$base-spacing;
   }
-  font-family: $main-font;
 }
 
 
 .items {
-  max-width: 1200px;
   margin: auto;
-  padding: 4*$base-spacing;
+  padding-bottom: 6*$base-spacing;
   display: grid;
-  grid-template-columns:  repeat(3, minmax(0, 1fr));
+  justify-content: center;
+  align-items: stretch;
+  grid-template-columns:  repeat(3, minmax(0, $screen-sm-min * 2/ 3));
 
   @include lt-md {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, $screen-sm-min);
+    padding-bottom: 0;
   }
-
-
 }
 
 .item {
-  padding: 2* $base-spacing 4* $base-spacing;
+  max-width: $screen-sm-min;
   align-items: center;
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   line-height: 2rem;
   font-size: 0.875rem;
   letter-spacing: 1px;
   font-weight: 300;
+
+  padding: 2* $base-spacing 4* $base-spacing;
 
   @include gt-sm {
     &:not(:last-child) {

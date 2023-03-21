@@ -7,34 +7,29 @@
   color: $color-light;
   background: rgba($color-dark, 0.95);
 
-
-  padding: 12*$base-spacing 4*$base-spacing;
-
-  @include sm {
-    padding: 12*$base-spacing $base-spacing;
-  }
-
+  padding: 12*$base-spacing 2*$base-spacing;
   @include xs {
-    padding: 6*$base-spacing $base-spacing;
+    padding: 6*$base-spacing 2*$base-spacing;
   }
 }
 
 .container {
-  margin: 12* $base-spacing auto 0;
-  max-width: 1200px;
+  margin: 6* $base-spacing auto 0;
+
   display: grid;
   gap: 4*$base-spacing;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  --films-columns: 4;
+  grid-template-columns: repeat(var(--films-columns), minmax(0, $screen-sm-min / 2));
 
   @include sm {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @include lt-sm {
-    grid-template-columns: 1fr;
+    --films-columns: 2;
+    max-width: $screen-sm-min;
   }
 
   @include xs {
+    --films-columns: 1;
     margin-top: 6*$base-spacing;
   }
 

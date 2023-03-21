@@ -11,14 +11,10 @@
   background: rgba($color-dark, 0.95);
   position: relative;
 
-  padding: 12*$base-spacing 4*$base-spacing;
-
-  @include sm {
-    padding: 12*$base-spacing $base-spacing;
-  }
+  padding: 12*$base-spacing 2*$base-spacing;
 
   @include xs {
-    padding: 6*$base-spacing $base-spacing;
+    padding: 6*$base-spacing 2*$base-spacing;
   }
 }
 
@@ -30,6 +26,7 @@
   text-align: center;
   text-transform: uppercase;
   margin: 0;
+
 }
 
 
@@ -38,12 +35,19 @@
   font-family: $main-font;
   background: rgba($color-light, 0.95);
   position: relative;
-
-  padding: 8*$base-spacing 4*$base-spacing;
-  @include lt-lg {
-    padding: 4*$base-spacing $base-spacing;
+  display: flex;
+  flex-direction: column;
+  gap: 12*$base-spacing;
+  @include xs {
+    gap: 6*$base-spacing;
   }
+  
 
+  padding: 12*$base-spacing 2*$base-spacing;
+
+  @include xs {
+    padding: 6*$base-spacing 2*$base-spacing;
+  }
 }
 
 // TODO double check z-index solution
