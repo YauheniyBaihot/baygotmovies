@@ -19,8 +19,6 @@ export function AboutMe() {
         <p>
           I&apos;m a wedding videographer. My wedding movie will allow you to relive the same feelings you had on your
           special day even thousands of days later.
-          For me, the most important goal is to create a touching movie that allows you to experience the same feelings
-          that you felt on your special day even thousands of days later.
         </p>
         <p>
           I want to keep not just staged shots of a love story, but the real emotions of you and the people who are dear
