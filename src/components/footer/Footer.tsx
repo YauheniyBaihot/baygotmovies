@@ -41,13 +41,17 @@ export function Footer() {
             I speak English, Russian, German and a little bit Lithuanian languages.
           </p>
           <div className={styles.socialLinks}>
-            <SocialLinks items={socialMedias} />
+            {/*<SocialLinks items={socialMedias} />*/}
           </div>
 
         </div>
         <div className={styles.item} id="contact">
           <h3 className={styles.pricing}>LOOKING FOR PRICING?</h3>
-          <button className={styles.button}>Contact me</button>
+          <p>Write me</p>
+          <div className={styles.socialLinks}>
+            <SocialLinks items={socialMedias} />
+          </div>
+          {/*<button className={styles.button}>Contact me</button>*/}
           <p>
             I will get back to you within 24 hours
             <br />

@@ -32,8 +32,8 @@ export function AboutMe() {
           convey.
         </p>
         <p>
-          If your view is the same as mine, please don&apos;t hesitate to contact me. I would be honored to be a part of your
-          unforgettable celebration.
+          If your view on the video aligns with mine, please don&apos;t hesitate to contact me. I would be honored to be a
+          part of your unforgettable celebration and create a touching but also entertaining movie.
         </p>
       </div>
     </div>
