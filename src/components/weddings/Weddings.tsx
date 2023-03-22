@@ -22,7 +22,7 @@ export function Weddings(props: WeddingsProps) {
   // TODO: header lower case then upper
   const items: WeddingsItemProps[] = [
     {
-      image: image2,
+      image: 'images/2.jpg',
       languages: ["Russian"],
       header: "VILNIUS, LITHUANIA",
       text:
@@ -35,7 +35,7 @@ export function Weddings(props: WeddingsProps) {
     },
 
     {
-      image: image1,
+      image: 'images/1.jpg',
       languages: ["Lithuanian"],
       header: "VILNIUS, LITHUANIA",
       text:
@@ -50,7 +50,7 @@ export function Weddings(props: WeddingsProps) {
     },
 
     {
-      image: image3,
+      image: 'images/3.jpg',
       languages: ["Lithuanian"],
       header: "NIDA, LITHUANIA",
       text:
@@ -63,7 +63,7 @@ export function Weddings(props: WeddingsProps) {
       teaserUrl: "tQlLuSZanYE"
     },
     {
-      image: image4,
+      image: 'images/4.jpg',
       languages: ["English"],
       header: "KLAIPĖDA, LITHUANIA",
       text:
@@ -74,7 +74,7 @@ export function Weddings(props: WeddingsProps) {
       fullUrl: "lsm-ZUPgMgM"
     },
     {
-      image: image5,
+      image: 'images/5.jpg',
       languages: ["Lithuanian"],
       header: "MOLĖTAI, LITHUANIA",
       text:
@@ -91,8 +91,20 @@ export function Weddings(props: WeddingsProps) {
 
   return (
     <div className={styles.weddings}>
-      <div className={styles.backgroundOverlay}>
-        <Image src={background} fill alt="background image" style={{ objectFit: "cover" }} />
+      <div style={{
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: -1,
+        overflow: "hidden",
+        clipPath: "inset(0)",
+        transform: "translateZ(0)"
+      }}>
+        <div style={{ position: "fixed", width: "100vw", height: "100vh", top: 0 }}>
+          <Image fill src="backgrounds/3.jpg" sizes="100vw" alt="background image" style={{ objectFit: "cover" }} />
+        </div>
       </div>
 
       <div className={styles.titleContainer}>

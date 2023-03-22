@@ -22,6 +22,7 @@ $base-spacing: 8px;
 
 :export {
   mediaSm: $screen-sm-min;
+  mediaHalfSm: $screen-sm-min/2;
   mediaMd: $screen-md-min;
   mediaLg: $screen-lg-min;
   mediaXl: $screen-xl-min;

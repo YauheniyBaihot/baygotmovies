@@ -1,11 +1,12 @@
-﻿import Image, { StaticImageData } from "next/image";
+﻿import variables from "@/styles/Variables.module.scss";
+import Image, { StaticImageData } from "next/image";
 import styles from "./FilmItem.module.scss";
 import { motion } from "framer-motion";
 
 export type FilmItemProps = {
   name: string;
   link: string;
-  previewImage: StaticImageData;
+  previewImage: string;
 };
 
 export function FilmItem(props: FilmItemProps) {
@@ -14,7 +15,7 @@ export function FilmItem(props: FilmItemProps) {
   return (
     <div className={styles.item}>
       <div className={styles.imageContainer}>
-        <Image src={previewImage} alt="image preview" fill />
+        <Image src={previewImage} sizes={`${variables.mediaHalfSm}`} alt="image preview" fill />
       </div>
 
       <motion.a className={styles.button} target="_blank" href={link}

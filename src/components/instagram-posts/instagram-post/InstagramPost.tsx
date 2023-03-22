@@ -1,5 +1,7 @@
-﻿import styles from "./InstagramPost.module.scss";
+﻿import variables from "@/styles/Variables.module.scss";
+import styles from "./InstagramPost.module.scss";
 
+import Image, { StaticImageData } from "next/image";
 import PlayIcon from "@/icons/play.svg";
 import { motion } from "framer-motion";
 
@@ -14,10 +16,8 @@ export function InstagramPost(props: InstagramPostProps) {
   return (
     <div
       className={styles.post}
-      style={{
-        backgroundImage: `url(${imagePreview})`
-      }}
     >
+      <Image src={imagePreview} fill sizes={`${variables.mediaHalfSm}`} style={{ objectFit: "cover"}} alt="Preview image for instagram post"/>
       <motion.a href={instagramUrl} target="_blank" className={styles.link}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}>

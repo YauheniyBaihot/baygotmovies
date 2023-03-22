@@ -1,9 +1,10 @@
 ﻿import { YoutubeButton } from "@/components/youtube-button/YoutubeButton";
+import variables from "@/styles/Variables.module.scss";
 import Image, { StaticImageData } from "next/image";
 import styles from "./WeddingsItem.module.scss";
 
 export type WeddingsItemProps = {
-  image: StaticImageData;
+  image: string;
   header: string;
   text: JSX.Element;
   languages: string[];
@@ -27,7 +28,7 @@ export function WeddingsItem(props: WeddingsItemProps) {
     <div className={styles.item}>
       <div className={styles.photo}>
         <div className={styles.photoContainer}>
-          <Image src={image} alt="couple photo" fill/>
+          <Image src={image} sizes={`(max-width: ${variables.mediaSm}) 100vw, ${variables.mediaSm}`} alt="couple photo" fill/>
         </div>
        
       </div>

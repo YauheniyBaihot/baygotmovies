@@ -50,32 +50,65 @@ export function Header(props: HeaderProps) {
 
   const [currentLang, changeLanguage] = useState(languages[2]);
 
-  const sources = [
+  const resolutions = [3, 2, 1];
+
+  const aspectRatios = [
     {
-      query: `(max-width: ${variables.mediaSm})`,
-      path: "/video/background/width-sm.mp4"
+      value: "(max-aspect-ratio: 1/1)",
+      width: 3,
+      height: 4,
+      sizes: [1440, 1200, 960, 720]
     },
     {
-      query: `(max-width:  ${variables.mediaMd})`,
-      path: "/video/background/width-md.mp4"
-    },
-    {
-      query: `(max-width: ${variables.mediaLg})`,
-      path: "/video/background/width-lg.mp4"
-    },
-    {
-      query: `(max-width: ${variables.mediaXl})`,
-      path: "/video/background/width-xl.mp4"
-    },
-    {
-      query: `(max-width: ${variables.mediaXxl})`,
-      path: "/video/background/width-xxl.mp4"
-    },
-    {
-      query: "",
-      path: "/video/background/width-original.mp4"
+      value: "screen",
+      width: 16,
+      height: 9,
+      sizes: [3840, 2560, 1920, 1280]
     }
   ];
+
+
+  const sources = [];
+
+  aspectRatios.forEach(aspectRatio => {
+    resolutions.forEach(resolution => {
+      const { sizes, value, width, height } = aspectRatio;
+
+      for (let i = 0; i < sizes.length - 1; i++) {
+        const next = sizes[i + 1];
+        const current = sizes[i];
+        sources.push({
+          query: `${value} and (min-resolution: ${resolution}x) and (min-width: ${next / resolution}px)`,
+          path: `https://d2lbltjxdb58wg.cloudfront.net/video/background/${current}x${current / width * height}.mp4`
+        });
+      }
+
+      const current = sizes[sizes.length - 1];
+
+      sources.push({
+        query: `${value} and (min-resolution: ${resolution}x)`,
+        path: `https://d2lbltjxdb58wg.cloudfront.net/video/background/${current}x${current / width * height}.mp4`
+      });
+
+    });
+  });
+
+  sources.push({
+    query: ``,
+    path: `https://d2lbltjxdb58wg.cloudfront.net/video/background/1280x720.mp4`
+  });
+
+
+  // const sources = [
+  //   {
+  //     query: `screen and (max-width: 720px)`,
+  //     path: "https://d2lbltjxdb58wg.cloudfront.net/video/background/test.mp4"
+  //   },
+  //   {
+  //     query: ``,
+  //     path: "https://d2lbltjxdb58wg.cloudfront.net/video/background/2048x1152.mp4"
+  //   }
+  // ];
 
   const socialMedias = [
     {
@@ -95,13 +128,13 @@ export function Header(props: HeaderProps) {
       variant: "whatsapp"
     }
   ];
-  
+
   const tryPlayVideo = () => {
-    const video = document.querySelector('video') as HTMLVideoElement;
-    if(video && video.paused) {
+    const video = document.querySelector("video") as HTMLVideoElement;
+    if (video && video.paused) {
       void video.play();
     }
-  }
+  };
 
   return (
     <header className={styles.header} id="home">

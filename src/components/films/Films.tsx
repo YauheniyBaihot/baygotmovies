@@ -1,11 +1,8 @@
 ﻿import Image from "next/image";
-import background from "../../../public/backgrounds/2.jpg";
+import React from "react";
+
 import styles from "./Film.module.scss";
 import { FilmItemProps, FilmItem } from "./films-item/FilmItem";
-import image6 from "public/images/6.jpg";
-import image7 from "public/images/7.jpg";
-import image8 from "public/images/8.jpg";
-import image9 from "public/images/9.jpg";
 
 type FilmsProps = {
   items: FilmItemProps[];
@@ -18,22 +15,22 @@ export function Films(props: FilmsProps) {
   const items: FilmItemProps[] = [
     {
       name: "Family",
-      previewImage: image6,
+      previewImage: "images/6.jpg",
       link: "https://youtu.be/25C_5yDh5Os"
     },
     {
       name: "Love story",
-      previewImage: image7,
+      previewImage: "images/7.jpg",
       link: "https://youtu.be/r15qIPDlXeI"
     },
     {
       name: "About you",
-      previewImage: image8,
+      previewImage: "images/8.jpg",
       link: "https://www.instagram.com/reel/Ckn16dyovQT/?igshid=ZjE2NGZiNDQ="
     },
     {
       name: "Event",
-      previewImage: image9,
+      previewImage: "images/9.jpg",
       link: "https://www.instagram.com/reel/Ckp-BMtDaal/?igshid=ZjE2NGZiNDQ="
     }
   ];
@@ -44,8 +41,20 @@ export function Films(props: FilmsProps) {
 
   return (
     <div className={styles.films} id="moments">
-      <div className={styles.backgroundOverlay}>
-        <Image fill src={background} alt="background image" style={{ objectFit: "cover" }} />
+      <div style={{
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: -1,
+        overflow: "hidden",
+        clipPath: "inset(0)",
+        transform: "translateZ(0)"
+      }}>
+        <div style={{ position: "fixed", width: "100vw", height: "100vh", top: 0 }}>
+          <Image fill src="backgrounds/2.jpg" sizes="100vw" alt="background image" style={{ objectFit: "cover" }} />
+        </div>
       </div>
       <h2 className={styles.title}>Welcome to my cinema</h2>
       <div className={styles.container}>{itemsElements}</div>
