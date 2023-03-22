@@ -50,7 +50,7 @@ export function Films(props: FilmsProps) {
         zIndex: -1,
         overflow: "hidden",
         clipPath: "inset(0)",
-        transform: "translateZ(0)"
+        backfaceVisibility: 'hidden'
       }}>
         <div style={{ position: "fixed", width: "100vw", height: "100vh", top: 0 }}>
           <Image fill src="backgrounds/2.jpg" sizes="100vw" alt="background image" style={{ objectFit: "cover" }} />
