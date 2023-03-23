@@ -38,7 +38,7 @@ export function Footer() {
             Available Worldwide
           </p>
           <p>
-            I speak English, Russian, German and a little bit Lithuanian languages.
+            I speak English, Russian, and German, and a little bit of Lithuanian.
           </p>
           <div className={styles.socialLinks}>
             {/*<SocialLinks items={socialMedias} />*/}
@@ -47,7 +47,8 @@ export function Footer() {
         </div>
         <div className={styles.item} id="contact">
           <h3 className={styles.pricing}>LOOKING FOR PRICING?</h3>
-          <p>Write me</p>
+          <p>Get in touch with me</p>
+          <a className={styles.email} href="mailto:alena.parhamovich@gmail.com" target="_blank">alena.parhamovich@gmail.com</a>
           <div className={styles.socialLinks}>
             <SocialLinks items={socialMedias} />
           </div>

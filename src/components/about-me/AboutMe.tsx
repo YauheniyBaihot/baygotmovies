@@ -15,7 +15,7 @@ export function AboutMe() {
         zIndex: -1,
         overflow: "hidden",
         clipPath: "inset(0)",
-        backfaceVisibility: 'hidden'
+        backfaceVisibility: "hidden"
       }}>
         <div style={{ position: "fixed", width: "100vw", height: "100vh", top: 0 }}>
           <Image fill src="backgrounds/1.jpg" sizes="100vw" alt="background image" style={{ objectFit: "cover" }} />
@@ -32,14 +32,14 @@ export function AboutMe() {
       <div className={styles.text}>
         <h3 className={styles.title}>Hi, I&apos;m Alyona!</h3>
         <p>
-          I&apos;m a wedding videographer. My wedding movie will allow you to relive the same feelings you had on your
-          special day even thousands of days later.
+          I&apos;m a wedding videographer.
+          My wedding films, their color and my approach to shooting are different from what you are used to seeing. I
+          believe that a wedding film is not a video clip with illogical frames one after an another, but a real movie
+          with the story of one day!
         </p>
         <p>
           I want to keep not just staged shots of a love story, but the real emotions of you and the people who are dear
           to you, capturing their smiles, tears and great love as a memory.
-        </p>
-        <p>
           The time is fleeting, so I want to freeze everyone at moment in time.
         </p>
         <p>
@@ -47,9 +47,8 @@ export function AboutMe() {
           convey.
         </p>
         <p>
-          If your view on the video aligns with mine, please don&apos;t hesitate to contact me. I would be honored to be
-          a
-          part of your unforgettable celebration and create a touching but also entertaining movie.
+          My wedding movie will allow you to relive the same feelings you had on your special day even thousands of days
+          later.
         </p>
       </div>
     </div>

@@ -11,8 +11,6 @@ const outputFolder = "optimized-media";
 
 
 glob(`${inputFolder}/**/*.jpg`).then((files) => {
-
-
   files.forEach((file) => {
     [...imageSizes, ...deviceSizes].forEach((size) => {
       const replaced = file.replace(inputFolder, outputFolder);
@@ -26,3 +24,4 @@ glob(`${inputFolder}/**/*.jpg`).then((files) => {
     });
   });
 });
+
