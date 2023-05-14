@@ -30,7 +30,7 @@ export function AboutMe() {
         </div>
       </div>
       <div className={styles.text}>
-        <h3 className={styles.title}>Hi, I&apos;m Alyona!</h3>
+        <h3 className={styles.title}>Hi, I&apos;m Alena!</h3>
         <p>
           I&apos;m a wedding videographer.
           My wedding films, their color and my approach to shooting are different from what you are used to seeing. I
