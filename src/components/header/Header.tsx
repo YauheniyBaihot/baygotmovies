@@ -112,7 +112,7 @@ export function Header(props: HeaderProps) {
 
   const socialMedias = [
     {
-      path: "https://www.instagram.com/baygotfilm/",
+      path: "https://www.instagram.com/baygot_movies/",
       variant: "instagram"
     },
     {
@@ -120,7 +120,7 @@ export function Header(props: HeaderProps) {
       variant: "telegram"
     },
     {
-      path: "https://m.me/baygotfilms",
+      path: "https://m.me/baygotmovies",
       variant: "messenger"
     },
     {

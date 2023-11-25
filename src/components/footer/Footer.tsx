@@ -7,7 +7,7 @@ export function Footer() {
 
   const socialMedias = [
     {
-      path: "https://www.instagram.com/baygotfilm/",
+      path: "https://www.instagram.com/baygot_movies/",
       variant: "instagram"
     },
     {
@@ -15,7 +15,7 @@ export function Footer() {
       variant: "telegram"
     },
     {
-      path: "https://m.me/baygotfilms",
+      path: "https://m.me/baygotmovies",
       variant: "messenger"
     },
     {

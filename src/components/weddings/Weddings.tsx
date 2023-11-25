@@ -1,13 +1,13 @@
-﻿import React from "react";
-import Image from "next/image";
-import { WeddingsItem, WeddingsItemProps } from "./weddings-item/WeddingsItem";
-import styles from "./Weddings.module.scss";
-import image1 from "/public/images/1.jpg";
-import image2 from "/public/images/2.jpg";
-import image3 from "/public/images/3.jpg";
-import image4 from "/public/images/4.jpg";
-import image5 from "/public/images/5.jpg";
-import background from "/public/backgrounds/3.jpg";
+﻿import React from 'react';
+import Image from 'next/image';
+import { WeddingsItem, WeddingsItemProps } from './weddings-item/WeddingsItem';
+import styles from './Weddings.module.scss';
+import image1 from '/public/images/1.jpg';
+import image2 from '/public/images/2.jpg';
+import image3 from '/public/images/3.jpg';
+import image4 from '/public/images/4.jpg';
+import image5 from '/public/images/5.jpg';
+import background from '/public/backgrounds/3.jpg';
 
 type WeddingsProps = {
   items: WeddingsItemProps[];
@@ -23,21 +23,21 @@ export function Weddings(props: WeddingsProps) {
   const items: WeddingsItemProps[] = [
     {
       image: 'images/2.jpg',
-      languages: ["Russian"],
-      header: "VILNIUS, LITHUANIA",
+      languages: ['Russian'],
+      header: 'VILNIUS, LITHUANIA',
       text:
         (<p>
           It was an incredibly touching wedding of Maria and Edgar filled with sincere good wishes and love coming from
           each guest.
         </p>),
-      teaserUrl: "7ZJvi0wpAjA",
-      fullUrl: "_0Ch-eF9PDQ"
+      teaserUrl: '7ZJvi0wpAjA',
+      fullUrl: '_0Ch-eF9PDQ',
     },
 
     {
       image: 'images/1.jpg',
-      languages: ["Lithuanian"],
-      header: "VILNIUS, LITHUANIA",
+      languages: ['Lithuanian'],
+      header: 'VILNIUS, LITHUANIA',
       text:
         (<p>
           I&apos;m so excited to show you this fashionable wedding.
@@ -45,14 +45,40 @@ export function Weddings(props: WeddingsProps) {
           I fell in love with this couple at first sight. They are the epitome of style and grace.
           I can watch their videos million of times and never get bored.
         </p>),
-      teaserUrl: "Ew0pjNmzt_s",
-      fullUrl: "S_fL4hSvtE4"
+      teaserUrl: 'Ew0pjNmzt_s',
+      fullUrl: 'S_fL4hSvtE4',
+    },
+
+    {
+      image: 'images/5.jpg',
+      header: 'KLAIPĖDA, LITHUANIA',
+      text:
+        (<p>
+          Such an incredible dream wedding, organized with taste, care and love! The atmosphere was relaxed, comfortable
+          and sincere. The rain stopped, so we could take cool pictures by the sea. At the end of the day, fireworks
+          surprised everyone. I was striving to catch every little thing, every feeling and capture everything in a
+          beautiful way. Upon receiving feedback from the couple after watching their wedding film, honestly, I felt
+          touched and inspired.
+        </p>),
+      teaserUrl: 'CPE5P6rxDC4',
+    },
+
+    {
+      image: 'images/4.jpg',
+      languages: ['English'],
+      header: 'KLAIPĖDA, LITHUANIA',
+      text:
+        (<p>
+          Sterre and Eduardas and their wonderful international wedding in a luxurious manor in Sveksna.
+        </p>),
+      teaserUrl: 'yNyEhWWea_w',
+      fullUrl: 'lsm-ZUPgMgM',
     },
 
     {
       image: 'images/3.jpg',
-      languages: ["Lithuanian"],
-      header: "NIDA, LITHUANIA",
+      languages: ['Lithuanian'],
+      header: 'NIDA, LITHUANIA',
       text:
         (<p>
           The wedding can be in sneakers, in a comfortable wedding dress and your lovely Dog is involved in the ceremony
@@ -60,29 +86,8 @@ export function Weddings(props: WeddingsProps) {
           At the end of the ceremony instead of rose petals, volleyballs fly over you. Your friends make you surprised
           and your favorite singer sings just for you and your friends.
         </p>),
-      teaserUrl: "tQlLuSZanYE"
+      teaserUrl: 'tQlLuSZanYE',
     },
-    {
-      image: 'images/4.jpg',
-      languages: ["English"],
-      header: "KLAIPĖDA, LITHUANIA",
-      text:
-        (<p>
-          Sterre and Eduardas and their wonderful international wedding in a luxurious manor in Sveksna.
-        </p>),
-      teaserUrl: "yNyEhWWea_w",
-      fullUrl: "lsm-ZUPgMgM"
-    },
-    {
-      image: 'images/5.jpg',
-      languages: ["Lithuanian"],
-      header: "MOLĖTAI, LITHUANIA",
-      text:
-        (<p>
-          Amazing wedding day of Joana and Donatas in Moletai manor and with the ceremony in church.
-        </p>),
-      teaserUrl: "XMvrzf5RWAI"
-    }
   ];
 
   const itemsElements = items.map(item => (
@@ -92,19 +97,19 @@ export function Weddings(props: WeddingsProps) {
   return (
     <div className={styles.weddings}>
       <div style={{
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         bottom: 0,
         left: 0,
         right: 0,
         zIndex: -1,
-        overflow: "hidden",
-        clipPath: "inset(0)",
-        backfaceVisibility: 'hidden'
- 
+        overflow: 'hidden',
+        clipPath: 'inset(0)',
+        backfaceVisibility: 'hidden',
+
       }}>
-        <div style={{ position: "fixed", width: "100vw", height: "100vh", top: 0 }}>
-          <Image fill src="backgrounds/3.jpg" sizes="100vw" alt="background image" style={{ objectFit: "cover" }} />
+        <div style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0 }}>
+          <Image fill src="backgrounds/3.jpg" sizes="100vw" alt="background image" style={{ objectFit: 'cover' }} />
         </div>
       </div>
 
