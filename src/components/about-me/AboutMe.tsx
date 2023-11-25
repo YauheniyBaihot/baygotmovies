@@ -36,8 +36,8 @@ export function AboutMe() {
           preserve the real emotions of you and your loved ones, documenting genuine smiles, tears and profound love
         </p>
         <p>
-          In the teaser, I schow the most beautiful and highlight moments of your special day. The longer video is a
-          blend of touching and joyful part's, capturing the significant words of your guests, along with an edited,
+          In the teaser, I show the most beautiful and highlight moments of your special day. The longer video is a
+          blend of touching and joyful part&apos;s, capturing the significant words of your guests, along with an edited,
           condensed version of the ceremony.The congratulations, contests and the whole ceremony, I provide you with
           separately edited files.
         </p>
