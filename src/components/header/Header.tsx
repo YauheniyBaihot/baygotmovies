@@ -150,7 +150,7 @@ export function Header(props: HeaderProps) {
       </div>
 
       <a className={styles.logo} href="./">
-        baygotfilm
+        BAYGOTMOVIES
       </a>
 
       <SocialLinks className={styles.contacts} items={socialMedias} />

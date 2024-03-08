@@ -23,20 +23,20 @@ export function Weddings(props: WeddingsProps) {
   const items: WeddingsItemProps[] = [
     {
       image: 'images/2.jpg',
-      languages: ['Russian'],
-      header: 'VILNIUS, LITHUANIA',
+      header: 'Love is every moment',
       text:
         (<p>
-          It was an incredibly touching wedding of Maria and Edgar filled with sincere good wishes and love coming from
-          each guest.
+          This is a story about Irma and Miguel and their wonderful international wedding held in Lithuania. I like
+          every part of this story because it feels so true, so real. I was particularly impressed by their ability to
+          engage in heartfelt conversations, share warm smiles, and gracefully dance together throughout the
+          celebration.
         </p>),
-      teaserUrl: '7ZJvi0wpAjA',
-      fullUrl: '_0Ch-eF9PDQ',
+      teaserUrl: '1016cmU0rE0',
+     // fullUrl: '1016cmU0rE0',
     },
 
     {
       image: 'images/1.jpg',
-      languages: ['Lithuanian'],
       header: 'VILNIUS, LITHUANIA',
       text:
         (<p>
@@ -51,7 +51,7 @@ export function Weddings(props: WeddingsProps) {
 
     {
       image: 'images/5.jpg',
-      header: 'KLAIPĖDA, LITHUANIA',
+      header: 'Ačiū tau',
       text:
         (<p>
           Such an incredible dream wedding, organized with taste, care and love! The atmosphere was relaxed, comfortable
@@ -60,33 +60,30 @@ export function Weddings(props: WeddingsProps) {
           beautiful way. Upon receiving feedback from the couple after watching their wedding film, honestly, I felt
           touched and inspired.
         </p>),
-      teaserUrl: 'CPE5P6rxDC4',
+      teaserUrl: 'ioQmE_ihkRU',
     },
 
     {
       image: 'images/4.jpg',
-      languages: ['English'],
-      header: 'KLAIPĖDA, LITHUANIA',
+      header: 'Real love',
       text:
         (<p>
-          Sterre and Eduardas and their wonderful international wedding in a luxurious manor in Sveksna.
+          The wedding took place at the Lithuanian estate of Jakiškių Dvaros. Ugnė and Lucas have been together for many
+          years and continue to gaze at each other with immense love. As the guests remarked - their love sets an
+          example for many. And what a celebration the guests had!
         </p>),
-      teaserUrl: 'yNyEhWWea_w',
-      fullUrl: 'lsm-ZUPgMgM',
+      teaserUrl: 'LfPq44L8lqM',
+      fullUrl: 'Ug7Vq637l-A',
     },
 
     {
       image: 'images/3.jpg',
-      languages: ['Lithuanian'],
-      header: 'NIDA, LITHUANIA',
+      header: 'Mes turime kalbą',
       text:
         (<p>
-          The wedding can be in sneakers, in a comfortable wedding dress and your lovely Dog is involved in the ceremony
-          and brings you your wedding rings.
-          At the end of the ceremony instead of rose petals, volleyballs fly over you. Your friends make you surprised
-          and your favorite singer sings just for you and your friends.
+          Paziürékite i vaizdo jrasa is lauko vestuviy! Linksmi ir sirdingi jaunavedziai bei nuostabi vakaro atmosfera!
         </p>),
-      teaserUrl: 'tQlLuSZanYE',
+      teaserUrl: '9rxtaob6P9c',
     },
   ];
 

@@ -31,7 +31,7 @@ export function Footer() {
           <InstagramPosts items={[]} />
         </div>
         <div className={styles.item}>
-          <h3 className={styles.title}>baygotfilm</h3>
+          <h3 className={styles.title}>BAYGOTMOVIES</h3>
           <p>
             Based in Lithuania, Vilnius.
             <br />
@@ -61,7 +61,7 @@ export function Footer() {
         </div>
       </div>
       <div className={styles.cc}>
-        © 2023 baygotfilm, Site by Yauheniy Baihot
+        © 2024 BAYGOTMOVIES, Site by Yauheniy Baihot
       </div>
     </footer>
   );

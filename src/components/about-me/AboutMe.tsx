@@ -38,7 +38,7 @@ export function AboutMe() {
         <p>
           In the teaser, I show the most beautiful and highlight moments of your special day. The longer video is a
           blend of touching and joyful part&apos;s, capturing the significant words of your guests, along with an edited,
-          condensed version of the ceremony.The congratulations, contests and the whole ceremony, I provide you with
+          condensed version of the ceremony. The congratulations, contests and the whole ceremony, I provide you with
           separately edited files.
         </p>
         <p>
