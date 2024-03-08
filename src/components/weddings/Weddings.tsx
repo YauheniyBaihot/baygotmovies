@@ -2,12 +2,6 @@
 import Image from 'next/image';
 import { WeddingsItem, WeddingsItemProps } from './weddings-item/WeddingsItem';
 import styles from './Weddings.module.scss';
-import image1 from '/public/images/1.jpg';
-import image2 from '/public/images/2.jpg';
-import image3 from '/public/images/3.jpg';
-import image4 from '/public/images/4.jpg';
-import image5 from '/public/images/5.jpg';
-import background from '/public/backgrounds/3.jpg';
 
 type WeddingsProps = {
   items: WeddingsItemProps[];
@@ -22,7 +16,7 @@ export function Weddings(props: WeddingsProps) {
   // TODO: header lower case then upper
   const items: WeddingsItemProps[] = [
     {
-      image: 'images/2.jpg',
+      image: 'img/2.jpg',
       header: 'Love is every moment',
       text:
         (<p>
@@ -36,7 +30,7 @@ export function Weddings(props: WeddingsProps) {
     },
 
     {
-      image: 'images/1.jpg',
+      image: 'img/1.jpg',
       header: 'VILNIUS, LITHUANIA',
       text:
         (<p>
@@ -50,7 +44,7 @@ export function Weddings(props: WeddingsProps) {
     },
 
     {
-      image: 'images/5.jpg',
+      image: 'img/5.jpg',
       header: 'Ačiū tau',
       text:
         (<p>
@@ -64,7 +58,7 @@ export function Weddings(props: WeddingsProps) {
     },
 
     {
-      image: 'images/4.jpg',
+      image: 'img/4.jpg',
       header: 'Real love',
       text:
         (<p>
@@ -77,7 +71,7 @@ export function Weddings(props: WeddingsProps) {
     },
 
     {
-      image: 'images/3.jpg',
+      image: 'img/3.jpg',
       header: 'Mes turime kalbą',
       text:
         (<p>

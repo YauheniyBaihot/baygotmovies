@@ -15,22 +15,22 @@ export function Films(props: FilmsProps) {
   const items: FilmItemProps[] = [
     {
       name: 'Family',
-      previewImage: 'images/6.jpg',
+      previewImage: 'img/6.jpg',
       link: 'https://youtu.be/25C_5yDh5Os',
     },
     {
       name: 'Love story',
-      previewImage: 'images/7.jpg',
+      previewImage: 'img/7.jpg',
       link: 'https://youtu.be/r15qIPDlXeI',
     },
     {
       name: 'About you',
-      previewImage: 'images/8.jpg',
+      previewImage: 'img/8.jpg',
       link: 'https://www.instagram.com/reel/Ckn16dyovQT/?igshid=ZjE2NGZiNDQ=',
     },
     {
       name: 'Event',
-      previewImage: 'images/9.jpg',
+      previewImage: 'img/9.jpg',
       link: 'https://youtu.be/1016cmU0rE0',
     },
   ];

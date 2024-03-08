@@ -24,7 +24,7 @@ export function AboutMe() {
 
       <div className={styles.photo}>
         <div className={styles.photoContainer}>
-          <Image src="images/me.jpg" sizes={`(max-width: ${variables.mediaSm}) 100vw, ${variables.mediaSm}`}
+          <Image src="img/me.jpg" sizes={`(max-width: ${variables.mediaSm}) 100vw, ${variables.mediaSm}`}
                  alt="photo of myself"
                  fill />
         </div>
