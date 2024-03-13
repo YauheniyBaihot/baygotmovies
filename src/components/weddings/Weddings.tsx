@@ -26,7 +26,7 @@ export function Weddings(props: WeddingsProps) {
           celebration.
         </p>),
       teaserUrl: '1016cmU0rE0',
-     // fullUrl: '1016cmU0rE0',
+      fullUrl: 'CvrW3vt_mII',
     },
 
     {
