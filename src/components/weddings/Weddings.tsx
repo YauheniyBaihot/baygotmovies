@@ -25,7 +25,7 @@ export function Weddings(props: WeddingsProps) {
           engage in heartfelt conversations, share warm smiles, and gracefully dance together throughout the
           celebration.
         </p>),
-      teaserUrl: '1016cmU0rE0',
+      teaserUrl: 'sirEQ8GICtc',
       fullUrl: 'CvrW3vt_mII',
     },
 
