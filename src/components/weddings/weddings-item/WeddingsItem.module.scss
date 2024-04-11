@@ -7,13 +7,14 @@
   --wedding-item-columns: 1;
   grid-template-columns: repeat(var(--wedding-item-columns), minmax(0, $screen-sm-min));
 
-  gap: 12*$base-spacing;
+  gap: 2*$base-spacing;
   justify-content: center;
   align-items: center;
 
   @include gt-sm {
     --wedding-item-columns: 2;
     grid-template-areas: "left right";
+    gap: 12*$base-spacing;
 
     &:nth-of-type(2n) {
       .text {

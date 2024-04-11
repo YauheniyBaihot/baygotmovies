@@ -79,6 +79,16 @@ export function Weddings(props: WeddingsProps) {
         </p>),
       teaserUrl: '9rxtaob6P9c',
     },
+    {
+      image: 'img/10.jpg',
+      header: 'Lietuviškos tradicijos Švėkšnoje',
+      text:
+        (<p>
+          Sterre and Eduardas and their wonderful international wedding in a luxurious manor in Švėkšna
+        </p>),
+      teaserUrl: 'yNyEhWWea_w',
+      fullUrl: 'lsm-ZUPgMgM',
+    },
   ];
 
   const itemsElements = items.map(item => (
