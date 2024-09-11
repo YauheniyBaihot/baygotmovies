@@ -1,0 +1,84 @@
+@use '@/styles/fonts';
+@use '@/styles/mixins';
+
+.menuButton {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+
+  padding: 0.25em 0.5em;
+
+  font-family: fonts.$action-font-family;
+  color: #F6F3F3;
+
+
+  background: #0E0D0D;
+  border: none;
+  border-radius: 50vh;
+
+  svg {
+    width: 1.15em;
+    height: 1.15em;
+    fill: currentcolor;
+  }
+
+  &[data-state="open"] {
+    padding: 0.25em 0.5em;
+
+    span {
+      display: none;
+    }
+  }
+
+  &[data-state="closed"] {
+    svg {
+      display: none;
+    }
+  }
+}
+
+.menuLink {
+  margin-top: 1em;
+  padding: 0.25em 0.5em;
+
+  font-family: fonts.$action-font-family;
+  color: #0E0D0D;
+  text-align: center;
+  text-decoration: none;
+
+  background: #F6F3F3;
+  border: none;
+  border-radius: 50vh;
+}
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn 0.5s ease-out;
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+
+}
+
+.trigger {
+  background: none;
+  border: none;
+}
+
+.buttonContainer {
+  display: inline-flex;
+  justify-content: end;
+}
+
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

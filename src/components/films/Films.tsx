@@ -41,19 +41,29 @@ export function Films(props: FilmsProps) {
 
   return (
     <div className={styles.films} id="moments">
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: -1,
-        overflow: 'hidden',
-        clipPath: 'inset(0)',
-        backfaceVisibility: 'hidden',
-      }}>
-        <div style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0 }}>
-          <Image fill src="backgrounds/2.jpg" sizes="100vw" alt="background image" style={{ objectFit: 'cover' }} />
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: -1,
+          overflow: 'hidden',
+          clipPath: 'inset(0)',
+          backfaceVisibility: 'hidden',
+        }}
+      >
+        <div
+          style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0 }}
+        >
+          <Image
+            fill
+            src="backgrounds/2.jpg"
+            sizes="100vw"
+            alt="background image"
+            style={{ objectFit: 'cover' }}
+          />
         </div>
       </div>
       <h2 className={styles.title}>Welcome to my cinema</h2>

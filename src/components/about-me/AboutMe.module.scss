@@ -1,12 +1,12 @@
-﻿@import "@/styles/Variables.module.scss";
-@import "@/styles/mixins.scss";
+﻿@import '@/styles/Variables.module.scss';
+@import '@/styles/mixins.scss';
 
 .aboutMe {
   display: grid;
 
   justify-content: center;
   align-items: center;
-  gap: 12*$base-spacing;
+  gap: 12 * $base-spacing;
   position: relative;
   background: rgba($color-light, 0.95);
   color: $color-dark;
@@ -14,14 +14,17 @@
   font-weight: 300;
   font-size: 1rem;
   --about-me-columns: 2;
-  grid-template-columns: repeat(var(--about-me-columns), minmax(0, $screen-sm-min));
+  grid-template-columns: repeat(
+    var(--about-me-columns),
+    minmax(0, $screen-sm-min)
+  );
   @include lt-md {
     --about-me-columns: 1;
   }
 
-  padding: 12*$base-spacing 2*$base-spacing;
+  padding: 12 * $base-spacing 2 * $base-spacing;
   @include xs {
-    padding: 6*$base-spacing 2*$base-spacing;
+    padding: 6 * $base-spacing 2 * $base-spacing;
   }
 }
 
@@ -29,7 +32,7 @@
   box-sizing: border-box;
 
   @include gt-md {
-    padding-right: 4*$base-spacing;
+    padding-right: 4 * $base-spacing;
   }
 }
 
@@ -42,12 +45,12 @@
     &::before {
       float: left;
       padding-top: 150%;
-      content: "";
+      content: '';
     }
 
     &::after {
       display: block;
-      content: "";
+      content: '';
       clear: both;
     }
   }

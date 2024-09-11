@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4*$base-spacing;
+  gap: 4 * $base-spacing;
 
   @include lt-lg {
     gap: $base-spacing;

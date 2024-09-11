@@ -1,23 +1,27 @@
-import "normalize.css";
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { Cormorant, Nunito } from "next/font/google";
+import 'normalize.css';
+import '@/styles/_global.scss';
+import type { AppProps } from 'next/app';
+import { Poppins } from 'next/font/google';
+import Layout from '@/components/layout/Layout';
 
-// heading font
-const headingFont = Cormorant({
-  subsets: ["latin"],
-  variable: "--heading-font"
+// action font
+const actionFont = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600'],
 });
 // main font
-const mainFont = Nunito({
-  subsets: ["latin"],
-  variable: "--main-font"
-});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${headingFont.variable} ${mainFont.variable}`}>
-      <Component {...pageProps} />
-    </div>
+    <>
+      <style jsx global>{`
+          html {
+              --action-font-family: ${actionFont.style.fontFamily};
+          }
+      `}</style>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }

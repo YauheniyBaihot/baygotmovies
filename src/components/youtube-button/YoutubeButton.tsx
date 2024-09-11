@@ -25,10 +25,13 @@ export function YoutubeButton(props: YoutubeButtonProps) {
   return (
     <Root>
       <Trigger asChild>
-        <motion.button className={buttonStyles.button}
-                       whileHover={{ scale: 1.1 }}
-                       whileTap={{ scale: 0.9 }}
-        >{text}</motion.button>
+        <motion.button
+          className={buttonStyles.button}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {text}
+        </motion.button>
       </Trigger>
       <Portal>
         <Overlay className={styles.DialogOverlay} />
@@ -38,7 +41,8 @@ export function YoutubeButton(props: YoutubeButtonProps) {
               aria-label="Close"
               className={styles.DialogClose}
               whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}>
+              whileTap={{ scale: 0.9 }}
+            >
               <CloseIcon className={styles.DialogCloseIcon} />
             </motion.button>
           </Close>
@@ -48,7 +52,6 @@ export function YoutubeButton(props: YoutubeButtonProps) {
             allowFullScreen
           ></iframe>
         </Content>
-
       </Portal>
     </Root>
   );

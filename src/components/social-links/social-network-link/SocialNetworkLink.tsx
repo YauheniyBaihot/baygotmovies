@@ -1,9 +1,9 @@
-﻿import TelegramIcon from "@/icons/telegram.svg";
-import MessengerIcon from "@/icons/messenger.svg";
-import InstagramIcon from "@/icons/instagram.svg";
-import WhatsappIcon from "@/icons/whatsapp.svg";
-import styles from "./SocialNetworkLink.module.scss";
-import { motion } from "framer-motion";
+﻿import TelegramIcon from '@/icons/telegram.svg';
+import MessengerIcon from '@/icons/messenger.svg';
+import InstagramIcon from '@/icons/instagram.svg';
+import WhatsappIcon from '@/icons/whatsapp.svg';
+import styles from './SocialNetworkLink.module.scss';
+import { motion } from 'framer-motion';
 
 export type SocialNetworkLinkProps = {
   variant: string;
@@ -15,20 +15,20 @@ export function SocialNetworkLink(props: SocialNetworkLinkProps) {
 
   let icon;
   const iconProps = {
-    className: styles.icon
+    className: styles.icon,
   };
 
   switch (variant) {
-    case "messenger":
+    case 'messenger':
       icon = <MessengerIcon {...iconProps} />;
       break;
-    case "telegram":
+    case 'telegram':
       icon = <TelegramIcon {...iconProps} />;
       break;
-    case "instagram":
+    case 'instagram':
       icon = <InstagramIcon {...iconProps} />;
       break;
-    case "whatsapp":
+    case 'whatsapp':
       icon = <WhatsappIcon {...iconProps} />;
       break;
     default:
@@ -36,12 +36,17 @@ export function SocialNetworkLink(props: SocialNetworkLinkProps) {
   }
 
   return (
-    <motion.a href={path}
-              className={styles.link}
-              target="_blank"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}>
-      {icon}
-    </motion.a>
+    <li className={styles.listItem}>
+      <motion.a
+        href={path}
+        className={styles.link}
+        target="_blank"
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {icon}
+      </motion.a>
+    </li>
+
   );
 }

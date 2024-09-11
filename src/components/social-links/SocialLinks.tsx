@@ -1,20 +1,35 @@
 ﻿import {
   SocialNetworkLink,
-  SocialNetworkLinkProps
-} from "./social-network-link/SocialNetworkLink";
-import styles from "./SocialLinks.module.scss";
+} from './social-network-link/SocialNetworkLink';
+import styles from './SocialLinks.module.scss';
+import { FC } from 'react';
+import clsx from 'clsx';
 
-type SocialLinksProps = {
-  className?: string;
-  items: SocialNetworkLinkProps[];
-};
+export const SocialLinks: FC<{ className?: string }> = ({ className }) => {
+  const socialMedias = [
+    {
+      path: 'https://www.instagram.com/baygot_movies/',
+      variant: 'instagram',
+    },
+    {
+      path: 'https://t.me/fraubaygot',
+      variant: 'telegram',
+    },
+    {
+      path: 'https://m.me/baygotmovies',
+      variant: 'messenger',
+    },
+    {
+      path: 'https://wa.me/37068413646',
+      variant: 'whatsapp',
+    },
+  ];
 
-export function SocialLinks(props: SocialLinksProps) {
-  const { className, items } = props;
-
-  const links = items.map(item => (
+  const links = socialMedias.map(item => (
     <SocialNetworkLink key={item.variant} {...item} />
   ));
 
-  return <div className={[className, styles.items].join(" ")}>{links}</div>;
-}
+  return <ul className={clsx(styles.items, className)}>
+    {links}
+  </ul>;
+};

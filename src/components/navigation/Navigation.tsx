@@ -1,4 +1,4 @@
-﻿import styles from "./Navigation.module.scss";
+﻿import styles from './Navigation.module.scss';
 
 type NavigationProps = {
   items: {
@@ -16,7 +16,5 @@ export function Navigation(props: NavigationProps) {
     </a>
   ));
 
-  return (
-    <nav className={styles.navigation}>{navItems}</nav>
-  );
+  return <nav className={styles.navigation}>{navItems}</nav>;
 }

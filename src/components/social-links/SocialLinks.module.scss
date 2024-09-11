@@ -1,7 +1,10 @@
-﻿@import "@/styles/Variables.module.scss";
-
-.items {
+﻿.items {
   display: flex;
+  gap: 0.75em;
   align-items: center;
-  gap: 2*$base-spacing;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }

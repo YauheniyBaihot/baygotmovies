@@ -23,16 +23,15 @@
     &::before {
       float: left;
       padding-top: 56.25%;
-      content: "";
+      content: '';
     }
 
     &::after {
       display: block;
-      content: "";
+      content: '';
       clear: both;
     }
   }
-
 
   top: 50%;
   left: 50%;

@@ -13,9 +13,8 @@ export type WeddingsItemProps = {
 
 // TODO: open dialog with youtube video
 export function WeddingsItem(props: WeddingsItemProps) {
-  const { image, header, text, fullUrl, teaserUrl } =
-    props;
-  
+  const { image, header, text, fullUrl, teaserUrl } = props;
+
   // TODO: translate this;
   // TODO: translate languages / language based on items count
   const viewTeaserText = 'Watch teaser';
@@ -26,17 +25,24 @@ export function WeddingsItem(props: WeddingsItemProps) {
     <div className={styles.item}>
       <div className={styles.photo}>
         <div className={styles.photoContainer}>
-          <Image src={image} sizes={`(max-width: ${variables.mediaSm}) 100vw, ${variables.mediaSm}`} alt="couple photo"
-                 fill />
+          <Image
+            src={image}
+            sizes={`(max-width: ${variables.mediaSm}) 100vw, ${variables.mediaSm}`}
+            alt="couple photo"
+            fill
+          />
         </div>
-
       </div>
       <div className={styles.text}>
         <h4 className={styles.title}>{header}</h4>
         {text}
         <div className={styles.buttonsContainer}>
-          {teaserUrl ? <YoutubeButton videoId={teaserUrl} text={viewTeaserText} /> : null}
-          {fullUrl ? <YoutubeButton videoId={fullUrl} text={viewFullText} /> : null}
+          {teaserUrl ? (
+            <YoutubeButton videoId={teaserUrl} text={viewTeaserText} />
+          ) : null}
+          {fullUrl ? (
+            <YoutubeButton videoId={fullUrl} text={viewFullText} />
+          ) : null}
         </div>
       </div>
     </div>
