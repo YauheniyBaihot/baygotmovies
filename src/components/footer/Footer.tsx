@@ -1,67 +1,49 @@
-﻿import styles from './Footer.module.scss';
-import { FC } from 'react';
+﻿import {Box, Stack, Text} from '@mantine/core';
+import {useTranslation} from 'next-i18next';
+import Link from 'next/link';
+import React, {FC} from 'react';
 
-const Footer: FC = () => {
-  const socialMedias = [
-    {
-      path: 'https://www.instagram.com/baygot_movies/',
-      variant: 'instagram',
-    },
-    {
-      path: 'https://t.me/fraubaygot',
-      variant: 'telegram',
-    },
-    {
-      path: 'https://m.me/baygotmovies',
-      variant: 'messenger',
-    },
-    {
-      path: 'https://wa.me/37068413646',
-      variant: 'whatsapp',
-    },
-  ];
+import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
+import {EmailMe} from '@/components/email-me/EmailMe';
+import {LanguageSwitcher} from '@/components/language-switcher/LanguageSwitcher';
+import {SiteLogo} from '@/components/site-logo/SiteLogo';
+import {SocialLinks} from '@/components/social-links/SocialLinks';
+import {NavigationSection} from '@/models/site-block';
+
+import styles from './Footer.module.css';
+
+type FooterProps = {
+  sections: NavigationSection[];
+};
+const Footer: FC<FooterProps> = ({sections}) => {
+  const {t} = useTranslation(['common', 'data']);
+
+  const siteLinks = sections.map(({path, nameKey}) => (
+    <Link key={path} href={`/#${path}`} className={styles.link}>
+      {t(nameKey, {ns: 'data'})}
+    </Link>
+  ));
 
   return (
-    <footer className={styles.footer}>
+    <Box className={styles.footer} component="footer" c="main-grey">
+      <SiteLogo className={styles.logo} color="bright" />
 
-      <h1>Baygot Movies</h1>
-      <ul>
-        <li>
-          <a href="/#weddings">Weddings</a>
-        </li>
-        <li>
-          <a href="/#love-stories"> Love stories</a>
-        </li>
-        <li>
-          <a href="/#santorini">Santorini</a>
-        </li>
-        <li>
-          <a href="/#other-works"> Other works</a>
-        </li>
-      </ul>
+      <Stack>{siteLinks}</Stack>
 
-      <ul>
-        <li>
-          <a href="/about">About me</a>
-        </li>
-        <li>
-          EN | LT
-        </li>
-        <li>
-          <a href="/policy"> Policy confidential</a>
-        </li>
-      </ul>
+      <Stack>
+        <Link href={'/about'} className={styles.link}>
+          {t('aboutMe')}
+        </Link>
+        <LanguageSwitcher className={styles.link} />
+      </Stack>
 
-      <ul>
-        <li>Intstagram</li>
-        <li>Telegram</li>
-        <li>WhatsUp</li>
-        <li>Messenger</li>
-      </ul>
-
-
-      <button>Contact ME</button>
-    </footer>
+      <Stack className={styles.contacts}>
+        <Text>{t('contacts')}</Text>
+        <SocialLinks color="main-grey" />
+        <EmailMe />
+        <ContactMeButton />
+      </Stack>
+    </Box>
   );
 };
 

@@ -1,0 +1,178 @@
+{
+  "weddings": {
+    "name": "Weddings",
+    "title": "I capture the smiles, tears and profound love of you and your loved ones.",
+    "subTitle": "So you can relive those precious moments over and over again.",
+    "works": {
+      "taipGerai": {
+        "name": "Taip Gerai",
+        "title": "The story of Smiltė and Martynas filled with heartfelt vows, cherished family traditions, a vibrant celebration, and a special song composed just for them."
+      },
+      "rockNPink": {
+        "name": "Rock 'n' Pink",
+        "title": "The Wedding Story of a Young Couple Celebrating in Their Unique Style."
+      },
+      "blueEyedAngel": {
+        "name": "Blue-Eyed Angel",
+        "title": "This video holds immense value and sentiment for me, as I created it for my beloved sister."
+      },
+      "aciuTau": {
+        "name": "Ačiū tau",
+        "title": "We enjoyed a seaside photoshoot on an empty beach and the incredible evening filled with a warm family atmosphere, taste, care, and love!"
+      },
+      "loveIsEveryMoment": {
+        "name": "Love is Every Moment",
+        "title": "Irma and Miguel's international wedding, celebrated amidst the stunning landscapes of Lithuania. Their special day was marked by a heartfelt speech reminding them that love is present in every moment."
+      },
+      "twoAugustsTogether": {
+        "name": "Two Augusts Together",
+        "title": "Story of August and Augustina—destined to meet in August and celebrate their wedding in the same month."
+      },
+      "iChooseYouAgain": {
+        "name": "I choose you again",
+        "title": "They are the epitome of style and grace. I can watch their videos million of times and never get bored."
+      }
+    },
+    "moments": {
+      "taipGeraiFlowers": {
+        "name": "Taip Gerai"
+      },
+      "taipGeraiParty": {
+        "name": "Taip Gerai"
+      },
+      "taipGeraiDrink": {
+        "name": "Taip Gerai"
+      },
+      "rockNPink": {
+        "name": "Rock 'n' Pink"
+      },
+      "blueEyedAngel": {
+        "name": "Blue-Eyed Angel"
+      },
+      "loveIsEveryMoment": {
+        "name": "Love is Every Moment"
+      },
+      "twoAugustsTogether": {
+        "name": "Two Augusts Together"
+      },
+      "iChooseYouAgain": {
+        "name": "I choose you again"
+      },
+      "miroslavAndVioleta": {
+        "name": "Miroslav and Violeta"
+      },
+      "cherryManor": {
+        "name": "Cherry Manor"
+      }
+    }
+  },
+  "loveStory": {
+    "name": "Love Story",
+    "title": "You can share this heartfelt video with your guests at the wedding to narrate your story",
+    "subTitle": "You will be interviewing about how you met, the proposal and your first date on a separate day featuring some scenes of you enjoying your hobbies, the city or relaxing by the sea. ",
+    "works": {
+      "katyaAndRitis": {
+        "name": "Katya and Ritis",
+        "title": "A convertible, an empty beach, and just the two of them."
+      },
+      "miroslavAndVioleta": {
+        "name": "Miroslav and Violeta",
+        "title": "A story filmed at a secret location in Vilnius."
+      }
+    },
+    "moments": {
+      "aciuaTau": {
+        "name": "Ačiū tau"
+      },
+      "katyaAndRitis": {
+        "name": "Katya and Ritis"
+      }
+    }
+  },
+  "ceremonies": {
+    "name": "Ceremonies",
+    "title": "Watch the highlights of the ceremony held at the church or the cathedral.",
+    "works": {
+      "katyaAndRitis": {
+        "name": "Orthodox ceremony",
+        "title": "The wedding ceremony in St. Nicholas Church."
+      },
+      "miroslavAndVioleta": {
+        "name": "Catholic ceremony",
+        "title": "The wedding ceremony in Anyksciu Cathedral."
+      }
+    },
+    "moments": {
+      "miroslavAndVioleta": {
+        "name": "Catholic ceremony"
+      },
+      "katyaAndRitis": {
+        "name": "Orthodox ceremony"
+      }
+    }
+  },
+  "santorini": {
+    "name": "Santorini",
+    "works": {
+      "proposal": {
+        "name": "Proposal",
+        "title": "They watch the sunset and enjoy a romantic dinner in Santorini when suddenly he unexpectedly proposes. Then, they call their loved ones on the other side of the world to share the exciting news."
+      },
+      "goldenWedding": {
+        "name": "Golden Wedding",
+        "title": "She always dreamed of having a wedding in Santorini. Now, they’re finally here to celebrate their 50th anniversary with their daughter and childhood friends—a day when a cherished dream comes true."
+      },
+      "musicClip": {
+        "name": "Music Clip",
+        "title": "She wrote a song for summer parties and I filmed a clip in the most beautiful locations in Santorini."
+      },
+      "donkeyExperience": {
+        "name": "Donkey Experience",
+        "title": "An artistic video featuring the donkeys of Santorini."
+      },
+      "wedding": {
+        "name": "Wedding",
+        "title": "They came from Latvia to exchange vows surrounded by their children and to witness the most beautiful and famous sunset in the world."
+      }
+    },
+    "moments": {
+      "drone": {
+        "name": "Santorini Drone"
+      },
+      "musicClip": {
+        "name": "Music Clip"
+      },
+      "proposal": {
+        "name": "Proposal"
+      },
+      "wedding": {
+        "name": "Wedding"
+      }
+    }
+  },
+  "otherWorks": {
+    "name": "Other works",
+    "works": {
+      "corporateParty": {
+        "name": "Corporate Party",
+        "title": "Pre-New Year party of the BURGA company.",
+        "dateTitle": "Burga"
+      },
+      "event": {
+        "name": "Event",
+        "title": "Yoga on SUP boards filmed from a drone for YOGAKVETKA.",
+        "dateTitle": "Yoga"
+      }
+    },
+    "moments": {
+      "corporateParty": {
+        "name": "Corporate Party",
+        "title": "Burga"
+      },
+      "event": {
+        "name": "Event",
+        "title": "Yoga"
+      }
+    }
+  }
+}

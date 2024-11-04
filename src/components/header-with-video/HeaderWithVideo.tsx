@@ -1,143 +1,85 @@
-﻿import { LanguageSwitcher } from '@/components/language-switcher/LanguageSwitcher';
-import { MediaQueryVideo } from '@/components/media-query-video/MediaQueryVideo';
-import { Navigation } from '@/components/navigation/Navigation';
-import { SocialLinks } from '@/components/social-links/SocialLinks';
-import { useEffect, useState } from 'react';
-import styles from './HeaderWithVideo.module.scss';
-import { motion } from 'framer-motion';
-import CloseIcon from '@/icons/close-2.svg';
+﻿import {Title} from '@mantine/core';
+import {useElementSize} from '@mantine/hooks';
+import {Trans, useTranslation} from 'next-i18next';
+import {FC, useEffect, useMemo, useRef, useState} from 'react';
 
+import {AutoPlayVideo, AutoPlayVideoPropsRef} from '@/components/auto-play-video/AutoPlayVideo';
+import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
+import {NavigationMenu} from '@/components/navigation-menu/NavigationMenu';
+import {SiteLogo} from '@/components/site-logo/SiteLogo';
+import {SocialLinks} from '@/components/social-links/SocialLinks';
+import {NavigationSection} from '@/models/site-block';
 
-import Link from 'next/link';
-import { SiteLogo } from '@/components/site-logo/SiteLogo';
-import { ContactMeButton } from '@/components/contact-me-button/ContactMeButton';
-import { Menu } from '@/components/menu/Menu';
+import styles from './HeaderWithVideo.module.css';
 
+type HeaderProps = {
+  sections: NavigationSection[];
+};
 
-type HeaderProps = {};
+const mainVideoAspectRatios = {
+  '9-16': 9 / 16,
+  '1-1': 1,
+  '16-9': 16 / 9,
+};
+const availableHeights = [2160, 1080, 540, 270, 135];
 
+const videosSrcPrefix = process.env.NEXT_PUBLIC_VIDEOS_SRC_PREFIX ?? '';
 
-export function HeaderWithVideo(props: HeaderProps) {
-  // TODO: move to props
-  const navigationItems = [
-    {
-      link: '#about-me',
-      text: 'About me',
-    },
-    {
-      link: '#weddings',
-      text: 'Wedding',
-    },
-    {
-      link: '#moments',
-      text: 'Moments',
-    },
-    {
-      link: '#contact',
-      text: 'Contact',
-    },
-  ];
+const closestHeight = (height: number) => {
+  let index = 1;
 
-  const languages = [
-    {
-      name: 'Русский',
-      code: 'RU',
-    },
-    {
-      name: 'Litueviskai',
-      code: 'LT',
-    },
-    {
-      name: 'English',
-      code: 'EN',
-    },
-  ];
+  while (availableHeights[index] >= height && index < availableHeights.length - 1) index++;
 
-  const [currentLang, changeLanguage] = useState(languages[2]);
+  return availableHeights[index - 1];
+};
 
-  const resolutions = [3, 2, 1];
+const closestAspectRatio = (actualAspectRatio: number) => {
+  return Object.entries(mainVideoAspectRatios).reduce((prev, curr) => {
+    return Math.abs(curr[1] - actualAspectRatio) < Math.abs(prev[1] - actualAspectRatio) ? curr : prev;
+  })[0];
+};
 
-  const aspectRatios = [
-    {
-      value: '(max-aspect-ratio: 1/1)',
-      width: 3,
-      height: 4,
-      sizes: [1440, 1200, 960, 720],
-    },
-    {
-      value: 'screen',
-      width: 16,
-      height: 9,
-      sizes: [3840, 2560, 1920, 1280],
-    },
-  ];
+const calculateSrc = (source: string, width: number, height: number, actualHeight: number) => {
+  const actualAspectRatio = height === 0 ? 1 : width / height;
 
-  const sources = [];
+  return `${videosSrcPrefix}${source}_${closestAspectRatio(actualAspectRatio)}_${closestHeight(actualHeight)}.webm`;
+};
 
-  aspectRatios.forEach(aspectRatio => {
-    resolutions.forEach(resolution => {
-      const { sizes, value, width, height } = aspectRatio;
+const mainVideoSource = 'mainVideo/video';
 
-      for (let i = 0; i < sizes.length - 1; i++) {
-        const next = sizes[i + 1];
-        const current = sizes[i];
-        sources.push({
-          query: `${value} and (min-resolution: ${resolution}x) and (min-width: ${next / resolution}px)`,
-          path: '/main-video.mp4', //`https://d2lbltjxdb58wg.cloudfront.net/video/background/${current}x${(current / width) * height}.mp4`,
-        });
-      }
+export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
+  const {t} = useTranslation();
+  const {ref, height, width} = useElementSize();
+  const [src, setSrc] = useState(calculateSrc(mainVideoSource, width, height, height));
+  const autoVideoRef = useRef<AutoPlayVideoPropsRef>(null);
 
-      const current = sizes[sizes.length - 1];
+  useEffect(() => {
+    const actualContainerHeight = height * window.devicePixelRatio;
+    setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight));
+  }, [height, width]);
 
-      sources.push({
-        query: `${value} and (min-resolution: ${resolution}x)`,
-        path: '/main-video.mp4',//`https://d2lbltjxdb58wg.cloudfront.net/video/background/${current}x${(current / width) * height}.mp4`,
-      });
-    });
-  });
-
-  sources.push({
-    query: ``,
-    path: '/main-video.mp4',//`https://d2lbltjxdb58wg.cloudfront.net/video/background/1280x720.mp4`,
-  });
-
-  // const sources = [
-  //   {
-  //     query: `screen and (max-width: 720px)`,
-  //     path: "https://d2lbltjxdb58wg.cloudfront.net/video/background/test.mp4"
-  //   },
-  //   {
-  //     query: ``,
-  //     path: "https://d2lbltjxdb58wg.cloudfront.net/video/background/2048x1152.mp4"
-  //   }
-  // ];
-
-
-  const tryPlayVideo = () => {
-    const video = document.querySelector('video') as HTMLVideoElement;
-    if (video && video.paused) {
-      void video.play();
-    }
+  const playVideo = () => {
+    autoVideoRef.current?.play();
   };
 
-  return (
-    <header className={styles.header} id="home" onClick={tryPlayVideo}>
-      <MediaQueryVideo sources={sources} className={styles.backgroundVideo} />
+  return useMemo(() => {
+    return (
+      <header ref={ref} className={styles.header} onClick={playVideo}>
+        <AutoPlayVideo ref={autoVideoRef} className={styles.backgroundVideo} src={src} loop muted playsInline preload="auto" />
 
-      <SiteLogo className={styles.logo} />
+        <SiteLogo color="main-white" className={styles.logo} />
 
-      <SocialLinks className={styles.contacts} />
+        <SocialLinks className={styles.contacts} color="main-white" />
 
-      <ContactMeButton className={styles.contactMe} variant="white" />
+        <ContactMeButton className={styles.contactMe} variant="main-inversed" />
 
+        <NavigationMenu className={styles.menu} sections={sections} />
 
-      <Menu className={styles.menu} itemsClassName={styles.menuItem} />
-
-      <h1 className={styles.title}>
-        A heartwarming Wedding movie
-        <br />
-        about You and Your loved ones
-      </h1>
-    </header>
-  );
-}
+        <Title className={styles.title} c="main-white">
+          <Trans t={t} i18nKey="header.title" components={{1: <br />}} />
+        </Title>
+      </header>
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t, sections, src]);
+};

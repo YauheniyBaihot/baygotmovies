@@ -1,11 +1,9 @@
-﻿import {
-  SocialNetworkLink,
-} from './social-network-link/SocialNetworkLink';
-import styles from './SocialLinks.module.scss';
-import { FC } from 'react';
-import clsx from 'clsx';
+﻿import {Group} from '@mantine/core';
+import {FC} from 'react';
 
-export const SocialLinks: FC<{ className?: string }> = ({ className }) => {
+import {SocialNetworkLink} from './social-network-link/SocialNetworkLink';
+
+export const SocialLinks: FC<{className?: string; color?: string}> = ({className, color}) => {
   const socialMedias = [
     {
       path: 'https://www.instagram.com/baygot_movies/',
@@ -25,11 +23,11 @@ export const SocialLinks: FC<{ className?: string }> = ({ className }) => {
     },
   ];
 
-  const links = socialMedias.map(item => (
-    <SocialNetworkLink key={item.variant} {...item} />
-  ));
+  const links = socialMedias.map(item => <SocialNetworkLink key={item.variant} {...item} color={color} />);
 
-  return <ul className={clsx(styles.items, className)}>
-    {links}
-  </ul>;
+  return (
+    <Group className={className} wrap="nowrap" gap="xs">
+      {links}
+    </Group>
+  );
 };

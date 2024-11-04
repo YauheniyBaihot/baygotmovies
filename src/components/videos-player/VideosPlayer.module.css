@@ -1,0 +1,18 @@
+.content {
+  overflow: hidden;
+}
+
+.container {
+  display: grid;
+  grid-template: 1fr auto/ auto;
+  gap: var(--mantine-spacing-xl);
+
+  height: var(--app-block-height);
+  min-height: var(--app-block-min-height);
+  max-height: var(--app-block-max-height);
+  padding: var(--app-padding-y) 0;
+}
+
+.controlsContainer {
+  padding: 0 var(--app-padding-x);
+}

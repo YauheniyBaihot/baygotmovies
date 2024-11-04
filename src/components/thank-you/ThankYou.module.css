@@ -1,0 +1,25 @@
+.pageContainer {
+  padding: var(--app-padding-y) var(--app-padding-x);
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--mantine-spacing-xl);
+  justify-content: space-between;
+
+  > * {
+    flex: 0 1 auto;
+  }
+
+  @media (max-width: $mantine-breakpoint-md) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.secondSection {
+  @media (max-width: $mantine-breakpoint-md) {
+    align-self: end;
+  }
+}

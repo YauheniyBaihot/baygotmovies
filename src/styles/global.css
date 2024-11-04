@@ -1,0 +1,41 @@
+:root {
+  scroll-behavior: smooth;
+  min-width: 20rem;
+}
+
+@layer mantine, overide-mantine;
+
+@layer overide-mantine {
+  :root {
+    --app-button-height: 2rem;
+    --app-padding-x: 5rem;
+    --app-padding-y: 2rem;
+    --app-block-height: 100vh;
+    --app-block-min-height: 40rem;
+    --app-block-max-height: 220vw;
+    --app-play-button-size: 10rem;
+    --mantine-color-placeholder: var(--mantine-color-main-grey-0);
+
+    @media (max-width: $mantine-breakpoint-xs) {
+      --mantine-h1-font-size: 1.375rem;
+      --mantine-h3-font-size: 1rem;
+      --mantine-h4-font-size: 0.9375rem;
+      --mantine-font-size-md: 0.875rem;
+      --app-button-height: 2rem;
+      --app-padding-x: 1rem;
+      --app-padding-y: 1rem;
+      --app-play-button-size: 5rem;
+    }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      --mantine-h1-font-size: 3.5rem;
+      --mantine-h3-font-size: 2rem;
+      --mantine-h4-font-size: 1.875rem;
+      --mantine-font-size-md: 1.5rem;
+      --app-button-height: 2.5rem;
+      --app-padding-x: 10rem;
+      --app-padding-y: 4rem;
+      --app-play-button-size: 15rem;
+    }
+  }
+}
