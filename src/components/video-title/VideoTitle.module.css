@@ -1,0 +1,12 @@
+.block {
+  overflow: hidden;
+  display: flex;
+  padding: var(--mantine-spacing-md);
+}
+
+.innerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-xs);
+  max-width: 100%;
+}

@@ -1,68 +1,50 @@
-﻿import { InstagramPosts } from "@/components/instagram-posts/InstagranPosts";
-import { Navigation } from "@/components/navigation/Navigation";
-import { SocialLinks } from "@/components/social-links/SocialLinks";
-import styles from "./Footer.module.scss";
+﻿import {Box, Stack, Text} from '@mantine/core';
+import {useTranslation} from 'next-i18next';
+import Link from 'next/link';
+import React, {FC} from 'react';
 
-export function Footer() {
+import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
+import {EmailMe} from '@/components/email-me/EmailMe';
+import {LanguageSwitcher} from '@/components/language-switcher/LanguageSwitcher';
+import {SiteLogo} from '@/components/site-logo/SiteLogo';
+import {SocialLinks} from '@/components/social-links/SocialLinks';
+import {NavigationSection} from '@/models/site-block';
 
-  const socialMedias = [
-    {
-      path: "https://www.instagram.com/baygot_movies/",
-      variant: "instagram"
-    },
-    {
-      path: "https://t.me/fraubaygot",
-      variant: "telegram"
-    },
-    {
-      path: "https://m.me/baygotmovies",
-      variant: "messenger"
-    },
-    {
-      path: "https://wa.me/37068413646",
-      variant: "whatsapp"
-    }
-  ];
+import styles from './Footer.module.css';
+
+type FooterProps = {
+  sections: NavigationSection[];
+};
+const Footer: FC<FooterProps> = ({sections}) => {
+  const {t} = useTranslation(['common', 'data']);
+
+  const siteLinks = sections.map(({path, nameKey}) => (
+    <Link key={path} href={`/#${path}`} className={styles.link}>
+      {t(nameKey, {ns: 'data'})}
+    </Link>
+  ));
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.items}>
-        <div className={styles.item}>
-          <InstagramPosts items={[]} />
-        </div>
-        <div className={styles.item}>
-          <h3 className={styles.title}>BAYGOTMOVIES</h3>
-          <p>
-            Based in Lithuania, Vilnius.
-            <br />
-            Available Worldwide
-          </p>
-          <p>
-            I speak English, Russian, and German, and a little bit of Lithuanian.
-          </p>
-          <div className={styles.socialLinks}>
-            {/*<SocialLinks items={socialMedias} />*/}
-          </div>
+    <Box className={styles.footer} component="footer" c="main-grey">
+      <SiteLogo className={styles.logo} color="bright" />
 
-        </div>
-        <div className={styles.item} id="contact">
-          <h3 className={styles.pricing}>LOOKING FOR PRICING?</h3>
-          <p>Get in touch with me</p>
-          <a className={styles.email} href="mailto:alena.parhamovich@gmail.com" target="_blank">alena.parhamovich@gmail.com</a>
-          <div className={styles.socialLinks}>
-            <SocialLinks items={socialMedias} />
-          </div>
-          {/*<button className={styles.button}>Contact me</button>*/}
-          <p>
-            I will get back to you within 24 hours
-            <br />
-            and send you my proposal
-          </p>
-        </div>
-      </div>
-      <div className={styles.cc}>
-        © 2024 BAYGOTMOVIES, Site by Yauheniy Baihot
-      </div>
-    </footer>
+      <Stack>{siteLinks}</Stack>
+
+      <Stack>
+        <Link href={'/about'} className={styles.link}>
+          {t('aboutMe')}
+        </Link>
+        <LanguageSwitcher className={styles.link} />
+      </Stack>
+
+      <Stack className={styles.contacts}>
+        <Text>{t('contacts')}</Text>
+        <SocialLinks color="main-grey" />
+        <EmailMe />
+        <ContactMeButton />
+      </Stack>
+    </Box>
   );
-}
+};
+
+export default Footer;

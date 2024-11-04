@@ -1,7 +1,7 @@
-import { ImageLoader } from "next/image";
+import {ImageLoader} from 'next/image';
 
-const awsS3optimizedImageLoader: ImageLoader = ({ src, width, quality }) => {
-  const extenstionIndex = src.lastIndexOf(".");
+const awsS3optimizedImageLoader: ImageLoader = ({src, width}) => {
+  const extenstionIndex = src.lastIndexOf('.');
 
   let newPath = src;
 
@@ -9,7 +9,7 @@ const awsS3optimizedImageLoader: ImageLoader = ({ src, width, quality }) => {
     newPath = src.substring(0, extenstionIndex) + `-${width}` + src.substring(extenstionIndex, src.length);
   }
 
-  return "https://d2lbltjxdb58wg.cloudfront.net/" + newPath;
+  return 'https://d2lbltjxdb58wg.cloudfront.net/' + newPath;
 };
 
 export default awsS3optimizedImageLoader;

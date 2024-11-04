@@ -1,0 +1,59 @@
+.innerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 16/9;
+  max-width: 100%;
+  height: 100%;
+}
+
+.contentBox {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 16/9;
+  width: 100%;
+
+  iframe {
+    position: absolute;
+  }
+}
+
+.container {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &[data-vertical="true"] {
+    .innerContainer {
+      aspect-ratio: 9/16;
+    }
+
+    .contentBox {
+      aspect-ratio: 9/16;
+    }
+  }
+
+  @media (max-width: $mantine-breakpoint-md) {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+.container + .container {
+  justify-content: start;
+}
+
+.container:has(~ .container) {
+  justify-content: end;
+}
+
+.previewImage {
+  object-fit: contain;
+}

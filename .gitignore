@@ -2,6 +2,9 @@
 
 /optimized-media
 /public/optimized-media
+/public/media
+/public/v1
+/public/version1
 
 .idea
 

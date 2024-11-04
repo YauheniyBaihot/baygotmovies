@@ -1,0 +1,37 @@
+﻿.block {
+  display: grid;
+  grid-template: 'title img main' auto/ 4fr 3fr 5fr;
+  gap: var(--mantine-spacing-xl);
+  padding: var(--app-padding-y) var(--app-padding-x);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    grid-template:
+      'title title' auto
+      'empty img' auto
+      'main main' auto
+      / 1fr 1fr;
+  }
+}
+
+.title {
+  grid-area: title;
+}
+
+.mainText {
+  grid-area: main;
+  place-self: end;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    margin-left: 10%;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  grid-area: img;
+  aspect-ratio: 3/4;
+}
+
+.image {
+  object-fit: cover;
+}
