@@ -7,7 +7,6 @@ import {MainPageBlock} from '@/components/main-page-block/MainPageBlock';
 import {siteBlocks} from '@/data';
 import {SiteBlock} from '@/models/site-block';
 import {shuffle} from '@/utils/array-utils';
-import { Button } from '@mantine/core';
 
 type HomeProps = {
   blocks: SiteBlock[];

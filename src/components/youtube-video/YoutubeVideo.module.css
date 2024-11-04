@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
 
-  &[data-vertical="true"] {
+  &[data-vertical='true'] {
     .innerContainer {
       aspect-ratio: 9/16;
     }
