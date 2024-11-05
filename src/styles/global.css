@@ -7,7 +7,7 @@
 
 @layer overide-mantine {
   :root {
-    --app-button-height: 2rem;
+    --app-button-height: 2.25rem;
     --app-padding-x: 5rem;
     --app-padding-y: 2rem;
     --app-block-height: 100vh;
@@ -33,7 +33,7 @@
       --mantine-h3-font-size: 2rem;
       --mantine-h4-font-size: 1.875rem;
       --mantine-font-size-md: 1.5rem;
-      --app-button-height: 2.5rem;
+      --app-button-height: 3rem;
       --app-padding-x: 10rem;
       --app-padding-y: 4rem;
       --app-play-button-size: 15rem;

@@ -1,14 +1,10 @@
 .container {
   position: relative;
-  margin: var(--app-padding-y) var(--app-padding-x) 0;
+  margin: calc(var(--app-padding-y) * 3) var(--app-padding-x) 0;
 }
 
 .videoBlock {
-  margin-top: var(--app-padding-y);
-}
-
-.videoBlock:not(:has(~ .videoBlock)) {
-  position: relative;
+  margin-top: calc(var(--app-padding-y) * 1);
 }
 
 .heading {
@@ -46,6 +42,6 @@
     bottom: initial !important;
     left: initial !important;
 
-    padding: var(--mantine-spacing-xl) 0 0;
+    padding: var(--app-padding-y) 0 0;
   }
 }

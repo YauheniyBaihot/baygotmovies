@@ -6,10 +6,10 @@
   display: grid;
   grid-template: 1fr auto/ auto;
 
-  height: calc(var(--app-block-height) - var(--app-padding-y));
+  height: calc(var(--app-block-height) - 3 * var(--app-padding-y));
   min-height: var(--app-block-min-height);
   max-height: var(--app-block-max-height);
-  padding-top: var(--app-padding-y);
+  padding-top: calc(3 * var(--app-padding-y));
 }
 
 .controlsContainer {
