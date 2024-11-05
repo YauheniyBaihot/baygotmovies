@@ -9,10 +9,10 @@ export const SocialLinks: FC<{className?: string; color?: string}> = ({className
       path: 'https://www.instagram.com/baygot_movies/',
       variant: 'instagram',
     },
-    {
-      path: 'https://t.me/fraubaygot',
-      variant: 'telegram',
-    },
+    // {
+    //   path: 'https://t.me/fraubaygot',
+    //   variant: 'telegram',
+    // },
     {
       path: 'https://m.me/baygotmovies',
       variant: 'messenger',

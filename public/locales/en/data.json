@@ -3,6 +3,7 @@
     "name": "Weddings",
     "title": "I capture the smiles, tears and profound love of you and your loved ones.",
     "subTitle": "So you can relive those precious moments over and over again.",
+    "button": "Watch wedding movies",
     "works": {
       "taipGerai": {
         "name": "Taip Gerai",
@@ -70,6 +71,7 @@
     "name": "Love Story",
     "title": "You can share this heartfelt video with your guests at the wedding to narrate your story",
     "subTitle": "You will be interviewing about how you met, the proposal and your first date on a separate day featuring some scenes of you enjoying your hobbies, the city or relaxing by the sea. ",
+    "button": "Watch full videos",
     "works": {
       "katyaAndRitis": {
         "name": "Katya and Ritis",
@@ -92,6 +94,7 @@
   "ceremonies": {
     "name": "Ceremonies",
     "title": "Watch the highlights of the ceremony held at the church or the cathedral.",
+    "button": "Watch full videos",
     "works": {
       "katyaAndRitis": {
         "name": "Orthodox ceremony",
@@ -113,6 +116,7 @@
   },
   "santorini": {
     "name": "Santorini",
+    "button": "Watch full videos",
     "works": {
       "proposal": {
         "name": "Proposal",
@@ -152,6 +156,7 @@
   },
   "otherWorks": {
     "name": "Other works",
+    "button": "Watch full videos",
     "works": {
       "corporateParty": {
         "name": "Corporate Party",

@@ -7,7 +7,7 @@ import type {AppProps} from 'next/app';
 import Head from 'next/head';
 import {FC} from 'react';
 
-import Layout from '@/components/layout/Layout';
+import {Layout} from '@/components/layout/Layout';
 import {siteBlocks} from '@/data';
 import '@/styles/global.css';
 import {theme} from '@/styles/theme';

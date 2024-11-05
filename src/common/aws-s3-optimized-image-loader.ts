@@ -9,7 +9,7 @@ const awsS3optimizedImageLoader: ImageLoader = ({src, width}) => {
     newPath = src.substring(0, extenstionIndex) + `-${width}` + src.substring(extenstionIndex, src.length);
   }
 
-  return 'https://d2lbltjxdb58wg.cloudfront.net/' + newPath;
+  return new URL(newPath, 'https://d2lbltjxdb58wg.cloudfront.net/').href;
 };
 
 export default awsS3optimizedImageLoader;

@@ -27,7 +27,7 @@
       --app-play-button-size: 5rem;
     }
 
-    @media (min-width: $mantine-breakpoint-xl) {
+    @media (min-width: $mantine-breakpoint-xxl) {
       --mantine-h1-font-size: 3.5rem;
       --mantine-h3-font-size: 2rem;
       --mantine-h4-font-size: 1.875rem;

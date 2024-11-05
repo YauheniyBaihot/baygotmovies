@@ -18,9 +18,9 @@ const MAX_MOMENTS_FOR_BLOCK = 8;
 const BLOCK_CONFIG = [[1], [2], [3], [1, 2, 1], [2, 2, 1], [2, 3, 1], [2, 3, 2], [2, 3, 3]];
 
 export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
-  const {path, titleKey, subTitleKey, nameKey, works, moments} = block;
+  const {path, titleKey, subTitleKey, nameKey, works, moments, watchButtonKey} = block;
   const [playerOpened, {toggle: togglePlayer}] = useDisclosure(false);
-  const {t} = useTranslation(['data', 'common']);
+  const {t} = useTranslation('data');
   const [buttonPosition, setButtonPosition] = useState<'left' | 'right'>('left');
 
   const momentsMemo = useMemo(() => {
@@ -63,7 +63,7 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
           {blocks}
 
           <Button className={styles.moreVideosButton} onClick={togglePlayer} data-position={buttonPosition}>
-            {t('common:seeMoreVideos')}
+            {t(watchButtonKey)}
           </Button>
         </div>
       </div>

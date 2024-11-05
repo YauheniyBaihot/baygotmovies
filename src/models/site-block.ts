@@ -37,4 +37,5 @@ export type SiteBlock = NavigationSection & {
   momentsToShowCount: number;
   titleKey?: ParseKeys<'data'>;
   subTitleKey?: ParseKeys<'data'>;
+  watchButtonKey: ParseKeys<'data'>;
 };

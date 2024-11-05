@@ -27,20 +27,10 @@ const AutoPlayVideoInternal: ForwardRefRenderFunction<AutoPlayVideoPropsRef, Aut
   );
 
   useEffect(() => {
-    if (entry?.isIntersecting && elementRef.current) {
-      if (elementRef.current.paused) {
-        elementRef.current
-          .play()
-          .catch(reason => {
-            console.log('Error playing video');
-            console.log(reason);
-          })
-          .finally(() => {
-            if (!entry?.isIntersecting && elementRef.current) elementRef.current.pause();
-          });
-      }
-    } else if (elementRef.current) {
-      elementRef.current.pause();
+    if (entry?.isIntersecting) {
+      elementRef.current?.play().catch(() => {});
+    } else {
+      elementRef.current?.pause();
     }
   }, [entry]);
 
@@ -56,5 +46,4 @@ const AutoPlayVideoInternal: ForwardRefRenderFunction<AutoPlayVideoPropsRef, Aut
     );
   }, [intersectionRef, props]);
 };
-
 export const AutoPlayVideo = forwardRef<AutoPlayVideoPropsRef, AutoPlayVideoProps>(AutoPlayVideoInternal);

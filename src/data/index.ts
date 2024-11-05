@@ -5,6 +5,7 @@ export const siteBlocks: SiteBlock[] = [
     nameKey: 'weddings.name',
     titleKey: 'weddings.title',
     subTitleKey: 'weddings.subTitle',
+    watchButtonKey: 'weddings.button',
     path: 'weddings',
     works: [
       {
@@ -16,11 +17,11 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/weddings/taipGerai-1.jpg',
+            preview: '/version1/works/weddings/taipGerai-1.jpg',
             id: 'daqGndKdKzs',
           },
           {
-            preview: 'version1/works/weddings/taipGerai-2.jpg',
+            preview: '/version1/works/weddings/taipGerai-2.jpg',
             id: 'oVwvIgIyp30',
           },
         ],
@@ -34,11 +35,11 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/weddings/rockNPink-1.jpg',
+            preview: '/version1/works/weddings/rockNPink-1.jpg',
             id: 'w8m8z73Ljxc',
           },
           {
-            preview: 'version1/works/weddings/rockNPink-2.jpg',
+            preview: '/version1/works/weddings/rockNPink-2.jpg',
             id: 'tvtQz164F9s',
           },
         ],
@@ -52,7 +53,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/weddings/blueEyedAngel.jpg',
+            preview: '/version1/works/weddings/blueEyedAngel.jpg',
             id: '0eD4OtwCtWk',
           },
         ],
@@ -66,7 +67,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/weddings/aciuTau.jpg',
+            preview: '/version1/works/weddings/aciuTau.jpg',
             id: 'ioQmE_ihkRU',
           },
         ],
@@ -80,11 +81,11 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/weddings/loveIsEveryMoment-1.jpg',
+            preview: '/version1/works/weddings/loveIsEveryMoment-1.jpg',
             id: 'sirEQ8GICtc',
           },
           {
-            preview: 'version1/works/weddings/loveIsEveryMoment-2.jpg',
+            preview: '/version1/works/weddings/loveIsEveryMoment-2.jpg',
             id: 'CvrW3vt_mII',
           },
         ],
@@ -98,7 +99,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/weddings/twoAugustsTogether.jpg',
+            preview: '/version1/works/weddings/twoAugustsTogether.jpg',
             id: '9rxtaob6P9c',
           },
         ],
@@ -112,11 +113,11 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/weddings/iChooseYouAgain-1.jpg',
+            preview: '/version1/works/weddings/iChooseYouAgain-1.jpg',
             id: 'S_fL4hSvtE4',
           },
           {
-            preview: 'version1/works/weddings/iChooseYouAgain-2.jpg',
+            preview: '/version1/works/weddings/iChooseYouAgain-2.jpg',
             id: 'Ew0pjNmzt_s',
           },
         ],
@@ -210,6 +211,7 @@ export const siteBlocks: SiteBlock[] = [
     nameKey: 'loveStory.name',
     titleKey: 'loveStory.title',
     subTitleKey: 'loveStory.subTitle',
+    watchButtonKey: 'loveStory.button',
     path: 'loveStory',
     works: [
       {
@@ -221,7 +223,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/loveStory/katyaAndRitis.jpg',
+            preview: '/version1/works/loveStory/katyaAndRitis.jpg',
             id: 'H9CLDf6LGm0',
           },
         ],
@@ -235,7 +237,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/loveStory/miroslavAndVioleta.jpg',
+            preview: '/version1/works/loveStory/miroslavAndVioleta.jpg',
             id: 'H00mSwWkirM',
           },
         ],
@@ -264,6 +266,7 @@ export const siteBlocks: SiteBlock[] = [
   {
     nameKey: 'santorini.name',
     path: 'santorini',
+    watchButtonKey: 'santorini.button',
     works: [
       {
         nameKey: 'santorini.works.proposal.name',
@@ -274,7 +277,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/santorini/proposal.jpg',
+            preview: '/version1/works/santorini/proposal.jpg',
             id: 'wEvrn2vTfjw',
           },
         ],
@@ -288,7 +291,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/santorini/goldenWedding.jpg',
+            preview: '/version1/works/santorini/goldenWedding.jpg',
             id: 's-Ib4mFlgI0',
           },
         ],
@@ -302,7 +305,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/santorini/musicClip.jpg',
+            preview: '/version1/works/santorini/musicClip.jpg',
             id: '1VQZ-1WFoGM',
           },
         ],
@@ -316,7 +319,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: 'version1/works/santorini/donkeyExperience.jpg',
+            preview: '/version1/works/santorini/donkeyExperience.jpg',
             id: 'EMD2_PQ9zCc',
             vertical: true,
           },
@@ -362,6 +365,7 @@ export const siteBlocks: SiteBlock[] = [
   {
     nameKey: 'otherWorks.name',
     path: 'otherWorks',
+    watchButtonKey: 'otherWorks.button',
     works: [
       {
         nameKey: 'otherWorks.works.corporateParty.name',
@@ -369,7 +373,7 @@ export const siteBlocks: SiteBlock[] = [
         dateTitle: 'otherWorks.works.corporateParty.dateTitle',
         youtubeIds: [
           {
-            preview: 'version1/works/otherWorks/corporateParty.jpg',
+            preview: '/version1/works/otherWorks/corporateParty.jpg',
             id: 'Qd_17NJzh4M',
           },
         ],
@@ -380,7 +384,7 @@ export const siteBlocks: SiteBlock[] = [
         dateTitle: 'otherWorks.works.event.dateTitle',
         youtubeIds: [
           {
-            preview: 'version1/works/otherWorks/event.jpg',
+            preview: '/version1/works/otherWorks/event.jpg',
             id: 'CfvqvDpW99k',
             vertical: true,
           },

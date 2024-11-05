@@ -1,5 +1,6 @@
 .block {
-  padding: var(--app-padding-y) var(--app-padding-x);
+  margin: var(--app-padding-y) 0;
+  padding: 0 var(--app-padding-x);
 }
 
 .heading {

@@ -7,10 +7,5 @@
 .innerBlock {
   display: flex;
   flex-direction: column;
-  gap: var(--mantine-spacing-xs);
   max-width: 100%;
-
-  @media (max-width: $mantine-breakpoint-md) {
-    gap: 0;
-  }
 }

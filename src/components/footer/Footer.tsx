@@ -1,7 +1,7 @@
 ﻿import {Box, Stack, Text} from '@mantine/core';
 import {useTranslation} from 'next-i18next';
 import Link from 'next/link';
-import React, {FC} from 'react';
+import React, {ForwardRefRenderFunction, forwardRef} from 'react';
 
 import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
 import {EmailMe} from '@/components/email-me/EmailMe';
@@ -15,7 +15,7 @@ import styles from './Footer.module.css';
 type FooterProps = {
   sections: NavigationSection[];
 };
-const Footer: FC<FooterProps> = ({sections}) => {
+const FooterInternal: ForwardRefRenderFunction<HTMLDivElement, FooterProps> = ({sections}, ref) => {
   const {t} = useTranslation(['common', 'data']);
 
   const siteLinks = sections.map(({path, nameKey}) => (
@@ -25,7 +25,7 @@ const Footer: FC<FooterProps> = ({sections}) => {
   ));
 
   return (
-    <Box className={styles.footer} component="footer" c="main-grey">
+    <Box ref={ref} className={styles.footer} component="footer" c="main-grey">
       <SiteLogo className={styles.logo} color="bright" />
 
       <Stack>{siteLinks}</Stack>
@@ -47,4 +47,4 @@ const Footer: FC<FooterProps> = ({sections}) => {
   );
 };
 
-export default Footer;
+export const Footer = forwardRef(FooterInternal);
