@@ -13,35 +13,19 @@
 
 .moreVideosButton {
   position: absolute;
-  z-index: var(--app-over-affix-index);
   right: initial;
-  bottom: calc(var(--mantine-spacing-xl) * -1);
-
-  align-self: flex-end;
-
-  padding: var(--mantine-spacing-xl);
-
-  background: var(--mantine-color-body);
-
-  button {
-    width: 100%;
-  }
+  bottom: 0;
 
   &[data-position='left'] {
-    left: calc(var(--mantine-spacing-xl) * -1);
+    left: 0;
   }
 
   &[data-position='right'] {
-    right: calc(var(--mantine-spacing-xl) * -1);
+    right: 0;
   }
 
   @media (max-width: $mantine-breakpoint-md) {
-    position: relative;
-    top: initial !important;
-    right: initial !important;
-    bottom: initial !important;
-    left: initial !important;
-
-    padding: var(--app-padding-y) 0 0;
+    position: initial;
+    width: 100%;
   }
 }

@@ -14,7 +14,6 @@
     --app-block-min-height: 40rem;
     --app-block-max-height: 220vw;
     --app-play-button-size: 10rem;
-    --app-over-affix-index: 300;
     --mantine-color-placeholder: var(--mantine-color-main-grey-0);
 
     @media (max-width: $mantine-breakpoint-xs) {

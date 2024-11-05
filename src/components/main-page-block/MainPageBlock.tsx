@@ -61,9 +61,9 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
         <Title className={styles.heading}>{t(nameKey)}</Title>
         {blocks}
 
-        <div className={styles.moreVideosButton} data-position={buttonPosition}>
-          <Button onClick={togglePlayer}>{t(watchButtonKey)}</Button>
-        </div>
+        <Button className={styles.moreVideosButton} data-position={buttonPosition} onClick={togglePlayer}>
+          {t(watchButtonKey)}
+        </Button>
       </div>
       <VideosPlayer blockNameKey={nameKey} onClose={togglePlayer} opened={playerOpened} videos={works} />
     </>

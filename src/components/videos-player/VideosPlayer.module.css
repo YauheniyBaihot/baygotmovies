@@ -6,15 +6,12 @@
   display: grid;
   grid-template: 1fr auto/ auto;
 
-  height: calc(var(--app-block-height) - 3 * var(--app-padding-y));
+  height: calc(var(--app-block-height) - (3 * var(--app-padding-y)));
   min-height: var(--app-block-min-height);
   max-height: var(--app-block-max-height);
   padding-top: calc(3 * var(--app-padding-y));
 }
 
 .controlsContainer {
-  position: relative;
-  z-index: var(--app-over-affix-index);
   padding: var(--mantine-spacing-xl) var(--app-padding-x) 0;
-  background: var(--mantine-color-body);
 }
