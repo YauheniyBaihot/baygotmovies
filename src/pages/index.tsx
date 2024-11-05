@@ -42,7 +42,7 @@ const Home: FC<HomeProps> = ({blocks}) => {
   return (
     <>
       <HeaderWithVideo sections={blocks} />
-      {blocksElements}
+      <div>{blocksElements}</div>
     </>
   );
 };

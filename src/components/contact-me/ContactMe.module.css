@@ -1,5 +1,6 @@
 .pageContainer {
-  padding: var(--app-padding-y) var(--app-padding-x);
+  margin-top: var(--app-padding-y);
+  padding: 0 var(--app-padding-x);
 }
 
 .container {

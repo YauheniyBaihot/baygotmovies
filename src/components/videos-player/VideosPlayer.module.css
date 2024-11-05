@@ -5,14 +5,16 @@
 .container {
   display: grid;
   grid-template: 1fr auto/ auto;
-  gap: var(--mantine-spacing-xl);
 
-  height: var(--app-block-height);
+  height: calc(var(--app-block-height) - var(--app-padding-y));
   min-height: var(--app-block-min-height);
   max-height: var(--app-block-max-height);
-  padding: var(--app-padding-y) 0;
+  padding-top: var(--app-padding-y);
 }
 
 .controlsContainer {
-  padding: 0 var(--app-padding-x);
+  position: relative;
+  z-index: var(--app-over-affix-index);
+  padding: var(--mantine-spacing-xl) var(--app-padding-x) 0;
+  background: var(--mantine-color-body);
 }

@@ -6,7 +6,7 @@
   gap: var(--mantine-spacing-lg);
   justify-content: space-between;
 
-  padding: 0 var(--app-padding-x) var(--app-padding-y) var(--app-padding-x);
+  padding: var(--app-padding-y) var(--app-padding-x);
 
   @media (max-width: $mantine-breakpoint-md) {
     grid-template-columns: auto auto;

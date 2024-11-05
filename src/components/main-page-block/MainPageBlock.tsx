@@ -51,20 +51,18 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
         setButtonPosition(buttonPosition);
       }
 
-      return isTitleBlock ? <VideoBlock key={index} moments={w} titleKey={titleKey} subTitleKey={subTitleKey} /> : <VideoBlock key={index} moments={w} />;
+      return isTitleBlock ? <VideoBlock className={styles.videoBlock} key={index} moments={w} titleKey={titleKey} subTitleKey={subTitleKey} /> : <VideoBlock className={styles.videoBlock} key={index} moments={w} />;
     });
   }, [subTitleKey, titleKey, momentsMemo]);
 
   return (
     <>
-      <div className={styles.block}>
-        <div id={path} className={styles.weddings}>
-          <Title className={styles.heading}>{t(nameKey)}</Title>
-          {blocks}
+      <div className={styles.container} id={path}>
+        <Title className={styles.heading}>{t(nameKey)}</Title>
+        {blocks}
 
-          <Button className={styles.moreVideosButton} onClick={togglePlayer} data-position={buttonPosition}>
-            {t(watchButtonKey)}
-          </Button>
+        <div className={styles.moreVideosButton} data-position={buttonPosition}>
+          <Button onClick={togglePlayer}>{t(watchButtonKey)}</Button>
         </div>
       </div>
       <VideosPlayer blockNameKey={nameKey} onClose={togglePlayer} opened={playerOpened} videos={works} />

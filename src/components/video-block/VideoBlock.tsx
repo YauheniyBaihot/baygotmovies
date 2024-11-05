@@ -1,4 +1,5 @@
 import {Title} from '@mantine/core';
+import clsx from 'clsx';
 import {ParseKeys} from 'i18next';
 import {useTranslation} from 'next-i18next';
 import {FC, Fragment} from 'react';
@@ -28,7 +29,8 @@ export const VideoBlock: FC<{
   moments: Moment[];
   titleKey?: ParseKeys<'data'>;
   subTitleKey?: ParseKeys<'data'>;
-}> = ({moments, titleKey, subTitleKey}) => {
+  className?: string;
+}> = ({moments, titleKey, subTitleKey, className}) => {
   const {t} = useTranslation('data');
 
   if (moments.length === 1) {
@@ -50,7 +52,7 @@ export const VideoBlock: FC<{
   ));
 
   return (
-    <div className={styles.block} data-variant={blockVariant}>
+    <div className={clsx(className, styles.block)} data-variant={blockVariant}>
       <div className={styles.border} />
       {items}
       {titleKey && subTitleKey && (

@@ -2,7 +2,9 @@
   display: grid;
   grid-template: 'title img main' auto/ 4fr 3fr 5fr;
   gap: var(--mantine-spacing-xl);
-  padding: var(--app-padding-y) var(--app-padding-x);
+
+  margin-top: var(--app-padding-y);
+  padding: 0 var(--app-padding-x);
 
   @media (max-width: $mantine-breakpoint-md) {
     grid-template:
