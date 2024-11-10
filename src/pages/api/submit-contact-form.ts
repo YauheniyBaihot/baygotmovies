@@ -32,7 +32,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const url = `https://api.telegram.org/bot${botApiKey}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=MarkdownV2`;
 
   console.log('New contact request', JSON.stringify(data));
-  console.log('Url');
+  console.log('Url', url);
   await fetch(url);
 };
 
