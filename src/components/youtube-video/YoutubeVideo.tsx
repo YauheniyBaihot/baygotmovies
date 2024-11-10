@@ -55,7 +55,7 @@ const YoutubeVideoInternal: ForwardRefRenderFunction<YoutubeVideoRef, YoutubeVid
     });
   };
 
-  const imageSizes = !sole ? '(min-width: 62em) 50vw,(max-width: 62em) 100vw' : undefined;
+  const imageSizes = !sole ? '(min-width: 62em) 50vw,(max-width: 62em) 100vw' : '100vw';
 
   return (
     <div className={styles.container} data-vertical={vertical}>

@@ -96,11 +96,11 @@ export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, onClose, bl
         <Group justify="space-between" className={styles.controlsContainer}>
           <Button onClick={handleClose}>{t('hideVideos')}</Button>
           <Group gap="0">
-            <Button variant="transparent" onClick={handlePrev}>
+            <Button variant="transparent" color="main-button-inversed" onClick={handlePrev}>
               {t('prev')}
             </Button>
             <Text>|</Text>
-            <Button variant="transparent" onClick={handleNext}>
+            <Button variant="transparent" color="main-button-inversed" onClick={handleNext}>
               {t('next')}
             </Button>
           </Group>

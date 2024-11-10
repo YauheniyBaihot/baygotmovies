@@ -39,20 +39,8 @@
       aspect-ratio: 9/16;
     }
   }
-
-  @media (max-width: $mantine-breakpoint-md) {
-    align-items: center !important;
-    justify-content: center !important;
-  }
 }
 
-.container + .container {
-  justify-content: start;
-}
-
-.container:has(~ .container) {
-  justify-content: end;
-}
 
 .previewImage {
   object-fit: contain;

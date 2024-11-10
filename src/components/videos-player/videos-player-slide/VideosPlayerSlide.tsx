@@ -98,7 +98,9 @@ const VideosPlayerSlideInternal: ForwardRefRenderFunction<VideosPlayerSlideProps
           </Text>
         </div>
       </div>
-      <div className={styles.videosContainer}>{youtubeVideos}</div>
+      <div className={styles.box}>
+        <div className={styles.videosContainer}>{youtubeVideos}</div>
+      </div>
     </CarouselSlide>
   );
 };
