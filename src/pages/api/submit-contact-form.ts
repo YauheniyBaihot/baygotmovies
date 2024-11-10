@@ -29,7 +29,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 \`Message\`: ${md`${data.message}`}`
   );
 
-  await fetch(`https://api.telegram.org/bot${botApiKey}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=MarkdownV2`);
+  const url = `https://api.telegram.org/bot${botApiKey}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=MarkdownV2`;
+
+  console.log('New contact request', JSON.stringify(data));
+  console.log('Url');
+  await fetch(url);
 };
 
 export default handler;
