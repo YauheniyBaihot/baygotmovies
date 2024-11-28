@@ -27,6 +27,24 @@ export const siteBlocks: SiteBlock[] = [
         ],
       },
       {
+        nameKey: 'weddings.works.funnyWedding.name',
+        titleKey: 'weddings.works.funnyWedding.title',
+        date: {
+          month: 7,
+          year: 2024,
+        },
+        youtubeIds: [
+          {
+            preview: '/version1/works/weddings/funnyWedding-2.jpg',
+            id: '2TB5gGQk6U4',
+          },
+          {
+            preview: '/version1/works/weddings/funnyWedding-1.jpg',
+            id: 'x7occ9vZKtg',
+          },
+        ],
+      },
+      {
         nameKey: 'weddings.works.rockNPink.name',
         titleKey: 'weddings.works.rockNPink.title',
         date: {
