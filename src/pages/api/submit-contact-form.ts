@@ -33,7 +33,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   console.log('New contact request', JSON.stringify(data));
   console.log('Url', url);
-  await fetch(url);
+  const response = await fetch(url);
+
+  console.log(response.status);
 };
 
 export default handler;
