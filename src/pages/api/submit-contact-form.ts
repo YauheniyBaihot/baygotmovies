@@ -14,8 +14,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // noinspection SuspiciousTypeOfGuard
   const isValidMessage = data.message === undefined || (typeof data.name === 'string' && data.message.length < 4000);
 
-  res.status(200).json({status: 'ok'});
-
   if (!isValidEmail || !isValidMessage || !isValidName) {
     console.log('Invalid message');
     return;
@@ -36,6 +34,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await fetch(url);
 
   console.log(response.status);
+
+  res.status(200).json({status: 'ok'});
 };
 
 export default handler;
