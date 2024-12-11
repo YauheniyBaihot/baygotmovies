@@ -1,15 +1,14 @@
-// @ts-check
+import {NextConfig} from 'next';
+import {PHASE_DEVELOPMENT_SERVER} from 'next/constants';
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const {i18n} = require('./next-i18next.config');
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const {PHASE_DEVELOPMENT_SERVER} = require('next/constants');
+import i18nextConfig from './next-i18next.config';
 
-/** @type {import('next').NextConfig} */
-module.exports = phase => {
+const i18n = i18nextConfig.i18n;
+
+const config = (phase: string) => {
   const config = {
     reactStrictMode: true,
-    webpack: config => {
+    webpack: (config: NextConfig) => {
       config.module.rules.push({
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
@@ -31,5 +30,7 @@ module.exports = phase => {
       loader: 'custom',
       loaderFile: './src/common/aws-s3-optimized-image-loader.ts',
     },
-  };
+  } satisfies NextConfig;
 };
+
+export default config;

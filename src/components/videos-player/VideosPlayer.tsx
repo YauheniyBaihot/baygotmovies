@@ -1,5 +1,5 @@
 import {Carousel, Embla} from '@mantine/carousel';
-import {Button, Collapse, Group, Text} from '@mantine/core';
+import {AccordionChevron, Button, Collapse, Group, Text} from '@mantine/core';
 import {ParseKeys} from 'i18next';
 import {useTranslation} from 'next-i18next';
 import React, {FC, useMemo, useRef, useState} from 'react';
@@ -45,11 +45,13 @@ export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, onClose, bl
 
   const handleNext = () => {
     embla?.scrollNext();
-    destroy();
   };
 
   const handlePrev = () => {
     embla?.scrollPrev();
+  };
+
+  const onSlideChange = () => {
     destroy();
   };
 
@@ -89,7 +91,18 @@ export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, onClose, bl
   return (
     <Collapse in={opened} onTransitionEnd={handleTransitionEnd} transitionDuration={400}>
       <div className={styles.container} ref={containerRef}>
-        <Carousel draggable={false} withControls={false} getEmblaApi={setEmbla} loop height="100%" style={{overflow: 'hidden'}} speed={5} slideGap="xl">
+        <Carousel
+          draggable={false}
+          getEmblaApi={setEmbla}
+          loop
+          height="100%"
+          style={{overflow: 'hidden'}}
+          speed={5}
+          slideGap="xl"
+          onSlideChange={onSlideChange}
+          nextControlIcon={<AccordionChevron style={{transform: `rotate(-90deg)`}} size="2rem" />}
+          previousControlIcon={<AccordionChevron style={{transform: `rotate(90deg)`}} size="2rem" />}
+        >
           {slides}
         </Carousel>
 

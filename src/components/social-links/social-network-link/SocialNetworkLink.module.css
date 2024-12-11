@@ -5,16 +5,16 @@
 .icon {
   --ai-size: 1.5rem;
 
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
   @media (max-width: $mantine-breakpoint-xs) {
     --ai-size: 1.125rem;
   }
 
   @media (min-width: $mantine-breakpoint-xl) {
     --ai-size: 2rem;
-  }
-  
-  svg {
-    width: 100%;
-    height: 100%;
   }
 }
