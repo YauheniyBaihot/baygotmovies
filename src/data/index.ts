@@ -9,6 +9,78 @@ export const siteBlocks: SiteBlock[] = [
     path: 'weddings',
     works: [
       {
+        nameKey: 'weddings.works.gorgeousNewlyweds.name',
+        titleKey: 'weddings.works.gorgeousNewlyweds.title',
+        date: {
+          month: 8,
+          year: 2024,
+        },
+        youtubeIds: [
+          {
+            preview: '/version1/works/weddings/gorgeousNewlyweds-2.jpg',
+            id: 'cMv389XtnqY',
+          },
+          {
+            preview: '/version1/works/weddings/gorgeousNewlyweds-1.jpg',
+            id: 'scP1UEmM7rg',
+          },
+        ],
+      },
+      {
+        nameKey: 'weddings.works.rockNPink.name',
+        titleKey: 'weddings.works.rockNPink.title',
+        date: {
+          month: 4,
+          year: 2024,
+        },
+        youtubeIds: [
+          {
+            preview: '/version1/works/weddings/rockNPink-1.jpg',
+            id: 'w8m8z73Ljxc',
+          },
+          {
+            preview: '/version1/works/weddings/rockNPink-2.jpg',
+            id: 'tvtQz164F9s',
+          },
+        ],
+      },
+      {
+        nameKey: 'weddings.works.loveLetter.name',
+        titleKey: 'weddings.works.loveLetter.title',
+        date: {
+          month: 8,
+          year: 2024,
+        },
+        youtubeIds: [
+          {
+            preview: '/version1/works/weddings/loveLetter-2.jpg',
+            id: 'zIO8PT3TMPQ',
+          },
+          {
+            preview: '/version1/works/weddings/loveLetter-1.jpg',
+            id: 'nSDWcvcLOwI',
+          },
+        ],
+      },
+      {
+        nameKey: 'weddings.works.loveIsEveryMoment.name',
+        titleKey: 'weddings.works.loveIsEveryMoment.title',
+        date: {
+          month: 8,
+          year: 2023,
+        },
+        youtubeIds: [
+          {
+            preview: '/version1/works/weddings/loveIsEveryMoment-1.jpg',
+            id: 'sirEQ8GICtc',
+          },
+          {
+            preview: '/version1/works/weddings/loveIsEveryMoment-2.jpg',
+            id: 'CvrW3vt_mII',
+          },
+        ],
+      },
+      {
         nameKey: 'weddings.works.taipGerai.name',
         titleKey: 'weddings.works.taipGerai.title',
         date: {
@@ -45,24 +117,6 @@ export const siteBlocks: SiteBlock[] = [
         ],
       },
       {
-        nameKey: 'weddings.works.rockNPink.name',
-        titleKey: 'weddings.works.rockNPink.title',
-        date: {
-          month: 4,
-          year: 2024,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/rockNPink-1.jpg',
-            id: 'w8m8z73Ljxc',
-          },
-          {
-            preview: '/version1/works/weddings/rockNPink-2.jpg',
-            id: 'tvtQz164F9s',
-          },
-        ],
-      },
-      {
         nameKey: 'weddings.works.blueEyedAngel.name',
         titleKey: 'weddings.works.blueEyedAngel.title',
         date: {
@@ -91,38 +145,6 @@ export const siteBlocks: SiteBlock[] = [
         ],
       },
       {
-        nameKey: 'weddings.works.loveIsEveryMoment.name',
-        titleKey: 'weddings.works.loveIsEveryMoment.title',
-        date: {
-          month: 8,
-          year: 2023,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/loveIsEveryMoment-1.jpg',
-            id: 'sirEQ8GICtc',
-          },
-          {
-            preview: '/version1/works/weddings/loveIsEveryMoment-2.jpg',
-            id: 'CvrW3vt_mII',
-          },
-        ],
-      },
-      {
-        nameKey: 'weddings.works.twoAugustsTogether.name',
-        titleKey: 'weddings.works.twoAugustsTogether.title',
-        date: {
-          month: 8,
-          year: 2023,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/twoAugustsTogether.jpg',
-            id: '9rxtaob6P9c',
-          },
-        ],
-      },
-      {
         nameKey: 'weddings.works.iChooseYouAgain.name',
         titleKey: 'weddings.works.iChooseYouAgain.title',
         date: {
@@ -137,6 +159,20 @@ export const siteBlocks: SiteBlock[] = [
           {
             preview: '/version1/works/weddings/iChooseYouAgain-2.jpg',
             id: 'Ew0pjNmzt_s',
+          },
+        ],
+      },
+      {
+        nameKey: 'weddings.works.twoAugustsTogether.name',
+        titleKey: 'weddings.works.twoAugustsTogether.title',
+        date: {
+          month: 8,
+          year: 2023,
+        },
+        youtubeIds: [
+          {
+            preview: '/version1/works/weddings/twoAugustsTogether.jpg',
+            id: '9rxtaob6P9c',
           },
         ],
       },
