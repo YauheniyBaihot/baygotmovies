@@ -1,4 +1,4 @@
-import {useIntersection} from '@mantine/hooks';
+import {useDebouncedCallback, useIntersection} from '@mantine/hooks';
 import {DetailedHTMLProps, ForwardRefRenderFunction, VideoHTMLAttributes, forwardRef, useEffect, useImperativeHandle, useMemo, useRef} from 'react';
 
 type AutoPlayVideoProps = DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement> & {
@@ -14,25 +14,31 @@ const AutoPlayVideoInternal: ForwardRefRenderFunction<AutoPlayVideoPropsRef, Aut
   const {ref: intersectionRef, entry} = useIntersection({threshold});
   const elementRef = useRef<HTMLVideoElement | null>(null);
 
+  const togglePlay = useDebouncedCallback(async (play: boolean) => {
+    if (play) {
+      await elementRef.current?.play();
+    } else {
+      elementRef.current?.pause();
+    }
+  }, 300);
+
   useImperativeHandle(
     ref,
     () => ({
       play: () => {
-        if (elementRef.current && elementRef.current.paused) {
-          void elementRef.current.play();
-        }
+        togglePlay(true);
       },
     }),
-    []
+    [togglePlay]
   );
 
   useEffect(() => {
     if (entry?.isIntersecting) {
-      elementRef.current?.play().catch(() => {});
+      togglePlay(true);
     } else {
-      elementRef.current?.pause();
+      togglePlay(false);
     }
-  }, [entry]);
+  }, [entry, togglePlay]);
 
   return useMemo(() => {
     return (
@@ -44,6 +50,6 @@ const AutoPlayVideoInternal: ForwardRefRenderFunction<AutoPlayVideoPropsRef, Aut
         {...props}
       ></video>
     );
-  }, [intersectionRef, props]);
+  }, [intersectionRef, JSON.stringify(props)]);
 };
 export const AutoPlayVideo = forwardRef<AutoPlayVideoPropsRef, AutoPlayVideoProps>(AutoPlayVideoInternal);
