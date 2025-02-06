@@ -1,9 +1,9 @@
 ﻿import {Title} from '@mantine/core';
 import {useElementSize} from '@mantine/hooks';
 import {Trans, useTranslation} from 'next-i18next';
-import {FC, useEffect, useMemo, useRef, useState} from 'react';
+import {FC, useEffect, useMemo, useState} from 'react';
 
-import {AutoPlayVideo, AutoPlayVideoPropsRef} from '@/components/auto-play-video/AutoPlayVideo';
+import {AutoPlayVideo} from '@/components/auto-play-video/AutoPlayVideo';
 import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
 import {NavigationMenu} from '@/components/navigation-menu/NavigationMenu';
 import {SiteLogo} from '@/components/site-logo/SiteLogo';
@@ -51,21 +51,16 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   const {t} = useTranslation();
   const {ref, height, width} = useElementSize();
   const [src, setSrc] = useState(calculateSrc(mainVideoSource, width, height, height));
-  const autoVideoRef = useRef<AutoPlayVideoPropsRef>(null);
 
   useEffect(() => {
     const actualContainerHeight = height * window.devicePixelRatio;
     setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight));
   }, [height, width]);
 
-  const playVideo = () => {
-    autoVideoRef.current?.play();
-  };
-
   return useMemo(() => {
     return (
-      <header ref={ref} className={styles.header} onClick={playVideo}>
-        <AutoPlayVideo ref={autoVideoRef} className={styles.backgroundVideo} src={src} loop muted playsInline preload="auto" />
+      <header ref={ref} className={styles.header}>
+        <AutoPlayVideo className={styles.backgroundVideo} src={src} loop muted playsInline preload="auto" />
 
         <SiteLogo color="main-white" className={styles.logo} />
 
@@ -80,6 +75,5 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
         </Title>
       </header>
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [t, sections, src]);
+  }, [ref, src, sections, t]);
 };

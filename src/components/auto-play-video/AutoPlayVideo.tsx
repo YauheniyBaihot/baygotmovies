@@ -1,18 +1,15 @@
-import {useDebouncedCallback, useIntersection} from '@mantine/hooks';
-import {DetailedHTMLProps, ForwardRefRenderFunction, VideoHTMLAttributes, forwardRef, useEffect, useImperativeHandle, useMemo, useRef} from 'react';
+import {useDebouncedCallback, useIntersection, useMergedRef} from '@mantine/hooks';
+import {DetailedHTMLProps, FC, VideoHTMLAttributes, useEffect, useMemo, useRef} from 'react';
 
 type AutoPlayVideoProps = DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement> & {
   threshold?: number;
 };
 
-export type AutoPlayVideoPropsRef = {
-  play: () => void;
-};
-
-const AutoPlayVideoInternal: ForwardRefRenderFunction<AutoPlayVideoPropsRef, AutoPlayVideoProps> = (props, ref) => {
+export const AutoPlayVideo: FC<AutoPlayVideoProps> = props => {
   const threshold = props.threshold ?? 0.3;
-  const {ref: intersectionRef, entry} = useIntersection({threshold});
+  const {ref: intersectionRef, entry} = useIntersection<HTMLVideoElement>({threshold});
   const elementRef = useRef<HTMLVideoElement | null>(null);
+  const ref = useMergedRef(elementRef, intersectionRef);
 
   const togglePlay = useDebouncedCallback(async (play: boolean) => {
     if (play) {
@@ -20,17 +17,7 @@ const AutoPlayVideoInternal: ForwardRefRenderFunction<AutoPlayVideoPropsRef, Aut
     } else {
       elementRef.current?.pause();
     }
-  }, 300);
-
-  useImperativeHandle(
-    ref,
-    () => ({
-      play: () => {
-        togglePlay(true);
-      },
-    }),
-    [togglePlay]
-  );
+  }, 100);
 
   useEffect(() => {
     if (entry?.isIntersecting) {
@@ -41,15 +28,6 @@ const AutoPlayVideoInternal: ForwardRefRenderFunction<AutoPlayVideoPropsRef, Aut
   }, [entry, togglePlay]);
 
   return useMemo(() => {
-    return (
-      <video
-        ref={element => {
-          intersectionRef(element);
-          elementRef.current = element;
-        }}
-        {...props}
-      ></video>
-    );
-  }, [intersectionRef, JSON.stringify(props)]);
+    return <video ref={ref} {...props}></video>;
+  }, [ref, props]);
 };
-export const AutoPlayVideo = forwardRef<AutoPlayVideoPropsRef, AutoPlayVideoProps>(AutoPlayVideoInternal);
