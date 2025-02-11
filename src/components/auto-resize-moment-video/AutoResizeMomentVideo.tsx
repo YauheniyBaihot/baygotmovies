@@ -19,6 +19,8 @@ const closestHeight = (height: number) => {
 };
 
 const calculateSrc = (source: string, format: 'wide' | 'square' | 'vertical', height: number) => {
+  if (height === 0) return undefined;
+
   const videoPart = format === 'wide' ? '16-9' : format === 'square' ? '1-1' : '2-3';
 
   return `${videosSrcPrefix}${source}_${videoPart}_${closestHeight(height)}.webm`;

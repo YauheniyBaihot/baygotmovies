@@ -40,6 +40,8 @@ const closestAspectRatio = (actualAspectRatio: number) => {
 };
 
 const calculateSrc = (source: string, width: number, height: number, actualHeight: number) => {
+  if (actualHeight === 0) return undefined;
+
   const actualAspectRatio = height === 0 ? 1 : width / height;
 
   return `${videosSrcPrefix}${source}_${closestAspectRatio(actualAspectRatio)}_${closestHeight(actualHeight)}.webm`;
