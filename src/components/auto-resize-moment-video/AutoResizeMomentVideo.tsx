@@ -2,8 +2,6 @@ import {useElementSize} from '@mantine/hooks';
 import clsx from 'clsx';
 import {FC, useEffect, useMemo, useState} from 'react';
 
-import {AutoPlayVideo} from '@/components/auto-play-video/AutoPlayVideo';
-
 import styles from './AutoResizeMomentVideo.module.css';
 
 const availableHeights = [2160, 1080, 540, 270, 135];
@@ -44,7 +42,7 @@ export const AutoResizeMomentVideo: FC<{
   return useMemo(() => {
     return (
       <div ref={ref} className={clsx(styles.container, className)} data-index={index} data-format={format}>
-        <AutoPlayVideo className={styles.video} src={src} playsInline muted loop preload="auto" />
+        <video className={styles.video} src={src} playsInline autoPlay muted loop preload="auto" />
       </div>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps

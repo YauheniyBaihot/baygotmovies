@@ -3,7 +3,6 @@ import {useElementSize} from '@mantine/hooks';
 import {Trans, useTranslation} from 'next-i18next';
 import {FC, useEffect, useMemo, useState} from 'react';
 
-import {AutoPlayVideo} from '@/components/auto-play-video/AutoPlayVideo';
 import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
 import {NavigationMenu} from '@/components/navigation-menu/NavigationMenu';
 import {SiteLogo} from '@/components/site-logo/SiteLogo';
@@ -62,7 +61,7 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   return useMemo(() => {
     return (
       <header ref={ref} className={styles.header}>
-        <AutoPlayVideo className={styles.backgroundVideo} src={src} loop muted playsInline preload="auto" />
+        <video className={styles.backgroundVideo} src={src} loop muted playsInline preload="auto" autoPlay />
 
         <SiteLogo color="main-white" className={styles.logo} />
 
