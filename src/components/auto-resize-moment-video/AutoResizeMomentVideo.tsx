@@ -35,7 +35,7 @@ export const AutoResizeMomentVideo: FC<{
 
   useEffect(() => {
     console.log('auto resize moment use effect');
-    
+
     const actualContainerHeight = containerHeight * window.devicePixelRatio;
 
     setSrc(calculateSrc(source, format, actualContainerHeight));
