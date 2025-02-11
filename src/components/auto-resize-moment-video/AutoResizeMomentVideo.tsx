@@ -34,12 +34,16 @@ export const AutoResizeMomentVideo: FC<{
   const [src, setSrc] = useState(calculateSrc(source, format, containerHeight));
 
   useEffect(() => {
+    console.log('auto resize moment use effect');
+    
     const actualContainerHeight = containerHeight * window.devicePixelRatio;
 
     setSrc(calculateSrc(source, format, actualContainerHeight));
   }, [containerHeight, source, format]);
 
   return useMemo(() => {
+    console.log('auto resize moment use memo');
+
     return (
       <div ref={ref} className={clsx(styles.container, className)} data-index={index} data-format={format}>
         <video className={styles.video} src={src} playsInline autoPlay muted loop preload="auto" />

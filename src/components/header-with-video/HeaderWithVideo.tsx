@@ -54,11 +54,14 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   const [src, setSrc] = useState(calculateSrc(mainVideoSource, width, height, height));
 
   useEffect(() => {
+    console.log('header with video use effect');
     const actualContainerHeight = height * window.devicePixelRatio;
     setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight));
   }, [height, width]);
 
   return useMemo(() => {
+    console.log('header with video useMemo');
+
     return (
       <header ref={ref} className={styles.header}>
         <video className={styles.backgroundVideo} src={src} loop muted playsInline preload="auto" autoPlay />
