@@ -9,6 +9,24 @@ export const siteBlocks: SiteBlock[] = [
     path: 'weddings',
     works: [
       {
+        nameKey: 'weddings.works.bubriskoDvaras.name',
+        titleKey: 'weddings.works.bubriskoDvaras.title',
+        date: {
+          month: 8,
+          year: 2024,
+        },
+        youtubeIds: [
+          {
+            preview: '/version1/works/weddings/bubriskoDvaras-1.jpg',
+            id: 'rDTQZN2q3D4',
+          },
+          {
+            preview: '/version1/works/weddings/bubriskoDvaras-2.jpg',
+            id: 'gvWe7GUBPVg',
+          },
+        ],
+      },
+      {
         nameKey: 'weddings.works.gorgeousNewlyweds.name',
         titleKey: 'weddings.works.gorgeousNewlyweds.title',
         date: {
