@@ -22,7 +22,6 @@ export const NavigationMenu: FC<NavigationMenuProps> = ({className, sections}) =
 
   return (
     <Menu position="bottom-end">
-      {/*@ts-expect-error incorrect type used in library*/}
       <MenuTarget>
         <Button className={className}>{t('common:header.menu')}</Button>
       </MenuTarget>
