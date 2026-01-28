@@ -1,6 +1,6 @@
-import {useElementSize} from '@mantine/hooks';
+import {useElementSize, useIntersection} from '@mantine/hooks';
 import clsx from 'clsx';
-import {FC, useEffect, useMemo, useState} from 'react';
+import {FC, useEffect, useRef, useState} from 'react';
 
 import styles from './AutoResizeMomentVideo.module.css';
 
@@ -23,32 +23,65 @@ const calculateSrc = (source: string, format: 'wide' | 'square' | 'vertical', he
 
   return `${videosSrcPrefix}${source}_${videoPart}_${closestHeight(height)}.webm`;
 };
+
 export const AutoResizeMomentVideo: FC<{
   className: string;
   source: string;
   format: 'wide' | 'square' | 'vertical';
   index: number;
 }> = ({className, source, index, format}) => {
-  const {ref, height: containerHeight} = useElementSize();
+  const {ref: sizeRef, height: containerHeight} = useElementSize();
+  const {ref: intersectionRef, entry} = useIntersection<HTMLDivElement>({
+    threshold: 0,
+    rootMargin: '100px',
+  });
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const [src, setSrc] = useState(calculateSrc(source, format, containerHeight));
+  const [src, setSrc] = useState<string | undefined>(undefined);
+  const [isVisible, setIsVisible] = useState(false);
 
+  // Track visibility
   useEffect(() => {
-    console.log('auto resize moment use effect');
+    const visible = entry?.isIntersecting ?? false;
+    setIsVisible(visible);
+
+    if (!visible && videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, [entry?.isIntersecting]);
+
+  // Calculate and set src only when visible
+  useEffect(() => {
+    if (!isVisible || containerHeight === 0) {
+      return;
+    }
 
     const actualContainerHeight = containerHeight * window.devicePixelRatio;
+    const newSrc = calculateSrc(source, format, actualContainerHeight);
 
-    setSrc(calculateSrc(source, format, actualContainerHeight));
-  }, [containerHeight, source, format]);
+    setSrc(newSrc);
+  }, [containerHeight, source, format, isVisible]);
 
-  return useMemo(() => {
-    console.log('auto resize moment use memo');
+  // Play/pause based on visibility
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !src) return;
 
-    return (
-      <div ref={ref} className={clsx(styles.container, className)} data-index={index} data-format={format}>
-        <video className={styles.video} src={src} playsInline autoPlay muted loop preload="auto" />
-      </div>
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [className, index, format, src]);
+    if (isVisible) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isVisible, src]);
+
+  const setRefs = (el: HTMLDivElement | null) => {
+    sizeRef(el);
+    intersectionRef(el);
+  };
+
+  return (
+    <div ref={setRefs} className={clsx(styles.container, className)} data-index={index} data-format={format}>
+      {src && <video ref={videoRef} className={styles.video} src={src} playsInline muted loop preload="metadata" />}
+    </div>
+  );
 };

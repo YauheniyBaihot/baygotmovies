@@ -64,7 +64,7 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
 
     return (
       <header ref={ref} className={styles.header}>
-        <video className={styles.backgroundVideo} src={src} loop muted playsInline preload="auto" autoPlay />
+        <video className={styles.backgroundVideo} src={src} loop muted playsInline preload="metadata" autoPlay />
 
         <SiteLogo color="main-white" className={styles.logo} />
 
