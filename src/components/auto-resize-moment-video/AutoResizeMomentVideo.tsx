@@ -25,7 +25,7 @@ const calculateSrc = (source: string, format: 'wide' | 'square' | 'vertical', he
   const videoPart = format === 'wide' ? '16-9' : format === 'square' ? '1-1' : '2-3';
 
   // On iOS, use lower resolution to save memory
-  const maxHeight = isIOS ? Math.min(height, 540) : height;
+  const maxHeight = isIOS ? Math.min(height, 1080) : height;
 
   return `${videosSrcPrefix}${source}_${videoPart}_${closestHeight(maxHeight)}.webm`;
 };
