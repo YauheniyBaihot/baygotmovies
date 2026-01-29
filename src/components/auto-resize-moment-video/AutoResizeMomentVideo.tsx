@@ -65,10 +65,12 @@ export const AutoResizeMomentVideo: FC<{
         } else {
           activeVideos.delete(source);
           setSrc(undefined);
-          // Pause and clear video
+          // Properly cleanup video to prevent memory leak (WebKit bug #216820)
           const video = videoRef.current;
           if (video) {
             video.pause();
+            video.src = '';
+            video.load();
           }
         }
       },
@@ -80,6 +82,13 @@ export const AutoResizeMomentVideo: FC<{
     return () => {
       observer.disconnect();
       activeVideos.delete(source);
+      // Cleanup on unmount (WebKit bug #216820)
+      const video = videoRef.current;
+      if (video) {
+        video.pause();
+        video.src = '';
+        video.load();
+      }
     };
   }, [source, format]);
 
