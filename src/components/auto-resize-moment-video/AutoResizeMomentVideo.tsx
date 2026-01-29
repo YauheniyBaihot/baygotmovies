@@ -1,6 +1,6 @@
 import {useElementSize} from '@mantine/hooks';
 import clsx from 'clsx';
-import {FC, useEffect, useState} from 'react';
+import {FC, useCallback, useEffect, useRef, useState} from 'react';
 
 import styles from './AutoResizeMomentVideo.module.css';
 
@@ -8,8 +8,12 @@ const availableHeights = [2160, 1080, 540, 270, 135];
 
 const videosSrcPrefix = process.env.NEXT_PUBLIC_VIDEOS_SRC_PREFIX ?? '';
 
-// Detect iOS
+// Detect iOS/mobile
 const isIOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+// Track active videos globally to limit memory usage
+const activeVideos = new Set<string>();
+const MAX_ACTIVE_VIDEOS = isIOS ? 4 : 10;
 
 const closestHeight = (height: number) => {
   let index = 1;
@@ -36,21 +40,84 @@ export const AutoResizeMomentVideo: FC<{
   format: 'wide' | 'square' | 'vertical';
   index: number;
 }> = ({className, source, index, format}) => {
-  const {ref, height: containerHeight} = useElementSize();
+  const {ref: sizeRef, height: containerHeight} = useElementSize();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const [src, setSrc] = useState(calculateSrc(source, format, containerHeight));
+  const [isVisible, setIsVisible] = useState(false);
+  const [src, setSrc] = useState<string | undefined>(undefined);
 
+  // Calculate src when visible and container has size
   useEffect(() => {
-    // On iOS, don't multiply by devicePixelRatio to reduce memory
+    if (!isVisible || containerHeight === 0) {
+      setSrc(undefined);
+      return;
+    }
+
     const multiplier = isIOS ? 1 : window.devicePixelRatio;
     const actualContainerHeight = containerHeight * multiplier;
 
     setSrc(calculateSrc(source, format, actualContainerHeight));
-  }, [containerHeight, source, format]);
+  }, [containerHeight, source, format, isVisible]);
+
+  // Play/pause based on visibility
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isVisible && src) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isVisible, src]);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          // Check if we can activate more videos
+          if (activeVideos.size < MAX_ACTIVE_VIDEOS) {
+            activeVideos.add(source);
+            setIsVisible(true);
+          }
+        } else {
+          activeVideos.delete(source);
+          setIsVisible(false);
+        }
+      },
+      {rootMargin: '50px', threshold: 0}
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+      activeVideos.delete(source);
+    };
+  }, [source]);
+
+  // Combine refs
+  const setRefs = useCallback(
+    (el: HTMLDivElement | null) => {
+      (containerRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
+      sizeRef(el);
+    },
+    [sizeRef]
+  );
 
   return (
-    <div ref={ref} className={clsx(styles.container, className)} data-index={index} data-format={format}>
-      <video className={styles.video} src={src} playsInline autoPlay muted loop preload="none" />
+    <div ref={setRefs} className={clsx(styles.container, className)} data-index={index} data-format={format}>
+      {src ? (
+        <video ref={videoRef} className={styles.video} src={src} playsInline muted loop preload="metadata" />
+      ) : (
+        <div className={styles.placeholder} />
+      )}
     </div>
   );
 };

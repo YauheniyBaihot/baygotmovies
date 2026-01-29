@@ -20,3 +20,10 @@
   border-radius: var(--mantine-radius-lg);
   object-fit: cover;
 }
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--mantine-radius-lg);
+  background: rgba(0, 0, 0, 0.1);
+}
