@@ -1,4 +1,4 @@
-import {useElementSize, useIntersection} from '@mantine/hooks';
+import {useElementSize, useIntersection, useMergedRef} from '@mantine/hooks';
 import clsx from 'clsx';
 import {FC, useEffect, useRef, useState} from 'react';
 
@@ -35,6 +35,7 @@ export const AutoResizeMomentVideo: FC<{
     threshold: 0,
     rootMargin: '100px',
   });
+  const mergedRef = useMergedRef(sizeRef, intersectionRef);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const [src, setSrc] = useState<string | undefined>(undefined);
@@ -74,13 +75,8 @@ export const AutoResizeMomentVideo: FC<{
     }
   }, [isVisible, src]);
 
-  const setRefs = (el: HTMLDivElement | null) => {
-    sizeRef(el);
-    intersectionRef(el);
-  };
-
   return (
-    <div ref={setRefs} className={clsx(styles.container, className)} data-index={index} data-format={format}>
+    <div ref={mergedRef} className={clsx(styles.container, className)} data-index={index} data-format={format}>
       {src && <video ref={videoRef} className={styles.video} src={src} playsInline muted loop preload="metadata" />}
     </div>
   );
