@@ -39,17 +39,17 @@ export const AutoResizeMomentVideo: FC<{
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const [src, setSrc] = useState<string | undefined>(undefined);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Start visible to avoid flash
 
   // Track visibility
   useEffect(() => {
-    const visible = entry?.isIntersecting ?? false;
-    setIsVisible(visible);
+    if (!entry) return; // Wait for first intersection event
+    setIsVisible(entry.isIntersecting);
 
-    if (!visible && videoRef.current) {
+    if (!entry.isIntersecting && videoRef.current) {
       videoRef.current.pause();
     }
-  }, [entry?.isIntersecting]);
+  }, [entry]);
 
   // Calculate and set src only when visible
   useEffect(() => {
