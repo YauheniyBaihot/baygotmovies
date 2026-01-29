@@ -1,6 +1,5 @@
-import {useElementSize} from '@mantine/hooks';
 import clsx from 'clsx';
-import {FC, useCallback, useEffect, useRef, useState} from 'react';
+import {FC, useEffect, useRef, useState} from 'react';
 
 import styles from './AutoResizeMomentVideo.module.css';
 
@@ -40,37 +39,10 @@ export const AutoResizeMomentVideo: FC<{
   format: 'wide' | 'square' | 'vertical';
   index: number;
 }> = ({className, source, index, format}) => {
-  const {ref: sizeRef, height: containerHeight} = useElementSize();
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const [isVisible, setIsVisible] = useState(false);
   const [src, setSrc] = useState<string | undefined>(undefined);
-
-  // Calculate src when visible and container has size
-  useEffect(() => {
-    if (!isVisible || containerHeight === 0) {
-      setSrc(undefined);
-      return;
-    }
-
-    const multiplier = isIOS ? 1 : window.devicePixelRatio;
-    const actualContainerHeight = containerHeight * multiplier;
-
-    setSrc(calculateSrc(source, format, actualContainerHeight));
-  }, [containerHeight, source, format, isVisible]);
-
-  // Play/pause based on visibility
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (isVisible && src) {
-      video.play().catch(() => {});
-    } else {
-      video.pause();
-    }
-  }, [isVisible, src]);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -84,11 +56,20 @@ export const AutoResizeMomentVideo: FC<{
           // Check if we can activate more videos
           if (activeVideos.size < MAX_ACTIVE_VIDEOS) {
             activeVideos.add(source);
-            setIsVisible(true);
+
+            // Get height and set src
+            const height = container.getBoundingClientRect().height;
+            const multiplier = isIOS ? 1 : window.devicePixelRatio;
+            setSrc(calculateSrc(source, format, height * multiplier));
           }
         } else {
           activeVideos.delete(source);
-          setIsVisible(false);
+          setSrc(undefined);
+          // Pause and clear video
+          const video = videoRef.current;
+          if (video) {
+            video.pause();
+          }
         }
       },
       {rootMargin: '50px', threshold: 0}
@@ -100,19 +81,18 @@ export const AutoResizeMomentVideo: FC<{
       observer.disconnect();
       activeVideos.delete(source);
     };
-  }, [source]);
+  }, [source, format]);
 
-  // Combine refs
-  const setRefs = useCallback(
-    (el: HTMLDivElement | null) => {
-      (containerRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
-      sizeRef(el);
-    },
-    [sizeRef]
-  );
+  // Play video when src is set
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video && src) {
+      video.play().catch(() => {});
+    }
+  }, [src]);
 
   return (
-    <div ref={setRefs} className={clsx(styles.container, className)} data-index={index} data-format={format}>
+    <div ref={containerRef} className={clsx(styles.container, className)} data-index={index} data-format={format}>
       {src ? (
         <video ref={videoRef} className={styles.video} src={src} playsInline muted loop preload="metadata" />
       ) : (
