@@ -12,7 +12,8 @@ const isIOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(naviga
 
 // Track active videos globally to limit memory usage
 const activeVideos = new Set<string>();
-const MAX_ACTIVE_VIDEOS = isIOS ? 4 : 10;
+const MAX_ACTIVE_VIDEOS = isIOS ? 6 : 10;
+const VIEWPORT_PRELOAD_MARGIN = '600px';
 
 const closestHeight = (height: number) => {
   let index = 1;
@@ -43,6 +44,7 @@ export const AutoResizeMomentVideo: FC<{
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const [src, setSrc] = useState<string | undefined>(undefined);
+  const [loaded, setLoaded] = useState(false);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -60,11 +62,13 @@ export const AutoResizeMomentVideo: FC<{
             // Get height and set src
             const height = container.getBoundingClientRect().height;
             const multiplier = isIOS ? 1 : window.devicePixelRatio;
+            setLoaded(false);
             setSrc(calculateSrc(source, format, height * multiplier));
           }
         } else {
           activeVideos.delete(source);
           setSrc(undefined);
+          setLoaded(false);
           // Properly cleanup video to prevent memory leak (WebKit bug #216820)
           const video = videoRef.current;
           if (video) {
@@ -74,7 +78,7 @@ export const AutoResizeMomentVideo: FC<{
           }
         }
       },
-      {rootMargin: '50px', threshold: 0}
+      {rootMargin: VIEWPORT_PRELOAD_MARGIN, threshold: 0}
     );
 
     observer.observe(container);
@@ -102,10 +106,19 @@ export const AutoResizeMomentVideo: FC<{
 
   return (
     <div ref={containerRef} className={clsx(styles.container, className)} data-index={index} data-format={format}>
-      {src ? (
-        <video ref={videoRef} className={styles.video} src={src} playsInline muted loop preload="metadata" />
-      ) : (
-        <div className={styles.placeholder} />
+      <div className={styles.placeholder} />
+      {src && (
+        <video
+          ref={videoRef}
+          className={styles.video}
+          src={src}
+          data-loaded={loaded}
+          onLoadedData={() => setLoaded(true)}
+          playsInline
+          muted
+          loop
+          preload="metadata"
+        />
       )}
     </div>
   );

@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  position: relative;
 
   &[data-format='wide'] {
     aspect-ratio: 16/9;
@@ -15,15 +16,39 @@
 }
 
 .video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   border-radius: var(--mantine-radius-lg);
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+
+  &[data-loaded='true'] {
+    opacity: 1;
+  }
 }
 
 .placeholder {
   width: 100%;
   height: 100%;
   border-radius: var(--mantine-radius-lg);
-  background: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.06) 0%,
+    rgba(0, 0, 0, 0.12) 50%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
