@@ -1,7 +1,7 @@
 import {Button, Title} from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
 import {useTranslation} from 'next-i18next';
-import {FC, useMemo, useState} from 'react';
+import {FC, useMemo} from 'react';
 
 import {VideoBlock} from '@/components/video-block/VideoBlock';
 import {VideosPlayer} from '@/components/videos-player/VideosPlayer';
@@ -21,7 +21,6 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
   const {path, titleKey, subTitleKey, nameKey, works, moments, watchButtonKey} = block;
   const [playerOpened, {toggle: togglePlayer}] = useDisclosure(false);
   const {t} = useTranslation('data');
-  const [buttonPosition, setButtonPosition] = useState<'left' | 'right'>('left');
 
   const momentsMemo = useMemo(() => {
     let acc = 0;
@@ -34,22 +33,23 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
     });
   }, [moments]);
 
+  const buttonPosition = useMemo(() => {
+    const lastBlock = momentsMemo[momentsMemo.length - 1];
+    const lastIndex = momentsMemo.length - 1;
+    const isTitleBlock = (momentsMemo.length === 1 || lastIndex === 1) && subTitleKey && titleKey;
+
+    if (lastBlock.length === 2) {
+      return isTitleBlock ? 'right' : 'left';
+    }
+    if (lastBlock.length === 3) {
+      return 'left';
+    }
+    return 'right';
+  }, [momentsMemo, subTitleKey, titleKey]);
+
   const blocks = useMemo(() => {
     return momentsMemo.map((w, index) => {
       const isTitleBlock = (momentsMemo.length === 1 || index === 1) && subTitleKey && titleKey;
-      if (index === momentsMemo.length - 1) {
-        let buttonPosition: 'right' | 'left' = 'right';
-
-        if (w.length === 2) {
-          buttonPosition = isTitleBlock ? 'right' : 'left';
-        }
-
-        if (w.length === 3) {
-          buttonPosition = 'left';
-        }
-
-        setButtonPosition(buttonPosition);
-      }
 
       return isTitleBlock ? <VideoBlock className={styles.videoBlock} key={index} moments={w} titleKey={titleKey} subTitleKey={subTitleKey} /> : <VideoBlock className={styles.videoBlock} key={index} moments={w} />;
     });
