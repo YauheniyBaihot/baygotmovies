@@ -1,5 +1,5 @@
 ﻿import {Title} from '@mantine/core';
-import {useElementSize, useHover, useIntersection, useMergedRef} from '@mantine/hooks';
+import {useElementSize, useIntersection, useMergedRef} from '@mantine/hooks';
 import {Trans, useTranslation} from 'next-i18next';
 import {FC, useEffect, useMemo, useRef, useState} from 'react';
 
@@ -7,7 +7,6 @@ import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
 import {NavigationMenu} from '@/components/navigation-menu/NavigationMenu';
 import {SiteLogo} from '@/components/site-logo/SiteLogo';
 import {SocialLinks} from '@/components/social-links/SocialLinks';
-import {useVideosPlay} from '@/components/video-coordinator/VideosPlayContext';
 import {NavigationSection} from '@/models/site-block';
 
 import styles from './HeaderWithVideo.module.css';
@@ -54,89 +53,50 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const {ref: elementSizeRef, height, width} = useElementSize();
-  const {hovered, ref: hoverRef} = useHover();
 
-  // Playback coordination intersection
-  const {ref: intersectionRef, entry} = useIntersection<HTMLElement>({
-    threshold: 0.5,
-  });
-
-  // Lazy loading intersection (requires only 5% visibility to preload early)
-  const {ref: lazyLoadRef, entry: lazyLoadEntry} = useIntersection<HTMLElement>({
+  // Load and play when at least 5% of the video is visible
+  const {ref: intersectionRef, entry} = useIntersection<HTMLDivElement>({
     threshold: 0.05,
   });
 
-  const mergedRef = useMergedRef(elementSizeRef, hoverRef, intersectionRef, lazyLoadRef);
-
-  const {activeVideoId, isSingleIntersecting, registerVideo, unregisterVideo, updateStatus, onVideoEnded} = useVideosPlay();
+  const mergedRef = useMergedRef(elementSizeRef, intersectionRef);
 
   const [src, setSrc] = useState(calculateSrc(mainVideoSource, width, height, height));
 
-  const videoId = mainVideoSource;
-
   useEffect(() => {
-    registerVideo(videoId);
-    return () => {
-      unregisterVideo(videoId);
-    };
-  }, [videoId, registerVideo, unregisterVideo]);
+    const actualContainerHeight = height * window.devicePixelRatio;
+    setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight));
+  }, [height, width]);
 
   const isIntersecting = !!entry?.isIntersecting;
+  const videoSrc = isIntersecting ? src : undefined;
 
-  useEffect(() => {
-    updateStatus(videoId, isIntersecting, hovered);
-  }, [videoId, isIntersecting, hovered, updateStatus]);
-
-  const isActive = activeVideoId === videoId;
-
+  // Control playback based on visibility
   useEffect(() => {
     if (videoRef.current) {
-      if (isActive) {
+      if (isIntersecting) {
         videoRef.current.play().catch(err => {
-          console.warn('Playback prevented for video:', videoId, err);
+          console.warn('Playback prevented:', err);
         });
       } else {
         videoRef.current.pause();
       }
     }
-  }, [isActive, videoId]);
-
-  useEffect(() => {
-    console.log('header with video use effect');
-    const actualContainerHeight = height * window.devicePixelRatio;
-    setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight));
-  }, [height, width]);
-
-  const isLazyIntersecting = !!lazyLoadEntry?.isIntersecting;
-  const videoSrc = isLazyIntersecting ? src : undefined;
+  }, [isIntersecting]);
 
   // Explicitly release media resources and decoders on iOS Safari when scrolled out of view
   useEffect(() => {
+    console.log('here we go');
     if (videoRef.current && !videoSrc) {
       videoRef.current.removeAttribute('src');
       videoRef.current.load();
     }
   }, [videoSrc]);
 
-  const handleEnded = () => {
-    if (isSingleIntersecting) {
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play().catch(err => console.warn(err));
-      }
-    } else {
-      onVideoEnded(videoId);
-    }
-  };
-
-  const shouldLoop = hovered || (isActive && isSingleIntersecting);
-
   return useMemo(() => {
-    console.log('header with video useMemo');
-
     return (
       <header ref={mergedRef} className={styles.header}>
-        <video ref={videoRef} className={styles.backgroundVideo} src={videoSrc} playsInline muted preload="auto" loop={shouldLoop} onEnded={handleEnded} />
+        <video ref={videoRef} className={styles.backgroundVideo} src={videoSrc} playsInline muted preload="auto" loop />
 
         <SiteLogo color="main-white" className={styles.logo} />
 
@@ -151,6 +111,5 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
         </Title>
       </header>
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mergedRef, videoSrc, sections, t, shouldLoop]);
+  }, [mergedRef, videoSrc, sections, t]);
 };
