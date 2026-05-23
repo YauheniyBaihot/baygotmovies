@@ -47,7 +47,7 @@ const calculateSrc = (source: string, width: number, height: number, actualHeigh
   return `${videosSrcPrefix}${source}_${closestAspectRatio(actualAspectRatio)}_${closestHeight(actualHeight)}.webm`;
 };
 
-const mainVideoSource = 'mainVideo/video';
+const mainVideoSource = 'mainVideo2/video';
 
 export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   const {t} = useTranslation();
