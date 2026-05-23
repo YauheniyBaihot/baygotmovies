@@ -1,6 +1,7 @@
 import {FC, PropsWithChildren} from 'react';
 
 import {Footer} from '@/components/footer/Footer';
+import {VideosPlayProvider} from '@/components/video-coordinator/VideosPlayContext';
 import {NavigationSection} from '@/models/site-block';
 
 import classes from './Layout.module.css';
@@ -11,9 +12,11 @@ type LayoutProps = {
 
 export const Layout: FC<PropsWithChildren<LayoutProps>> = ({sections, children}) => {
   return (
-    <div className={classes.container}>
-      {children}
-      <Footer sections={sections} />
-    </div>
+    <VideosPlayProvider>
+      <div className={classes.container}>
+        {children}
+        <Footer sections={sections} />
+      </div>
+    </VideosPlayProvider>
   );
 };
