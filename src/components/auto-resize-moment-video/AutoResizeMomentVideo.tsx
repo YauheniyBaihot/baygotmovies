@@ -1,8 +1,6 @@
-import {useElementSize, useHover, useIntersection, useMergedRef} from '@mantine/hooks';
+import {useElementSize, useIntersection, useMergedRef} from '@mantine/hooks';
 import clsx from 'clsx';
 import {FC, useEffect, useMemo, useRef, useState} from 'react';
-
-import {useVideosPlay} from '@/components/video-coordinator/VideosPlayContext';
 
 import styles from './AutoResizeMomentVideo.module.css';
 
@@ -25,6 +23,7 @@ const calculateSrc = (source: string, format: 'wide' | 'square' | 'vertical', he
 
   return `${videosSrcPrefix}${source}_${videoPart}_${closestHeight(height)}.webm`;
 };
+
 export const AutoResizeMomentVideo: FC<{
   className: string;
   source: string;
@@ -33,44 +32,15 @@ export const AutoResizeMomentVideo: FC<{
 }> = ({className, source, index, format}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const {ref: elementSizeRef, height: containerHeight} = useElementSize();
-  const {hovered, ref: hoverRef} = useHover();
-  const {ref: intersectionRef, entry} = useIntersection<HTMLDivElement>({
-    threshold: 0.75,
-  });
-  const mergedRef = useMergedRef(elementSizeRef, hoverRef, intersectionRef);
 
-  const {activeVideoId, isSingleIntersecting, registerVideo, unregisterVideo, updateStatus, onVideoEnded} = useVideosPlay();
+  // Load and play when at least 5% of the video is visible
+  const {ref: intersectionRef, entry} = useIntersection<HTMLDivElement>({
+    threshold: 0.05,
+  });
+
+  const mergedRef = useMergedRef(elementSizeRef, intersectionRef);
 
   const [src, setSrc] = useState(calculateSrc(source, format, containerHeight));
-
-  const videoId = source;
-
-  useEffect(() => {
-    registerVideo(videoId);
-    return () => {
-      unregisterVideo(videoId);
-    };
-  }, [videoId, registerVideo, unregisterVideo]);
-
-  const isIntersecting = !!entry?.isIntersecting;
-
-  useEffect(() => {
-    updateStatus(videoId, isIntersecting, hovered);
-  }, [videoId, isIntersecting, hovered, updateStatus]);
-
-  const isActive = activeVideoId === videoId;
-
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isActive) {
-        videoRef.current.play().catch(err => {
-          console.warn('Playback prevented for video:', videoId, err);
-        });
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  }, [isActive, videoId]);
 
   useEffect(() => {
     const actualContainerHeight = containerHeight * window.devicePixelRatio;
@@ -78,25 +48,36 @@ export const AutoResizeMomentVideo: FC<{
     setSrc(calculateSrc(source, format, actualContainerHeight));
   }, [containerHeight, source, format]);
 
-  const handleEnded = () => {
-    if (isSingleIntersecting) {
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play().catch(err => console.warn(err));
-      }
-    } else {
-      onVideoEnded(videoId);
-    }
-  };
+  const isIntersecting = !!entry?.isIntersecting;
+  const videoSrc = isIntersecting ? src : undefined;
 
-  const shouldLoop = hovered || (isActive && isSingleIntersecting);
+  // Control playback based on visibility
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isIntersecting) {
+        videoRef.current.play().catch(err => {
+          console.warn('Playback prevented:', err);
+        });
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isIntersecting]);
+
+  // Explicitly release media resources and decoders on iOS Safari when scrolled out of view
+  useEffect(() => {
+    if (videoRef.current && !videoSrc) {
+      videoRef.current.removeAttribute('src');
+      videoRef.current.load();
+    }
+  }, [videoSrc]);
 
   return useMemo(() => {
     return (
       <div ref={mergedRef} className={clsx(styles.container, className)} data-index={index} data-format={format}>
-        <video ref={videoRef} className={styles.video} src={src} playsInline muted loop={shouldLoop} preload="auto" onEnded={handleEnded} />
+        <video ref={videoRef} className={styles.video} src={videoSrc} playsInline muted loop preload="auto" />
       </div>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [className, index, format, src, shouldLoop]);
+  }, [className, index, format, videoSrc]);
 };
