@@ -20,7 +20,7 @@ const mainVideoAspectRatios = {
   '1-1': 1,
   '16-9': 16 / 9,
 };
-const availableHeights = [ 1080, 540, 270, 135];
+const availableHeights = [1080, 540, 270, 135];
 
 const videosSrcPrefix = process.env.NEXT_PUBLIC_VIDEOS_SRC_PREFIX ?? '';
 
