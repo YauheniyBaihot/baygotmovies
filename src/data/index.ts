@@ -11,7 +11,7 @@ export const siteBlocks: SiteBlock[] = [
       {
         nameKey: 'weddings.works.fairytale.name',
         titleKey: 'weddings.works.fairytale.title',
-         youtubeIds: [
+        youtubeIds: [
           {
             preview: '/version1/works/weddings/fairytale-1.jpg',
             id: 'sItnWhco47g',
@@ -22,10 +22,10 @@ export const siteBlocks: SiteBlock[] = [
           },
         ],
       },
-       {
+      {
         nameKey: 'weddings.works.loveLaughParty.name',
         titleKey: 'weddings.works.loveLaughParty.title',
-         youtubeIds: [
+        youtubeIds: [
           {
             preview: '/version1/works/weddings/loveLaughParty-1.jpg',
             id: 'ngCW-u1IXGs',
@@ -43,7 +43,7 @@ export const siteBlocks: SiteBlock[] = [
           month: 7,
           year: 2025,
         },
-         youtubeIds: [
+        youtubeIds: [
           {
             preview: '/version1/works/weddings/eurovisionVibes.jpg',
             id: '6AZaKYkiTP4',
