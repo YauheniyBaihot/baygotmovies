@@ -1,4 +1,4 @@
-﻿import {Title} from '@mantine/core';
+import {Title} from '@mantine/core';
 import {useElementSize, useIntersection, useMergedRef} from '@mantine/hooks';
 import {Trans, useTranslation} from 'next-i18next';
 import {FC, useEffect, useMemo, useRef, useState} from 'react';
@@ -20,16 +20,15 @@ const mainVideoAspectRatios = {
   '1-1': 1,
   '16-9': 16 / 9,
 };
-const availableHeights = [1080, 540, 270, 135];
-
 const videosSrcPrefix = process.env.NEXT_PUBLIC_VIDEOS_SRC_PREFIX ?? '';
 
-const closestHeight = (height: number) => {
+const closestHeight = (height: number, isIphone: boolean) => {
+  const heights = isIphone ? [1080, 540, 270, 135] : [2160, 1080, 540, 270, 135];
   let index = 1;
 
-  while (availableHeights[index] >= height && index < availableHeights.length - 1) index++;
+  while (heights[index] >= height && index < heights.length - 1) index++;
 
-  return availableHeights[index - 1];
+  return heights[index - 1];
 };
 
 const closestAspectRatio = (actualAspectRatio: number) => {
@@ -38,12 +37,12 @@ const closestAspectRatio = (actualAspectRatio: number) => {
   })[0];
 };
 
-const calculateSrc = (source: string, width: number, height: number, actualHeight: number) => {
+const calculateSrc = (source: string, width: number, height: number, actualHeight: number, isIphone: boolean) => {
   if (actualHeight === 0) return undefined;
 
   const actualAspectRatio = height === 0 ? 1 : width / height;
 
-  return `${videosSrcPrefix}${source}_${closestAspectRatio(actualAspectRatio)}_${closestHeight(actualHeight)}.webm`;
+  return `${videosSrcPrefix}${source}_${closestAspectRatio(actualAspectRatio)}_${closestHeight(actualHeight, isIphone)}.webm`;
 };
 
 const mainVideoSource = 'mainVideo2/video';
@@ -61,11 +60,12 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
 
   const mergedRef = useMergedRef(elementSizeRef, intersectionRef);
 
-  const [src, setSrc] = useState(calculateSrc(mainVideoSource, width, height, height));
+  const [src, setSrc] = useState<string | undefined>(undefined);
 
   useEffect(() => {
+    const isIphone = typeof navigator !== 'undefined' && /iPhone/i.test(navigator.userAgent);
     const actualContainerHeight = height * window.devicePixelRatio;
-    setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight));
+    setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight, isIphone));
   }, [height, width]);
 
   const isIntersecting = !!entry?.isIntersecting;
