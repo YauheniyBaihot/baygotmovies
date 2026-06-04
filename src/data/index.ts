@@ -9,6 +9,48 @@ export const siteBlocks: SiteBlock[] = [
     path: 'weddings',
     works: [
       {
+        nameKey: 'weddings.works.fairytale.name',
+        titleKey: 'weddings.works.fairytale.title',
+         youtubeIds: [
+          {
+            preview: '/version1/works/weddings/fairytale-1.jpg',
+            id: 'sItnWhco47g',
+          },
+          {
+            preview: '/version1/works/weddings/fairytale-2.jpg',
+            id: 'SqHPxXwN7CI',
+          },
+        ],
+      },
+       {
+        nameKey: 'weddings.works.loveLaughParty.name',
+        titleKey: 'weddings.works.loveLaughParty.title',
+         youtubeIds: [
+          {
+            preview: '/version1/works/weddings/loveLaughParty-1.jpg',
+            id: 'ngCW-u1IXGs',
+          },
+          {
+            preview: '/version1/works/weddings/loveLaughParty-2.jpg',
+            id: 'foDsG2zjQw8',
+          },
+        ],
+      },
+      {
+        nameKey: 'weddings.works.eurovisionVibes.name',
+        titleKey: 'weddings.works.eurovisionVibes.title',
+        date: {
+          month: 7,
+          year: 2025,
+        },
+         youtubeIds: [
+          {
+            preview: '/version1/works/weddings/eurovisionVibes.jpg',
+            id: '6AZaKYkiTP4',
+          },
+        ],
+      },
+      {
         nameKey: 'weddings.works.bubriskoDvaras.name',
         titleKey: 'weddings.works.bubriskoDvaras.title',
         date: {
@@ -99,24 +141,6 @@ export const siteBlocks: SiteBlock[] = [
         ],
       },
       {
-        nameKey: 'weddings.works.taipGerai.name',
-        titleKey: 'weddings.works.taipGerai.title',
-        date: {
-          month: 7,
-          year: 2024,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/taipGerai-1.jpg',
-            id: 'daqGndKdKzs',
-          },
-          {
-            preview: '/version1/works/weddings/taipGerai-2.jpg',
-            id: 'oVwvIgIyp30',
-          },
-        ],
-      },
-      {
         nameKey: 'weddings.works.funnyWedding.name',
         titleKey: 'weddings.works.funnyWedding.title',
         date: {
@@ -127,10 +151,6 @@ export const siteBlocks: SiteBlock[] = [
           {
             preview: '/version1/works/weddings/funnyWedding-2.jpg',
             id: '2TB5gGQk6U4',
-          },
-          {
-            preview: '/version1/works/weddings/funnyWedding-1.jpg',
-            id: 'x7occ9vZKtg',
           },
         ],
       },
@@ -148,78 +168,8 @@ export const siteBlocks: SiteBlock[] = [
           },
         ],
       },
-      {
-        nameKey: 'weddings.works.aciuTau.name',
-        titleKey: 'weddings.works.aciuTau.title',
-        date: {
-          month: 7,
-          year: 2023,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/aciuTau.jpg',
-            id: 'ioQmE_ihkRU',
-          },
-        ],
-      },
-      {
-        nameKey: 'weddings.works.iChooseYouAgain.name',
-        titleKey: 'weddings.works.iChooseYouAgain.title',
-        date: {
-          month: 8,
-          year: 2022,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/iChooseYouAgain-1.jpg',
-            id: 'S_fL4hSvtE4',
-          },
-          {
-            preview: '/version1/works/weddings/iChooseYouAgain-2.jpg',
-            id: 'Ew0pjNmzt_s',
-          },
-        ],
-      },
-      {
-        nameKey: 'weddings.works.twoAugustsTogether.name',
-        titleKey: 'weddings.works.twoAugustsTogether.title',
-        date: {
-          month: 8,
-          year: 2023,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/twoAugustsTogether.jpg',
-            id: '9rxtaob6P9c',
-          },
-        ],
-      },
     ],
     moments: [
-      {
-        nameKey: 'weddings.moments.taipGeraiFlowers.name',
-        date: {
-          month: 8,
-          year: 2024,
-        },
-        source: 'weddings/taipGeraiFlowers',
-      },
-      {
-        nameKey: 'weddings.moments.taipGeraiParty.name',
-        date: {
-          month: 8,
-          year: 2024,
-        },
-        source: 'weddings/taipGeraiParty',
-      },
-      {
-        nameKey: 'weddings.moments.taipGeraiDrink.name',
-        date: {
-          month: 8,
-          year: 2024,
-        },
-        source: 'weddings/taipGeraiDrink',
-      },
       {
         nameKey: 'weddings.moments.rockNPink.name',
         date: {
@@ -275,6 +225,10 @@ export const siteBlocks: SiteBlock[] = [
           year: 2024,
         },
         source: 'weddings/cherryManor',
+      },
+      {
+        nameKey: 'weddings.moments.fairytale.name',
+        source: 'weddings/fairytale',
       },
     ],
     momentsToShowCount: 8,

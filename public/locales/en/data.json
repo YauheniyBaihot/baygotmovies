@@ -9,10 +9,6 @@
         "name": "Burbiškio dvaras",
         "title": "Meilé, gimusi vaikystéje, yra tarsi medis - kuo ilgiau auga, tuo stipresnes saknys. "
       },
-      "taipGerai": {
-        "name": "Taip Gerai",
-        "title": "The story of Smiltė and Martynas filled with heartfelt vows, cherished family traditions, a vibrant celebration, and a special song composed just for them."
-      },
       "funnyWedding": {
         "name": "Kokios linksmos vestuvės!",
         "title": "A unique countryside wedding in July, marked by incredible fun and the vibrant rhythms of bachata."
@@ -25,21 +21,9 @@
         "name": "Blue-Eyed Angel",
         "title": "This video holds immense value and sentiment for me, as I created it for my beloved sister."
       },
-      "aciuTau": {
-        "name": "Ačiū tau",
-        "title": "We enjoyed a seaside photoshoot on an empty beach and the incredible evening filled with a warm family atmosphere, taste, care, and love!"
-      },
       "loveIsEveryMoment": {
         "name": "Love is Every Moment",
         "title": "Irma and Miguel's international wedding, celebrated amidst the stunning landscapes of Lithuania. Their special day was marked by a heartfelt speech reminding them that love is present in every moment."
-      },
-      "twoAugustsTogether": {
-        "name": "Two Augusts Together",
-        "title": "Story of August and Augustina—destined to meet in August and celebrate their wedding in the same month."
-      },
-      "iChooseYouAgain": {
-        "name": "I choose you again",
-        "title": "They are the epitome of style and grace. I can watch their videos million of times and never get bored."
       },
       "gorgeousNewlyweds": {
         "name": "Gorgeous Newlyweds",
@@ -48,18 +32,21 @@
       "loveLetter": {
         "name": "Love letter",
         "title": "Hometown Klaipėda, the family pet, and all their loved ones gathered on this day. A warm seaside wedding."
+      },
+      "fairytale" : {
+        "name": "A Fairytale She Waited For",
+        "title": "For years she imagined this day, believing that somewhere in the world there was a love beautiful enough to make the dream come true: a shining car, a delicate crown, and a tall prince with a flawless white smile standing beside her. She wanted everything to look like a fairytale."
+      },
+      "loveLaughParty" : {
+        "name": "Love, Laugh, Party",
+        "title": "A fun, big wedding with family and friends, filled with laughter, dancing, and surprise moments. A hot July day in Lithuania that turns into a long, unforgettable summer celebration full of love and energy."
+      },
+      "eurovisionVibes" : {
+        "name": "Eurovision Vibes",
+        "title": "We're definitely getting a strong European vibe here tonight. We're speaking two languages, there are people from various countries, and, for some reason, the Aussies are here as well."
       }
     },
     "moments": {
-      "taipGeraiFlowers": {
-        "name": "Taip Gerai"
-      },
-      "taipGeraiParty": {
-        "name": "Taip Gerai"
-      },
-      "taipGeraiDrink": {
-        "name": "Taip Gerai"
-      },
       "rockNPink": {
         "name": "Rock 'n' Pink"
       },
@@ -80,6 +67,9 @@
       },
       "cherryManor": {
         "name": "Cherry Manor"
+      },
+      "fairytale": {
+        "name": "A Fairytale She Waited For"
       }
     }
   },
