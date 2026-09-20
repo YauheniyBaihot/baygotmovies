@@ -7,8 +7,9 @@ import {shuffle} from '@/utils/array-utils';
 
 export const dynamic = 'force-dynamic';
 
+const randomNumber = Math.random();
+
 const App: FC = () => {
-  const randomNumber = Math.random();
   const blocks = siteBlocks.map(block => ({
     ...block,
     moments: shuffle(block.moments, randomNumber).slice(0, block.momentsToShowCount),

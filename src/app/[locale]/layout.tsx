@@ -1,21 +1,20 @@
-import {ColorSchemeScript, mantineHtmlProps,MantineProvider} from '@mantine/core';
+import '@mantine/carousel/styles.layer.css';
+import {ColorSchemeScript, MantineProvider, mantineHtmlProps} from '@mantine/core';
+import '@mantine/core/styles.layer.css';
 import type {Metadata, Viewport} from 'next';
+import {I18nProvider} from 'next-i18next/client';
+import {generateI18nStaticParams, getResources, getT, initServerI18next} from 'next-i18next/server';
 import {notFound} from 'next/navigation';
 import Script from 'next/script';
 import {FC, PropsWithChildren} from 'react';
-import { initServerI18next, getT, getResources, generateI18nStaticParams } from 'next-i18next/server'
-import { I18nProvider } from 'next-i18next/client'
 
+import {Footer} from '@/components/footer/Footer';
 import {siteBlocks} from '@/data';
-import {theme} from '@/styles/theme';
-import i18nConfig from '@/i18n.config'
-import { Footer } from '@/components/footer/Footer';
-
-import '@mantine/core/styles.layer.css';
-import '@mantine/carousel/styles.layer.css';
+import i18nConfig from '@/i18n.config';
 import '@/styles/global.css';
+import {theme} from '@/styles/theme';
 
-initServerI18next(i18nConfig)
+initServerI18next(i18nConfig);
 
 type RootLayoutProps = PropsWithChildren<{
   params: Promise<{locale: string}>;
@@ -39,9 +38,9 @@ const RootLayout: FC<RootLayoutProps> = async ({children, params}) => {
         <Script src="https://www.youtube.com/iframe_api" strategy="lazyOnload" />
       </head>
       <body>
-         <I18nProvider language={locale} resources={resources}>
+        <I18nProvider language={locale} resources={resources}>
           <MantineProvider theme={theme} defaultColorScheme="auto">
-             {children}
+            {children}
             <Footer sections={sections} />
           </MantineProvider>
         </I18nProvider>
@@ -49,7 +48,6 @@ const RootLayout: FC<RootLayoutProps> = async ({children, params}) => {
     </html>
   );
 };
-
 
 export const metadata: Metadata = {
   title: 'Baygotmovies',
@@ -68,9 +66,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-
 export async function generateStaticParams() {
-  return generateI18nStaticParams()
+  return generateI18nStaticParams();
 }
 
 export default RootLayout;

@@ -26,7 +26,7 @@
     "react-dom": "19.3.0",
     "react-i18next": "^17.0.14",
     "telegram-escape": "^1.1.1",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

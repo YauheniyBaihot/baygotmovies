@@ -7,7 +7,7 @@ import React, {ForwardRefRenderFunction, forwardRef} from 'react';
 
 import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
 import {EmailMe} from '@/components/email-me/EmailMe';
-import {LanguageSwitcher} from '@/components/language-switcher/LanguageSwitcher';
+// import {LanguageSwitcher} from '@/components/language-switcher/LanguageSwitcher';
 import {SiteLogo} from '@/components/site-logo/SiteLogo';
 import {SocialLinks} from '@/components/social-links/SocialLinks';
 import {NavigationSection} from '@/models/site-block';

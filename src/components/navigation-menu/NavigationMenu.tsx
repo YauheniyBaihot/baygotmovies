@@ -5,7 +5,7 @@ import {useT as useTranslation} from 'next-i18next/client';
 import Link from 'next/link';
 import {FC} from 'react';
 
-import {LanguageSwitcher} from '@/components/language-switcher/LanguageSwitcher';
+// import {LanguageSwitcher} from '@/components/language-switcher/LanguageSwitcher';
 import {NavigationSection} from '@/models/site-block';
 
 type NavigationMenuProps = {
