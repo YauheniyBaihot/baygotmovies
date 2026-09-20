@@ -29,6 +29,7 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
 
     return BLOCK_CONFIG[data.length - 1].map(val => {
       const portion = data.slice(acc, acc + val);
+      // eslint-disable-next-line react-hooks/immutability
       acc += val;
       return portion;
     });

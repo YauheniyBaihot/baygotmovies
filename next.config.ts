@@ -6,14 +6,13 @@ import {i18n} from './next-i18next.config';
 const config = (phase: string) => {
   const config = {
     reactStrictMode: true,
-    webpack: (config: NextConfig) => {
-      config.module.rules.push({
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
-      });
-
-      return config;
+    turbopack: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
     },
     i18n,
   };

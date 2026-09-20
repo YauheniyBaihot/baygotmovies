@@ -1,4 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const {readdirSync} = require('fs');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
 const srcDirectories = readdirSync(path.resolve(__dirname, 'src'), {withFileTypes: true})

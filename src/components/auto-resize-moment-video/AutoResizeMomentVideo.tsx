@@ -45,6 +45,7 @@ export const AutoResizeMomentVideo: FC<{
   useEffect(() => {
     const actualContainerHeight = containerHeight * window.devicePixelRatio;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSrc(calculateSrc(source, format, actualContainerHeight));
   }, [containerHeight, source, format]);
 

@@ -65,6 +65,7 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   useEffect(() => {
     const isIphone = typeof navigator !== 'undefined' && /iPhone/i.test(navigator.userAgent);
     const actualContainerHeight = height * window.devicePixelRatio;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight, isIphone));
   }, [height, width]);
 
