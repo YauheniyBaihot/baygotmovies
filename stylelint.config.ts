@@ -1,9 +1,11 @@
-{
-  "extends": [
+import type { Config } from "stylelint";
+
+export default {
+  extends: [
     "stylelint-config-standard-scss",
     "stylelint-config-clean-order"
   ],
-  "rules": {
+  rules: {
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
   }
-}
+} satisfies Config;
