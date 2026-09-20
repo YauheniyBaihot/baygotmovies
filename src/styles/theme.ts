@@ -1,3 +1,5 @@
+'use client'
+
 // action font
 import {ActionIcon, Button, colorsTuple, createTheme, darken, defaultVariantColorsResolver, lighten, rgba, virtualColor} from '@mantine/core';
 import {Poppins} from 'next/font/google';

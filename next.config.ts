@@ -1,10 +1,8 @@
 import {NextConfig} from 'next';
 import {PHASE_DEVELOPMENT_SERVER} from 'next/constants';
 
-import i18nextConfig from './next-i18next.config';
-
 const config = (phase: string) => {
-  const config = {
+  const baseConfig: NextConfig = {
     reactStrictMode: true,
     turbopack: {
       rules: {
@@ -14,15 +12,14 @@ const config = (phase: string) => {
         },
       },
     },
-    i18n: i18nextConfig.i18n,
   };
 
   if (phase === PHASE_DEVELOPMENT_SERVER) {
-    return config;
+    return baseConfig;
   }
 
   return {
-    ...config,
+    ...baseConfig,
     images: {
       loader: 'custom',
       loaderFile: './src/common/aws-s3-optimized-image-loader.ts',

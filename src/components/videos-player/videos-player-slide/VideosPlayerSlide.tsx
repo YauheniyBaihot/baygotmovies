@@ -1,7 +1,9 @@
+'use client';
+
 import {CarouselSlide} from '@mantine/carousel';
 import {Text, Title} from '@mantine/core';
 import {ParseKeys} from 'i18next';
-import {useTranslation} from 'next-i18next/pages';
+import {useT as useTranslation} from 'next-i18next/client';
 import React, {ForwardRefRenderFunction, forwardRef, useImperativeHandle, useRef} from 'react';
 
 import {YoutubeVideo as YoutubeVideoComponent, YoutubeVideoRef} from '@/components/youtube-video/YoutubeVideo';

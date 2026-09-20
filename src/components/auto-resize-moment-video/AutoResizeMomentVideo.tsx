@@ -1,3 +1,5 @@
+'use client';
+
 import {useElementSize, useIntersection, useMergedRef} from '@mantine/hooks';
 import clsx from 'clsx';
 import {FC, useEffect, useMemo, useRef, useState} from 'react';

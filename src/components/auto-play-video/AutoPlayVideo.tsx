@@ -1,3 +1,5 @@
+'use client';
+
 import {useDebouncedCallback, useIntersection, useMergedRef} from '@mantine/hooks';
 import {DetailedHTMLProps, FC, VideoHTMLAttributes, useEffect, useMemo, useRef} from 'react';
 

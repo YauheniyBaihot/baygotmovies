@@ -1,7 +1,9 @@
+'use client';
+
 import {Text, Title} from '@mantine/core';
 import clsx from 'clsx';
 import {ParseKeys} from 'i18next';
-import {useTranslation} from 'next-i18next/pages';
+import {useT as useTranslation} from 'next-i18next/client';
 import {FC} from 'react';
 
 import {ShortDate} from '@/models/site-block';

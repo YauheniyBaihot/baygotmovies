@@ -1,8 +1,10 @@
+'use client';
+
 import {Carousel} from '@mantine/carousel';
 import {AccordionChevron, Button, Collapse, Group, Text} from '@mantine/core';
 import {EmblaCarouselType} from 'embla-carousel';
 import {ParseKeys} from 'i18next';
-import {useTranslation} from 'next-i18next/pages';
+import {useT as useTranslation} from 'next-i18next/client';
 import React, {FC, useMemo, useRef, useState} from 'react';
 
 import {VideosPlayerSlide, VideosPlayerSlidePropsRef} from '@/components/videos-player/videos-player-slide/VideosPlayerSlide';

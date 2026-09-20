@@ -1,13 +1,13 @@
 import { readdirSync } from 'fs';
 import { resolve } from 'path';
-import { type Config } from "prettier";
-import trivago from '@trivago/prettier-plugin-sort-imports';
+import { type Config } from 'prettier';
+import type { PluginConfig } from '@trivago/prettier-plugin-sort-imports';
 
 const srcDirectories = readdirSync(resolve(resolve(), 'src'), { withFileTypes: true })
   .filter(dirent => dirent.isDirectory())
   .map(dirent => dirent.name);
 
-const config: Config = {
+const config: Config & PluginConfig = {
   printWidth: 240,
   trailingComma: 'es5',
   tabWidth: 2,
@@ -16,7 +16,7 @@ const config: Config = {
   bracketSpacing: false,
   endOfLine: 'lf',
   arrowParens: 'avoid',
-  plugins: [trivago],
+  plugins: ['@trivago/prettier-plugin-sort-imports'],
   importOrder: ['<THIRD_PARTY_MODULES>', '^@/(.*)$', `^((${srcDirectories.join('|')})(\/.*)?)$`, '^[./]'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,

@@ -1,5 +1,7 @@
+'use client';
+
 import {Stack, Text, Title} from '@mantine/core';
-import {Trans, useTranslation} from 'next-i18next/pages';
+import {Trans, useT as useTranslation} from 'next-i18next/client';
 
 import {EmailMe} from '@/components/email-me/EmailMe';
 import {SocialLinks} from '@/components/social-links/SocialLinks';

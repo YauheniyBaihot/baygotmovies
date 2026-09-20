@@ -1,5 +1,7 @@
+'use client';
+
 import {Button, Menu, MenuDropdown, MenuTarget, Stack} from '@mantine/core';
-import {useTranslation} from 'next-i18next/pages';
+import {useT as useTranslation} from 'next-i18next/client';
 import Link from 'next/link';
 import {FC} from 'react';
 
@@ -12,10 +14,11 @@ type NavigationMenuProps = {
 };
 
 export const NavigationMenu: FC<NavigationMenuProps> = ({className, sections}) => {
-  const {t} = useTranslation(['data', 'common']);
+  const {t, i18n} = useTranslation(['data', 'common']);
+  const prefix = i18n.language === 'lt' ? '/lt' : '';
 
   const links = sections.map(({nameKey, path}) => (
-    <Button key={nameKey} component={Link} href={`/#${path}`}>
+    <Button key={nameKey} component={Link} href={`${prefix}/#${path}`}>
       {t(nameKey)}
     </Button>
   ));
@@ -29,10 +32,10 @@ export const NavigationMenu: FC<NavigationMenuProps> = ({className, sections}) =
       <MenuDropdown bg="none" bd="none">
         <Stack>
           {links}
-          <Button component={Link} href="/about">
+          <Button component={Link} href={`${prefix}/about`}>
             {t('common:aboutMe')}
           </Button>
-          <LanguageSwitcher asButton />
+          {/* <LanguageSwitcher asButton /> */}
         </Stack>
       </MenuDropdown>
     </Menu>

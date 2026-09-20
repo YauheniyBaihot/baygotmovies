@@ -3,6 +3,13 @@
   min-width: 20rem;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 @layer mantine, overide-mantine;
 
 @layer overide-mantine {

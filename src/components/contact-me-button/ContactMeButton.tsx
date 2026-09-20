@@ -1,5 +1,7 @@
+'use client';
+
 import {Button} from '@mantine/core';
-import {useTranslation} from 'next-i18next/pages';
+import {useT as useTranslation} from 'next-i18next/client';
 import Link from 'next/link';
 import {FC} from 'react';
 
@@ -9,10 +11,11 @@ type ContactMeButtonProps = {
 };
 
 export const ContactMeButton: FC<ContactMeButtonProps> = ({className, variant}) => {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+  const href = i18n.language === 'lt' ? '/lt/contact' : '/contact';
 
   return (
-    <Button className={className} component={Link} href="./contact" variant={variant}>
+    <Button className={className} component={Link} href={href} variant={variant}>
       {t('contactMe')}
     </Button>
   );

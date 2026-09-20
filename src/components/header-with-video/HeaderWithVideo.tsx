@@ -1,6 +1,8 @@
+'use client';
+
 import {Title} from '@mantine/core';
 import {useElementSize, useIntersection, useMergedRef} from '@mantine/hooks';
-import {Trans, useTranslation} from 'next-i18next/pages';
+import {Trans, useT as useTranslation} from 'next-i18next/client';
 import {FC, useEffect, useMemo, useRef, useState} from 'react';
 
 import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
@@ -50,17 +52,13 @@ const mainVideoSource = 'mainVideo2/video';
 export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   const {t} = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
-
   const {ref: elementSizeRef, height, width} = useElementSize();
-
   // Load and play when at least 5% of the video is visible
   const {ref: intersectionRef, entry} = useIntersection<HTMLDivElement>({
     threshold: 0.05,
   });
-
-  const mergedRef = useMergedRef(elementSizeRef, intersectionRef);
-
   const [src, setSrc] = useState<string | undefined>(undefined);
+  const mergedRef = useMergedRef(elementSizeRef, intersectionRef);
 
   useEffect(() => {
     const isIphone = typeof navigator !== 'undefined' && /iPhone/i.test(navigator.userAgent);
@@ -71,19 +69,6 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
 
   const isIntersecting = !!entry?.isIntersecting;
   const videoSrc = isIntersecting ? src : undefined;
-
-  // Control playback based on visibility
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isIntersecting) {
-        videoRef.current.play().catch(err => {
-          console.warn('Playback prevented:', err);
-        });
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  }, [isIntersecting]);
 
   // Explicitly release media resources and decoders on iOS Safari when scrolled out of view
   useEffect(() => {
@@ -96,7 +81,7 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   return useMemo(() => {
     return (
       <header ref={mergedRef} className={styles.header}>
-        <video ref={videoRef} className={styles.backgroundVideo} src={videoSrc} playsInline muted preload="auto" loop />
+        <video ref={videoRef} className={styles.backgroundVideo} src={videoSrc} playsInline muted preload="auto" loop autoPlay />
 
         <SiteLogo color="main-white" className={styles.logo} />
 

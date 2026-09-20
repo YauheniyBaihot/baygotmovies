@@ -1,6 +1,8 @@
+'use client';
+
 import {Button, Title} from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
-import {useTranslation} from 'next-i18next/pages';
+import {useT as useTranslation} from 'next-i18next/client';
 import {FC, useMemo, useState} from 'react';
 
 import {VideoBlock} from '@/components/video-block/VideoBlock';

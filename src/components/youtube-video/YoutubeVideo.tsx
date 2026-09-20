@@ -1,3 +1,5 @@
+'use client';
+
 import {ActionIcon} from '@mantine/core';
 import {useElementSize} from '@mantine/hooks';
 import Image from 'next/image';

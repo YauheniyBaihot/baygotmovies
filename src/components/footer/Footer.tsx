@@ -1,5 +1,7 @@
-﻿import {Box, Stack, Text} from '@mantine/core';
-import {useTranslation} from 'next-i18next/pages';
+'use client';
+
+import {Box, Stack, Text} from '@mantine/core';
+import {useT as useTranslation} from 'next-i18next/client';
 import Link from 'next/link';
 import React, {ForwardRefRenderFunction, forwardRef} from 'react';
 
@@ -15,11 +17,13 @@ import styles from './Footer.module.css';
 type FooterProps = {
   sections: NavigationSection[];
 };
+
 const FooterInternal: ForwardRefRenderFunction<HTMLDivElement, FooterProps> = ({sections}, ref) => {
-  const {t} = useTranslation(['common', 'data']);
+  const {t, i18n} = useTranslation(['common', 'data']);
+  const prefix = i18n.language === 'lt' ? '/lt' : '';
 
   const siteLinks = sections.map(({path, nameKey}) => (
-    <Link key={path} href={`/#${path}`} className={styles.link}>
+    <Link key={path} href={`${prefix}/#${path}`} className={styles.link}>
       {t(nameKey, {ns: 'data'})}
     </Link>
   ));
@@ -31,10 +35,10 @@ const FooterInternal: ForwardRefRenderFunction<HTMLDivElement, FooterProps> = ({
       <Stack>{siteLinks}</Stack>
 
       <Stack>
-        <Link href={'/about'} className={styles.link}>
+        <Link href={`${prefix}/about`} className={styles.link}>
           {t('aboutMe')}
         </Link>
-        <LanguageSwitcher className={styles.link} />
+        {/* <LanguageSwitcher className={styles.link} /> */}
       </Stack>
 
       <Stack className={styles.contacts}>
