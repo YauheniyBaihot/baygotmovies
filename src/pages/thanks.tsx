@@ -1,5 +1,5 @@
 import {GetStaticProps} from 'next';
-import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {serverSideTranslations} from 'next-i18next/pages/serverSideTranslations';
 import {FC} from 'react';
 
 import {Header} from '@/components/header/Header';

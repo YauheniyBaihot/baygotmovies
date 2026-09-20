@@ -1,7 +1,7 @@
 import {Title} from '@mantine/core';
 import clsx from 'clsx';
 import {ParseKeys} from 'i18next';
-import {useTranslation} from 'next-i18next';
+import {useTranslation} from 'next-i18next/pages';
 import {FC, Fragment} from 'react';
 
 import {AutoResizeMomentVideo} from '@/components/auto-resize-moment-video/AutoResizeMomentVideo';

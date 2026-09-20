@@ -1,5 +1,5 @@
 import {GetServerSideProps} from 'next';
-import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {serverSideTranslations} from 'next-i18next/pages/serverSideTranslations';
 import {FC, useMemo} from 'react';
 
 import {HeaderWithVideo} from '@/components/header-with-video/HeaderWithVideo';

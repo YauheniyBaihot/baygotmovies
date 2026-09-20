@@ -1,7 +1,7 @@
 import {NextConfig} from 'next';
 import {PHASE_DEVELOPMENT_SERVER} from 'next/constants';
 
-import {i18n} from './next-i18next.config';
+import i18nextConfig from './next-i18next.config';
 
 const config = (phase: string) => {
   const config = {
@@ -14,7 +14,7 @@ const config = (phase: string) => {
         },
       },
     },
-    i18n,
+    i18n: i18nextConfig.i18n,
   };
 
   if (phase === PHASE_DEVELOPMENT_SERVER) {

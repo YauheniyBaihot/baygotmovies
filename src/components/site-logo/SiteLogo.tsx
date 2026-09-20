@@ -1,6 +1,6 @@
 import {Title} from '@mantine/core';
 import clsx from 'clsx';
-import {useTranslation} from 'next-i18next';
+import {useTranslation} from 'next-i18next/pages';
 import Link from 'next/link';
 import {FC} from 'react';
 

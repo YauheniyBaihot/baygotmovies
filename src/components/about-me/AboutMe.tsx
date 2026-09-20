@@ -1,5 +1,5 @@
 ﻿import {Stack, Text, Title} from '@mantine/core';
-import {Trans, useTranslation} from 'next-i18next';
+import {Trans, useTranslation} from 'next-i18next/pages';
 import Image from 'next/image';
 
 import styles from './AboutMe.module.css';

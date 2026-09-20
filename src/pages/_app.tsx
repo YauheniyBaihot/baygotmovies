@@ -1,8 +1,8 @@
 import '@mantine/carousel/styles.layer.css';
 import {MantineProvider} from '@mantine/core';
 import '@mantine/core/styles.layer.css';
-import {UserConfig, appWithTranslation} from 'next-i18next';
-import {i18n} from 'next-i18next.config';
+import {UserConfig, appWithTranslation} from 'next-i18next/pages';
+import i18nextConfig from '../../next-i18next.config';
 import type {AppProps} from 'next/app';
 import Head from 'next/head';
 import {FC} from 'react';
@@ -14,8 +14,8 @@ import {theme} from '@/styles/theme';
 
 const emptyInitialI18NextConfig: UserConfig = {
   i18n: {
-    defaultLocale: i18n.defaultLocale,
-    locales: i18n.locales,
+    defaultLocale: i18nextConfig.i18n.defaultLocale,
+    locales: i18nextConfig.i18n.locales,
   },
 };
 

@@ -1,6 +1,6 @@
 import {Title} from '@mantine/core';
 import {useElementSize, useIntersection, useMergedRef} from '@mantine/hooks';
-import {Trans, useTranslation} from 'next-i18next';
+import {Trans, useTranslation} from 'next-i18next/pages';
 import {FC, useEffect, useMemo, useRef, useState} from 'react';
 
 import {ContactMeButton} from '@/components/contact-me-button/ContactMeButton';
@@ -87,7 +87,6 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
 
   // Explicitly release media resources and decoders on iOS Safari when scrolled out of view
   useEffect(() => {
-    console.log('here we go');
     if (videoRef.current && !videoSrc) {
       videoRef.current.removeAttribute('src');
       videoRef.current.load();

@@ -1,5 +1,5 @@
 import {Stack, Text, Title} from '@mantine/core';
-import {Trans, useTranslation} from 'next-i18next';
+import {Trans, useTranslation} from 'next-i18next/pages';
 
 import {EmailMe} from '@/components/email-me/EmailMe';
 import {SocialLinks} from '@/components/social-links/SocialLinks';

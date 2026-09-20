@@ -1,5 +1,5 @@
 import {Button} from '@mantine/core';
-import {useTranslation} from 'next-i18next';
+import {useTranslation} from 'next-i18next/pages';
 import Link from 'next/link';
 import {FC} from 'react';
 

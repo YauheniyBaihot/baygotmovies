@@ -1,6 +1,6 @@
 import {Button, Stack, Text, TextInput, Textarea, Title} from '@mantine/core';
 import {hasLength, isEmail, useForm} from '@mantine/form';
-import {Trans, useTranslation} from 'next-i18next';
+import {Trans, useTranslation} from 'next-i18next/pages';
 import {FC, useState} from 'react';
 
 import {EmailMe} from '@/components/email-me/EmailMe';

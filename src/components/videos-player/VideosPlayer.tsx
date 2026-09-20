@@ -1,7 +1,8 @@
-import {Carousel, Embla} from '@mantine/carousel';
+import {Carousel} from '@mantine/carousel';
 import {AccordionChevron, Button, Collapse, Group, Text} from '@mantine/core';
+import {EmblaCarouselType} from 'embla-carousel';
 import {ParseKeys} from 'i18next';
-import {useTranslation} from 'next-i18next';
+import {useTranslation} from 'next-i18next/pages';
 import React, {FC, useMemo, useRef, useState} from 'react';
 
 import {VideosPlayerSlide, VideosPlayerSlidePropsRef} from '@/components/videos-player/videos-player-slide/VideosPlayerSlide';
@@ -19,7 +20,7 @@ type VideosPlayerProps = {
 export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, onClose, blockNameKey}) => {
   const {t} = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [embla, setEmbla] = useState<Embla | null>(null);
+  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
   const mapRef = useRef<Map<string, VideosPlayerSlidePropsRef> | null>(null);
 
   const getMap = () => {
@@ -89,19 +90,20 @@ export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, onClose, bl
   }, [blockNameKey, videos]);
 
   return (
-    <Collapse in={opened} onTransitionEnd={handleTransitionEnd} transitionDuration={400}>
+    <Collapse expanded={opened} onTransitionEnd={handleTransitionEnd} transitionDuration={400}>
       <div className={styles.container} ref={containerRef}>
         <Carousel
           draggable={false}
           getEmblaApi={setEmbla}
-          loop
           height="100%"
           style={{overflow: 'hidden'}}
-          speed={5}
           slideGap="xl"
           onSlideChange={onSlideChange}
           nextControlIcon={<AccordionChevron style={{transform: `rotate(-90deg)`}} size="2rem" />}
           previousControlIcon={<AccordionChevron style={{transform: `rotate(90deg)`}} size="2rem" />}
+          emblaOptions={{
+            loop: true,
+          }}
         >
           {slides}
         </Carousel>

@@ -1,7 +1,7 @@
 import {Text, Title} from '@mantine/core';
 import clsx from 'clsx';
 import {ParseKeys} from 'i18next';
-import {useTranslation} from 'next-i18next';
+import {useTranslation} from 'next-i18next/pages';
 import {FC} from 'react';
 
 import {ShortDate} from '@/models/site-block';

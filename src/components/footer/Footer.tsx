@@ -1,5 +1,5 @@
 ﻿import {Box, Stack, Text} from '@mantine/core';
-import {useTranslation} from 'next-i18next';
+import {useTranslation} from 'next-i18next/pages';
 import Link from 'next/link';
 import React, {ForwardRefRenderFunction, forwardRef} from 'react';
 
