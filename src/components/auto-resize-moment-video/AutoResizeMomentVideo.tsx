@@ -54,19 +54,6 @@ export const AutoResizeMomentVideo: FC<{
   const isIntersecting = !!entry?.isIntersecting;
   const videoSrc = isIntersecting ? src : undefined;
 
-  // Control playback based on visibility
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isIntersecting) {
-        videoRef.current.play().catch(err => {
-          console.warn('Playback prevented:', err);
-        });
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  }, [isIntersecting]);
-
   // Explicitly release media resources and decoders on iOS Safari when scrolled out of view
   useEffect(() => {
     if (videoRef.current && !videoSrc) {
@@ -78,7 +65,7 @@ export const AutoResizeMomentVideo: FC<{
   return useMemo(() => {
     return (
       <div ref={mergedRef} className={clsx(styles.container, className)} data-index={index} data-format={format}>
-        <video ref={videoRef} className={styles.video} src={videoSrc} playsInline muted loop preload="auto" />
+        <video ref={videoRef} className={styles.video} src={videoSrc} playsInline muted loop preload="auto" autoPlay />
       </div>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -2,6 +2,7 @@ import {SiteBlock} from '@/models/site-block';
 
 export const siteBlocks: SiteBlock[] = [
   {
+    alwaysExpanded: true,
     nameKey: 'weddings.name',
     titleKey: 'weddings.title',
     subTitleKey: 'weddings.subTitle',
@@ -105,42 +106,6 @@ export const siteBlocks: SiteBlock[] = [
         ],
       },
       {
-        nameKey: 'weddings.works.loveLetter.name',
-        titleKey: 'weddings.works.loveLetter.title',
-        date: {
-          month: 8,
-          year: 2024,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/loveLetter-2.jpg',
-            id: 'zIO8PT3TMPQ',
-          },
-          {
-            preview: '/version1/works/weddings/loveLetter-1.jpg',
-            id: 'nSDWcvcLOwI',
-          },
-        ],
-      },
-      {
-        nameKey: 'weddings.works.loveIsEveryMoment.name',
-        titleKey: 'weddings.works.loveIsEveryMoment.title',
-        date: {
-          month: 8,
-          year: 2023,
-        },
-        youtubeIds: [
-          {
-            preview: '/version1/works/weddings/loveIsEveryMoment-1.jpg',
-            id: 'sirEQ8GICtc',
-          },
-          {
-            preview: '/version1/works/weddings/loveIsEveryMoment-2.jpg',
-            id: 'CvrW3vt_mII',
-          },
-        ],
-      },
-      {
         nameKey: 'weddings.works.funnyWedding.name',
         titleKey: 'weddings.works.funnyWedding.title',
         date: {
@@ -171,64 +136,68 @@ export const siteBlocks: SiteBlock[] = [
     ],
     moments: [
       {
-        nameKey: 'weddings.moments.rockNPink.name',
-        date: {
-          month: 4,
-          year: 2024,
-        },
-        source: 'weddings/rockNPink',
-      },
-      {
         nameKey: 'weddings.moments.blueEyedAngel.name',
-        date: {
-          month: 10,
-          year: 2023,
-        },
         source: 'weddings/blueEyedAngel',
-      },
-      {
-        nameKey: 'weddings.moments.loveIsEveryMoment.name',
         date: {
-          month: 8,
+          month: 11,
           year: 2023,
         },
-        source: 'weddings/loveIsEveryMoment',
-      },
-      {
-        nameKey: 'weddings.moments.twoAugustsTogether.name',
-        date: {
-          month: 8,
-          year: 2023,
-        },
-        source: 'weddings/twoAugustsTogether',
-      },
-      {
-        nameKey: 'weddings.moments.iChooseYouAgain.name',
-        date: {
-          month: 8,
-          year: 2022,
-        },
-        source: 'weddings/iChooseYouAgain',
-      },
-      {
-        nameKey: 'weddings.moments.miroslavAndVioleta.name',
-        date: {
-          month: 9,
-          year: 2024,
-        },
-        source: 'weddings/miroslavAndVioleta',
       },
       {
         nameKey: 'weddings.moments.cherryManor.name',
+        source: 'weddings/cherryManor',
         date: {
-          month: 7,
+          month: 8,
           year: 2024,
         },
-        source: 'weddings/cherryManor',
+      },
+      {
+        nameKey: 'weddings.moments.dvaras.name',
+        source: 'weddings/dvaras',
+        date: {
+          month: 8,
+          year: 2024,
+        },
+      },
+      {
+        nameKey: 'weddings.moments.eurovision.name',
+        source: 'weddings/eurovision',
+        date: {
+          month: 8,
+          year: 2025,
+        },
       },
       {
         nameKey: 'weddings.moments.fairytale.name',
         source: 'weddings/fairytale',
+        date: {
+          month: 5,
+          year: 2025,
+        },
+      },
+      {
+        nameKey: 'weddings.moments.loveparty.name',
+        source: 'weddings/loveparty',
+        date: {
+          month: 7,
+          year: 2025,
+        },
+      },
+      {
+        nameKey: 'weddings.moments.newlyweds.name',
+        source: 'weddings/newlyweds',
+        date: {
+          month: 8,
+          year: 2024,
+        },
+      },
+      {
+        nameKey: 'weddings.moments.rockNPink.name',
+        source: 'weddings/rockNPink',
+        date: {
+          month: 5,
+          year: 2024,
+        },
       },
     ],
     momentsToShowCount: 8,
@@ -255,16 +224,16 @@ export const siteBlocks: SiteBlock[] = [
         ],
       },
       {
-        nameKey: 'loveStory.works.miroslavAndVioleta.name',
-        titleKey: 'loveStory.works.miroslavAndVioleta.title',
+        nameKey: 'loveStory.works.edvinAndCosmina.name',
+        titleKey: 'loveStory.works.edvinAndCosmina.title',
         date: {
           month: 9,
           year: 2024,
         },
         youtubeIds: [
           {
-            preview: '/version1/works/loveStory/miroslavAndVioleta.jpg',
-            id: 'H00mSwWkirM',
+            preview: '/version1/works/loveStory/edvinAndCosmina.jpg',
+            id: 'tDDNd4VEeb4',
           },
         ],
       },
@@ -392,6 +361,7 @@ export const siteBlocks: SiteBlock[] = [
     nameKey: 'otherWorks.name',
     path: 'otherWorks',
     watchButtonKey: 'otherWorks.button',
+    alwaysExpanded: true,
     works: [
       {
         nameKey: 'otherWorks.works.corporateParty.name',
@@ -401,6 +371,16 @@ export const siteBlocks: SiteBlock[] = [
           {
             preview: '/version1/works/otherWorks/corporateParty.jpg',
             id: 'Qd_17NJzh4M',
+          },
+        ],
+      },
+      {
+        nameKey: 'otherWorks.works.christening.name',
+        dateTitle: 'otherWorks.works.christening.dateTitle',
+        youtubeIds: [
+          {
+            preview: '/version1/works/otherWorks/christening.jpg',
+            id: 'tOgJYu6K7dU',
           },
         ],
       },
@@ -417,18 +397,7 @@ export const siteBlocks: SiteBlock[] = [
         ],
       },
     ],
-    moments: [
-      {
-        nameKey: 'otherWorks.moments.corporateParty.name',
-        title: 'otherWorks.moments.corporateParty.title',
-        source: 'otherWorks/corporateParty',
-      },
-      {
-        nameKey: 'otherWorks.moments.event.name',
-        title: 'otherWorks.moments.event.title',
-        source: 'otherWorks/Event',
-      },
-    ],
-    momentsToShowCount: 2,
+    moments: [],
+    momentsToShowCount: 0,
   },
 ];

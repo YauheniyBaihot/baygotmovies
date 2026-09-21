@@ -20,7 +20,7 @@ const MAX_MOMENTS_FOR_BLOCK = 8;
 const BLOCK_CONFIG = [[1], [2], [3], [1, 2, 1], [2, 2, 1], [2, 3, 1], [2, 3, 2], [2, 3, 3]];
 
 export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
-  const {path, titleKey, subTitleKey, nameKey, works, moments, watchButtonKey} = block;
+  const {path, titleKey, subTitleKey, nameKey, works, moments, watchButtonKey, alwaysExpanded} = block;
   const [playerOpened, {toggle: togglePlayer}] = useDisclosure(false);
   const {t} = useTranslation('data');
   const [buttonPosition, setButtonPosition] = useState<'left' | 'right'>('left');
@@ -28,6 +28,8 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
   const momentsMemo = useMemo(() => {
     let acc = 0;
     const data = moments.slice(0, MAX_MOMENTS_FOR_BLOCK);
+
+    if (data.length === 0) return null;
 
     return BLOCK_CONFIG[data.length - 1].map(val => {
       const portion = data.slice(acc, acc + val);
@@ -38,6 +40,8 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
   }, [moments]);
 
   const blocks = useMemo(() => {
+    if (momentsMemo === null) return null;
+
     return momentsMemo.map((w, index) => {
       const isTitleBlock = (momentsMemo.length === 1 || index === 1) && subTitleKey && titleKey;
       if (index === momentsMemo.length - 1) {
@@ -64,11 +68,13 @@ export const MainPageBlock: FC<VideosBlockProps> = ({block}) => {
         <Title className={styles.heading}>{t(nameKey)}</Title>
         {blocks}
 
-        <Button className={styles.moreVideosButton} data-position={buttonPosition} onClick={togglePlayer}>
-          {t(watchButtonKey)}
-        </Button>
+        {!alwaysExpanded && (
+          <Button className={styles.moreVideosButton} data-position={buttonPosition} onClick={togglePlayer}>
+            {t(watchButtonKey)}
+          </Button>
+        )}
       </div>
-      <VideosPlayer blockNameKey={nameKey} onClose={togglePlayer} opened={playerOpened} videos={works} />
+      <VideosPlayer blockNameKey={nameKey} onClose={togglePlayer} opened={alwaysExpanded || playerOpened} videos={works} hideCloseButton={alwaysExpanded} />
     </>
   );
 };

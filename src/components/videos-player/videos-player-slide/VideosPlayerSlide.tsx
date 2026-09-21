@@ -87,7 +87,7 @@ const VideosPlayerSlideInternal: ForwardRefRenderFunction<VideosPlayerSlideProps
           <Title lineClamp={1}>
             <q>{t(nameKey)}</q>
           </Title>
-          <Text lineClamp={3}>{t(titleKey)}</Text>
+          {titleKey && <Text lineClamp={3}>{t(titleKey)}</Text>}
         </div>
         <div className={styles.titleSub}>
           <Title order={4} lineClamp={1}>

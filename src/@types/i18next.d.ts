@@ -1,8 +1,8 @@
 // import the original type declarations
 import 'i18next';
 // import all namespaces (for the default language, only)
-import common from 'public/locales/en/common.json';
-import data from 'public/locales/en/data.json';
+import common from 'src/app/i18n/locales/en/common.json';
+import data from 'src/app/i18n/locales/en/data.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions

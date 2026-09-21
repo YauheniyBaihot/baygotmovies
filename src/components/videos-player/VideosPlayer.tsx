@@ -15,11 +15,12 @@ import styles from './VideosPlayer.module.css';
 type VideosPlayerProps = {
   videos: VideoWork[];
   opened: boolean;
+  hideCloseButton?: boolean;
   onClose: () => void;
   blockNameKey: ParseKeys<'data'>;
 };
 
-export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, onClose, blockNameKey}) => {
+export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, hideCloseButton = false, onClose, blockNameKey}) => {
   const {t} = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
@@ -111,7 +112,7 @@ export const VideosPlayer: FC<VideosPlayerProps> = ({videos, opened, onClose, bl
         </Carousel>
 
         <Group justify="space-between" className={styles.controlsContainer}>
-          <Button onClick={handleClose}>{t('hideVideos')}</Button>
+          {!hideCloseButton && <Button onClick={handleClose}>{t('hideVideos')}</Button>}
           <Group gap="0">
             <Button variant="transparent" color="main-button-inversed" onClick={handlePrev}>
               {t('prev')}

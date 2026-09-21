@@ -13,7 +13,7 @@ export type YoutubeVideo = {
 
 export type VideoWork = {
   nameKey: ParseKeys<'data'>;
-  titleKey: ParseKeys<'data'>;
+  titleKey?: ParseKeys<'data'>;
   dateTitle?: ParseKeys<'data'>;
   date?: ShortDate;
   youtubeIds: [YoutubeVideo, YoutubeVideo] | [YoutubeVideo];
@@ -38,4 +38,5 @@ export type SiteBlock = NavigationSection & {
   titleKey?: ParseKeys<'data'>;
   subTitleKey?: ParseKeys<'data'>;
   watchButtonKey: ParseKeys<'data'>;
+  alwaysExpanded?: boolean;
 };

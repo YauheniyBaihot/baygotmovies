@@ -14,9 +14,9 @@ const config = (phase: string) => {
     },
   };
 
-  if (phase === PHASE_DEVELOPMENT_SERVER) {
-    return baseConfig;
-  }
+  // if (phase === PHASE_DEVELOPMENT_SERVER) {
+  //   return baseConfig;
+  // }
 
   return {
     ...baseConfig,

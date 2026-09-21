@@ -8,8 +8,8 @@ const importVideoHeight = 2160;
 
 const videoHeights = [importVideoHeight / 2, importVideoHeight / 4, importVideoHeight / 8, importVideoHeight / 16];
 
-const inputFolder = 'public/v1';
-const outputFolder = 'public/version2';
+const inputFolder = 'public/newVid';
+const outputFolder = 'public/newVid-results';
 
 const inputFolderReplaced = inputFolder.replace('/', '\\');
 const outputFolderReplaced = outputFolder.replace('/', '\\');

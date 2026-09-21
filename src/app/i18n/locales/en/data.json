@@ -21,17 +21,9 @@
         "name": "Blue-Eyed Angel",
         "title": "This video holds immense value and sentiment for me, as I created it for my beloved sister."
       },
-      "loveIsEveryMoment": {
-        "name": "Love is Every Moment",
-        "title": "Irma and Miguel's international wedding, celebrated amidst the stunning landscapes of Lithuania. Their special day was marked by a heartfelt speech reminding them that love is present in every moment."
-      },
       "gorgeousNewlyweds": {
         "name": "Gorgeous Newlyweds",
         "title": "Drums, gorgeous newlyweds, elegant dances, and magnificent music."
-      },
-      "loveLetter": {
-        "name": "Love letter",
-        "title": "Hometown Klaipėda, the family pet, and all their loved ones gathered on this day. A warm seaside wedding."
       },
       "fairytale": {
         "name": "A Fairytale She Waited For",
@@ -47,29 +39,29 @@
       }
     },
     "moments": {
-      "rockNPink": {
-        "name": "Rock 'n' Pink"
-      },
       "blueEyedAngel": {
         "name": "Blue-Eyed Angel"
       },
-      "loveIsEveryMoment": {
-        "name": "Love is Every Moment"
-      },
-      "twoAugustsTogether": {
-        "name": "Two Augusts Together"
-      },
-      "iChooseYouAgain": {
-        "name": "I choose you again"
-      },
-      "miroslavAndVioleta": {
-        "name": "Miroslav and Violeta"
-      },
       "cherryManor": {
-        "name": "Cherry Manor"
+        "name": "Kokios linksmos vestuvės!"
+      },
+      "dvaras": {
+        "name": "Burbiškio dvaras"
+      },
+      "eurovision": {
+        "name": "Eurovision Vibes"
       },
       "fairytale": {
         "name": "A Fairytale She Waited For"
+      },
+      "loveparty": {
+        "name": "Love, Laugh, Party"
+      },
+      "newlyweds": {
+        "name": "Gorgeous Newlyweds"
+      },
+      "rockNPink": {
+        "name": "Rock 'n' Pink"
       }
     }
   },
@@ -83,9 +75,9 @@
         "name": "Katya and Ritis",
         "title": "A convertible, an empty beach, and just the two of them."
       },
-      "miroslavAndVioleta": {
-        "name": "Miroslav and Violeta",
-        "title": "A story filmed at a secret location in Vilnius."
+      "edvinAndCosmina": {
+        "name": "Edvin and Cosmina",
+        "title": "A story of how a guy from Lithuania and a girl from Great Britain met in Spain."
       }
     },
     "moments": {
@@ -173,6 +165,10 @@
         "name": "Event",
         "title": "Yoga on SUP boards filmed from a drone for YOGAKVETKA.",
         "dateTitle": "Yoga"
+      },
+      "christening": {
+        "name": "Anelia's Christening",
+        "dateTitle": "Christening"
       }
     },
     "moments": {
