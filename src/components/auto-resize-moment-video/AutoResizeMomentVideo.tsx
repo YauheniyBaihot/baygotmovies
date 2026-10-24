@@ -8,7 +8,10 @@ import styles from './AutoResizeMomentVideo.module.css';
 
 const availableHeights = [2160, 1080, 540, 270, 135];
 
-const videosSrcPrefix = process.env.NEXT_PUBLIC_VIDEOS_SRC_PREFIX ?? '';
+// Must match DEFAULT_DEVICE_SIZES in image-generator.ts
+const availablePosterWidths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
+
+const videosSrcPrefix = "https://d2lbltjxdb58wg.cloudfront.net/version2/";
 
 const closestHeight = (height: number) => {
   let index = 1;
@@ -18,12 +21,26 @@ const closestHeight = (height: number) => {
   return availableHeights[index - 1];
 };
 
+const closestPosterWidth = (width: number) => {
+  return availablePosterWidths.find(w => w >= width) ?? availablePosterWidths[availablePosterWidths.length - 1];
+};
+
 const calculateSrc = (source: string, format: 'wide' | 'square' | 'vertical', height: number) => {
   if (height === 0) return undefined;
 
   const videoPart = format === 'wide' ? '16-9' : format === 'square' ? '1-1' : '2-3';
 
   return `${videosSrcPrefix}${source}_${videoPart}_${closestHeight(height)}.webm`;
+};
+
+const calculatePosterSrc = (source: string, format: 'wide' | 'square' | 'vertical', height: number) => {
+  if (height === 0) return undefined;
+
+  const videoPart = format === 'wide' ? '16-9' : format === 'square' ? '1-1' : '2-3';
+  const aspectRatio = format === 'wide' ? 16 / 9 : format === 'square' ? 1 : 2 / 3;
+  const width = Math.round(height * aspectRatio);
+
+  return `${videosSrcPrefix}${source}_${videoPart}-${closestPosterWidth(width)}.jpg`;
 };
 
 export const AutoResizeMomentVideo: FC<{
@@ -43,12 +60,14 @@ export const AutoResizeMomentVideo: FC<{
   const mergedRef = useMergedRef(elementSizeRef, intersectionRef);
 
   const [src, setSrc] = useState(calculateSrc(source, format, containerHeight));
+  const [posterSrc, setPosterSrc] = useState(calculatePosterSrc(source, format, containerHeight));
 
   useEffect(() => {
     const actualContainerHeight = containerHeight * window.devicePixelRatio;
 
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setSrc(calculateSrc(source, format, actualContainerHeight));
+    setPosterSrc(calculatePosterSrc(source, format, actualContainerHeight));
   }, [containerHeight, source, format]);
 
   const isIntersecting = !!entry?.isIntersecting;
@@ -65,9 +84,9 @@ export const AutoResizeMomentVideo: FC<{
   return useMemo(() => {
     return (
       <div ref={mergedRef} className={clsx(styles.container, className)} data-index={index} data-format={format}>
-        <video ref={videoRef} className={styles.video} src={videoSrc} playsInline muted loop preload="auto" autoPlay />
+        <video ref={videoRef} className={styles.video} src={videoSrc} poster={posterSrc} playsInline muted loop preload="auto" autoPlay />
       </div>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [className, index, format, videoSrc]);
+  }, [className, index, format, videoSrc, posterSrc]);
 };

@@ -18,7 +18,7 @@ export function AboutMe() {
         </Title>
       </Stack>
       <div className={styles.imageContainer}>
-        <Image className={styles.image} src="/version1/me/me.jpg" alt="My photo" fill sizes="(min-width: 62em) 25vw,(max-width: 62em) 50vw" priority></Image>
+        <Image className={styles.image} src="/version2/me.jpg" alt="My photo" fill sizes="(min-width: 62em) 25vw,(max-width: 62em) 50vw" priority></Image>
       </div>
 
       <Text className={styles.mainText} component="div">

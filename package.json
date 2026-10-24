@@ -10,7 +10,13 @@
     "lint": "eslint .",
     "prettier": "prettier --write src",
     "prettier-check": "prettier --check src",
-    "stylelint": "stylelint **/*.css"
+    "stylelint": "stylelint **/*.css",
+    "generate:posters": "node data-utils/poster-generator.ts",
+    "generate:images": "node data-utils/image-generator.ts",
+    "generate:videos": "node data-utils/video-generator.ts",
+    "generate:media": "node data-utils/prepare-media.ts",
+    "prepare:media": "node data-utils/prepare-media.ts",
+    "upload:s3": "node data-utils/upload-to-s3.ts"
   },
   "dependencies": {
     "@mantine/carousel": "^9.6.1",
@@ -30,6 +36,8 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1156.0",
+    "@aws-sdk/lib-storage": "^3.1156.0",
     "@svgr/webpack": "^8.1.0",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/fluent-ffmpeg": "^2.1.28",

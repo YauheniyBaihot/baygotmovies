@@ -22,7 +22,14 @@ const mainVideoAspectRatios = {
   '1-1': 1,
   '16-9': 16 / 9,
 };
-const videosSrcPrefix = process.env.NEXT_PUBLIC_VIDEOS_SRC_PREFIX ?? '';
+const videosSrcPrefix = 'https://d2lbltjxdb58wg.cloudfront.net/version2/';
+
+// Must match DEFAULT_DEVICE_SIZES in image-generator.ts
+const availablePosterWidths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
+
+const closestPosterWidth = (width: number) => {
+  return availablePosterWidths.find(w => w >= width) ?? availablePosterWidths[availablePosterWidths.length - 1];
+};
 
 const closestHeight = (height: number, isIphone: boolean) => {
   const heights = isIphone ? [1080, 540, 270, 135] : [2160, 1080, 540, 270, 135];
@@ -47,7 +54,15 @@ const calculateSrc = (source: string, width: number, height: number, actualHeigh
   return `${videosSrcPrefix}${source}_${closestAspectRatio(actualAspectRatio)}_${closestHeight(actualHeight, isIphone)}.webm`;
 };
 
-const mainVideoSource = 'mainVideo2/video';
+const calculatePosterSrc = (source: string, width: number, height: number, actualWidth: number, actualHeight: number, isIphone: boolean) => {
+  if (actualHeight === 0) return undefined;
+
+  const actualAspectRatio = height === 0 ? 1 : width / height;
+
+  return `${videosSrcPrefix}${source}_${closestAspectRatio(actualAspectRatio)}-${closestPosterWidth(actualWidth)}.jpg`;
+};
+
+const mainVideoSource = 'main-video';
 
 export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   const {t} = useTranslation();
@@ -58,13 +73,16 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
     threshold: 0.05,
   });
   const [src, setSrc] = useState<string | undefined>(undefined);
+  const [posterSrc, setPosterSrc] = useState<string | undefined>(undefined);
   const mergedRef = useMergedRef(elementSizeRef, intersectionRef);
 
   useEffect(() => {
     const isIphone = typeof navigator !== 'undefined' && /iPhone/i.test(navigator.userAgent);
     const actualContainerHeight = height * window.devicePixelRatio;
+    const actualContainerWidth = width * window.devicePixelRatio;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setSrc(calculateSrc(mainVideoSource, width, height, actualContainerHeight, isIphone));
+    setPosterSrc(calculatePosterSrc(mainVideoSource, width, height, actualContainerWidth, actualContainerHeight, isIphone));
   }, [height, width]);
 
   const isIntersecting = !!entry?.isIntersecting;
@@ -81,7 +99,7 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
   return useMemo(() => {
     return (
       <header ref={mergedRef} className={styles.header}>
-        <video ref={videoRef} className={styles.backgroundVideo} src={videoSrc} playsInline muted preload="auto" loop autoPlay />
+        <video ref={videoRef} className={styles.backgroundVideo} src={videoSrc} poster={posterSrc} playsInline muted preload="auto" loop autoPlay />
 
         <SiteLogo color="main-white" className={styles.logo} />
 
@@ -96,5 +114,5 @@ export const HeaderWithVideo: FC<HeaderProps> = ({sections}) => {
         </Title>
       </header>
     );
-  }, [mergedRef, videoSrc, sections, t]);
+  }, [mergedRef, videoSrc, posterSrc, sections, t]);
 };

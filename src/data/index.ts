@@ -14,11 +14,11 @@ export const siteBlocks: SiteBlock[] = [
         titleKey: 'weddings.works.fairytale.title',
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/fairytale-1.jpg',
+            preview: '/version2/images/youtube-previews/weddings/fairytale-1.jpg',
             id: 'sItnWhco47g',
           },
           {
-            preview: '/version1/works/weddings/fairytale-2.jpg',
+            preview: '/version2/images/youtube-previews/weddings/fairytale-2.jpg',
             id: 'SqHPxXwN7CI',
           },
         ],
@@ -28,11 +28,11 @@ export const siteBlocks: SiteBlock[] = [
         titleKey: 'weddings.works.loveLaughParty.title',
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/loveLaughParty-1.jpg',
+            preview: '/version2/images/youtube-previews/weddings/love-laugh-party-1.jpg',
             id: 'ngCW-u1IXGs',
           },
           {
-            preview: '/version1/works/weddings/loveLaughParty-2.jpg',
+            preview: '/version2/images/youtube-previews/weddings/love-laugh-party-2.jpg',
             id: 'foDsG2zjQw8',
           },
         ],
@@ -46,7 +46,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/eurovisionVibes.jpg',
+            preview: '/version2/images/youtube-previews/weddings/eurovision-vibes.jpg',
             id: '6AZaKYkiTP4',
           },
         ],
@@ -60,11 +60,11 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/bubriskoDvaras-1.jpg',
+            preview: '/version2/images/youtube-previews/weddings/bubrisko-dvaras-1.jpg',
             id: 'rDTQZN2q3D4',
           },
           {
-            preview: '/version1/works/weddings/bubriskoDvaras-2.jpg',
+            preview: '/version2/images/youtube-previews/weddings/bubrisko-dvaras-2.jpg',
             id: 'gvWe7GUBPVg',
           },
         ],
@@ -78,11 +78,11 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/gorgeousNewlyweds-2.jpg',
+            preview: '/version2/images/youtube-previews/weddings/gorgeous-newlyweds-2.jpg',
             id: 'cMv389XtnqY',
           },
           {
-            preview: '/version1/works/weddings/gorgeousNewlyweds-1.jpg',
+            preview: '/version2/images/youtube-previews/weddings/gorgeous-newlyweds-1.jpg',
             id: 'scP1UEmM7rg',
           },
         ],
@@ -96,11 +96,11 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/rockNPink-1.jpg',
+            preview: '/version2/images/youtube-previews/weddings/rock-n-pink-1.jpg',
             id: 'w8m8z73Ljxc',
           },
           {
-            preview: '/version1/works/weddings/rockNPink-2.jpg',
+            preview: '/version2/images/youtube-previews/weddings/rock-n-pink-2.jpg',
             id: 'tvtQz164F9s',
           },
         ],
@@ -114,7 +114,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/funnyWedding-2.jpg',
+            preview: '/version2/images/youtube-previews/weddings/funny-wedding-2.jpg',
             id: '2TB5gGQk6U4',
           },
         ],
@@ -128,7 +128,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/weddings/blueEyedAngel.jpg',
+            preview: '/version2/images/youtube-previews/weddings/blue-eyed-angel.jpg',
             id: '0eD4OtwCtWk',
           },
         ],
@@ -137,7 +137,7 @@ export const siteBlocks: SiteBlock[] = [
     moments: [
       {
         nameKey: 'weddings.moments.blueEyedAngel.name',
-        source: 'weddings/blueEyedAngel',
+        source: 'moments/weddings/blue-eyed-angel',
         date: {
           month: 11,
           year: 2023,
@@ -145,7 +145,7 @@ export const siteBlocks: SiteBlock[] = [
       },
       {
         nameKey: 'weddings.moments.cherryManor.name',
-        source: 'weddings/cherryManor',
+        source: 'moments/weddings/cherry-manor',
         date: {
           month: 8,
           year: 2024,
@@ -153,7 +153,7 @@ export const siteBlocks: SiteBlock[] = [
       },
       {
         nameKey: 'weddings.moments.dvaras.name',
-        source: 'weddings/dvaras',
+        source: 'moments/weddings/dvaras',
         date: {
           month: 8,
           year: 2024,
@@ -161,7 +161,7 @@ export const siteBlocks: SiteBlock[] = [
       },
       {
         nameKey: 'weddings.moments.eurovision.name',
-        source: 'weddings/eurovision',
+        source: 'moments/weddings/eurovision',
         date: {
           month: 8,
           year: 2025,
@@ -169,7 +169,7 @@ export const siteBlocks: SiteBlock[] = [
       },
       {
         nameKey: 'weddings.moments.fairytale.name',
-        source: 'weddings/fairytale',
+        source: 'moments/weddings/fairytale',
         date: {
           month: 5,
           year: 2025,
@@ -177,7 +177,7 @@ export const siteBlocks: SiteBlock[] = [
       },
       {
         nameKey: 'weddings.moments.loveparty.name',
-        source: 'weddings/loveparty',
+        source: 'moments/weddings/loveparty',
         date: {
           month: 7,
           year: 2025,
@@ -185,7 +185,7 @@ export const siteBlocks: SiteBlock[] = [
       },
       {
         nameKey: 'weddings.moments.newlyweds.name',
-        source: 'weddings/newlyweds',
+        source: 'moments/weddings/newlyweds',
         date: {
           month: 8,
           year: 2024,
@@ -193,7 +193,7 @@ export const siteBlocks: SiteBlock[] = [
       },
       {
         nameKey: 'weddings.moments.rockNPink.name',
-        source: 'weddings/rockNPink',
+        source: 'moments/weddings/rock-n-pink',
         date: {
           month: 5,
           year: 2024,
@@ -218,7 +218,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/loveStory/katyaAndRitis.jpg',
+            preview: '/version2/images/youtube-previews/love-stories/katya-and-ritis.jpg',
             id: 'H9CLDf6LGm0',
           },
         ],
@@ -232,7 +232,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/loveStory/edvinAndCosmina.jpg',
+            preview: '/version2/images/youtube-previews/love-stories/edvin-and-cosmina.jpg',
             id: 'tDDNd4VEeb4',
           },
         ],
@@ -245,7 +245,7 @@ export const siteBlocks: SiteBlock[] = [
           month: 7,
           year: 2023,
         },
-        source: 'loveStory/aciuaTau',
+        source: 'moments/lovestory/aciua-tau',
       },
       {
         nameKey: 'loveStory.moments.katyaAndRitis.name',
@@ -253,7 +253,7 @@ export const siteBlocks: SiteBlock[] = [
           month: 5,
           year: 2024,
         },
-        source: 'loveStory/katyaAndRitis',
+        source: 'moments/lovestory/katya-and-ritis',
       },
     ],
     momentsToShowCount: 2,
@@ -272,7 +272,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/santorini/proposal.jpg',
+            preview: '/version2/images/youtube-previews/santorini/proposal.jpg',
             id: 'wEvrn2vTfjw',
           },
         ],
@@ -286,7 +286,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/santorini/goldenWedding.jpg',
+            preview: '/version2/images/youtube-previews/santorini/golden-wedding.jpg',
             id: 's-Ib4mFlgI0',
           },
         ],
@@ -300,7 +300,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/santorini/musicClip.jpg',
+            preview: '/version2/images/youtube-previews/santorini/music-clip.jpg',
             id: '1VQZ-1WFoGM',
           },
         ],
@@ -314,7 +314,7 @@ export const siteBlocks: SiteBlock[] = [
         },
         youtubeIds: [
           {
-            preview: '/version1/works/santorini/donkeyExperience.jpg',
+            preview: '/version2/images/youtube-previews/santorini/donkey-experience.jpg',
             id: 'EMD2_PQ9zCc',
             vertical: true,
           },
@@ -328,7 +328,7 @@ export const siteBlocks: SiteBlock[] = [
           month: 7,
           year: 2023,
         },
-        source: 'santorini/drone',
+        source: 'moments/santorini/drone',
       },
       {
         nameKey: 'santorini.moments.musicClip.name',
@@ -336,7 +336,7 @@ export const siteBlocks: SiteBlock[] = [
           month: 7,
           year: 2023,
         },
-        source: 'santorini/musicClip',
+        source: 'moments/santorini/music-clip',
       },
       {
         nameKey: 'santorini.moments.proposal.name',
@@ -344,7 +344,7 @@ export const siteBlocks: SiteBlock[] = [
           month: 7,
           year: 2023,
         },
-        source: 'santorini/Proposal',
+        source: 'moments/santorini/proposal',
       },
       {
         nameKey: 'santorini.moments.wedding.name',
@@ -352,7 +352,7 @@ export const siteBlocks: SiteBlock[] = [
           month: 7,
           year: 2023,
         },
-        source: 'santorini/wedding',
+        source: 'moments/santorini/wedding',
       },
     ],
     momentsToShowCount: 3,
@@ -369,7 +369,7 @@ export const siteBlocks: SiteBlock[] = [
         dateTitle: 'otherWorks.works.corporateParty.dateTitle',
         youtubeIds: [
           {
-            preview: '/version1/works/otherWorks/corporateParty.jpg',
+            preview: '/version2/images/youtube-previews/other/corporate-party.jpg',
             id: 'Qd_17NJzh4M',
           },
         ],
@@ -379,7 +379,7 @@ export const siteBlocks: SiteBlock[] = [
         dateTitle: 'otherWorks.works.christening.dateTitle',
         youtubeIds: [
           {
-            preview: '/version1/works/otherWorks/christening.jpg',
+            preview: '/version2/images/youtube-previews/other/christening.jpg',
             id: 'tOgJYu6K7dU',
           },
         ],
@@ -390,7 +390,7 @@ export const siteBlocks: SiteBlock[] = [
         dateTitle: 'otherWorks.works.event.dateTitle',
         youtubeIds: [
           {
-            preview: '/version1/works/otherWorks/event.jpg',
+            preview: '/version2/images/youtube-previews/other/event.jpg',
             id: 'CfvqvDpW99k',
             vertical: true,
           },
