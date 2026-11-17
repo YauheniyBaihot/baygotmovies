@@ -36,6 +36,7 @@ const RootLayout: FC<RootLayoutProps> = async ({children, params}) => {
       <head>
         <ColorSchemeScript defaultColorScheme="auto" />
         <Script src="https://www.youtube.com/iframe_api" strategy="lazyOnload" />
+        <meta name="google-site-verification" content="8db7pIcROurhXgCLuJ0wr-0VtsrQS4OIH7o5X619CFg" />
       </head>
       <body>
         <I18nProvider language={locale} resources={resources}>
