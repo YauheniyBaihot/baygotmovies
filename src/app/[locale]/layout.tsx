@@ -37,6 +37,14 @@ const RootLayout: FC<RootLayoutProps> = async ({children, params}) => {
         <ColorSchemeScript defaultColorScheme="auto" />
         <Script src="https://www.youtube.com/iframe_api" strategy="lazyOnload" />
         <meta name="google-site-verification" content="8db7pIcROurhXgCLuJ0wr-0VtsrQS4OIH7o5X619CFg" />
+        <Script src="https://www.googletagmanager.com/gtm.js?id=GTM-KG4F22KL" strategy="afterInteractive" />
+        <Script id="google-tag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
       </head>
       <body>
         <I18nProvider language={locale} resources={resources}>
